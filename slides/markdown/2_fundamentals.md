@@ -161,7 +161,7 @@ printf("Hello world!");
 
 --
 
-### I/O
+### I/O `printf`
 
 A capacidade de um programa comunicar com o mundo exterior é fundamental para que seja útil.
 
@@ -190,3 +190,19 @@ printf("Good morning, Vietnam!");
 
 ## Comentários
 
+
+---
+
+## Variáveis
+
+---
+
+## I/O `scanf`
+
+---
+
+## Constantes
+
+---
+
+## Identificadores
