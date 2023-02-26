@@ -1,14 +1,30 @@
 
-## Estruturas de Dados Dinâmicas
+## Fundamentos do C
 
 ### Diogo Silva
 ####  CAP / ENGEL
 dasilva@academiafa.edu.pt
 
 <!-- .slide: data-background="white" -->
+
+---
+
+Tópicos
+
+- [O primeiro programa](#/2_1_primeiro_programa)
+- [Componentes de um programa](#/2_2_componentes_programa)
+- [Comentários](#/2_3_comentarios)
+- [Variáveis](#/2_4_variaveis)
+- [I/O Receber Valores](#/2_5_scanf)
+- [Constantes](#/2_6_constantes)
+- [Identificadores](#/2_7_identificadores)
+
+
 ---
 
 ## O primeiro programa
+
+<!-- .slide: id="2_1_primeiro_programa"-->
 
 ```c
 #include <stdio.h>
@@ -94,7 +110,7 @@ neste caso 0.
 
 --
 
-## Escrevi o código, e agora?
+### Escrevi o código, e agora?
 
 
 --
@@ -118,6 +134,8 @@ estes 3 passos tipicamente acontecem de forma automática.
 ---
 
 ## Componentes de um programa
+
+<!-- .slide: id="2_2_componentes_programa"-->
 
 ```c
 #diretivas
@@ -190,6 +208,8 @@ printf("Good morning, Vietnam!");
 
 ## Comentários
 
+<!-- .slide: id="2_3_comentarios"-->
+
 O nosso primeiro programa não tem algo importante:
 
 ### <span style="color:Chocolate">documentação</span>
@@ -252,6 +272,8 @@ A legibilidade do programa aumenta bastante quando existem comentários que desc
 
 
 ---
+
+<!-- .slide: id="2_4_variaveis"-->
 
 ## Variáveis
 
@@ -493,8 +515,11 @@ float massa=75.2, imc=0.0; // em kg
 
 ### Exercício
 
+Conversão de ºF para ºC.
+
 ---
 
+<!-- .slide: id="2_5_scanf"-->
 
 ## I/O receber valores
 
@@ -508,8 +533,8 @@ Usamos a função ``scanf``.
 A função ``scanf`` funciona como o ``printf``, mas na direção oposta.
 
 ```c
-scanf("%d", &a);  // receber altura do utilizador
-scanf("%f", &b);  // receber altura do utilizador
+scanf("%d", &a);
+scanf("%f", &b);
 ```
 
 Indicamos o formato dos dados que vamos receber e a variável onde os queremos guardar.
@@ -534,7 +559,30 @@ Na mesma linha, `b` deverá ser um `float`.
 
 --
 
+E o que significa o `&` antes do nome das variáveis?
+
+```c
+scanf("%d", &a);
+scanf("%f", &b);
+```
+
+
+
+
+É um operador que devolve o _endereço de memória_ da variável.
+<!-- .element: class="fragment" -->
+
+Iremos explorar este operador em detalhe no futuro.
+Até lá, saibam apenas que usamos quase sempre o `&` antes do nome da variável.
+<!-- .element: class="fragment" -->
+
+
+
+--
+
 ### Exercício
+
+Conversão de ºF para ºC.
 
 Alterar o exercício anterior para receber os valores do utilizador.
 
@@ -542,6 +590,103 @@ Alterar o exercício anterior para receber os valores do utilizador.
 
 ## Constantes
 
+<!-- .slide: id="2_6_constantes"-->
+
+--
+
+O que faz este programa?
+
+```c
+#include <stdio.h>
+
+int main(){
+    float r;
+    printf("Insira o raio do circulo[cm]:");
+    scanf("%f", &r);
+
+    printf("Perimetro do circulo: %f", 2 * 3.1415 * r);
+    printf("Area do circulo: %f", 3.1415 * r * r);
+    return 0;
+}
+```
+
+Neste programa o valor 3.1415, o valor do π repete-se.
+<!-- .element: class="fragment" -->
+
+Seria útil se pudéssemos fazer referência a este valor com um identificador em todo o programa.
+<!-- .element: class="fragment" -->
+
+--
+
+O C tem uma diretiva que nos permite fazer exatamente isso.
+
+```c
+#include <stdio.h>
+#define PI 3.1415
+
+int main(){
+    //...
+
+    printf("Perimetro do circulo: %f", 2 * PI * r);
+    printf("Area do circulo: %f", PI * r * r);
+    return 0;
+}
+```
+A diretiva `#define` permite-nos definir constantes que, durante o préprocessamento, são substituidas pelo valor especificado.
+<!-- .element: class="fragment" -->
+
+--
+
+Por convenção, os nomes das constantes são sempre em letras maíusculas e os nomes das variáveis são em minúsculas.
+
+
 ---
 
+<!-- .slide: id="2_7_identificadores"-->
+
 ## Identificadores
+
+
+Os nomes que escolhemos para as nossas variáveis, funções, etc. designam-se por _identificadores_ e existem regras que devem ser seguidas.
+<!-- .element: class="fragment" -->
+
+--
+
+Exemplos de identificadores válidos
+
+```bash
+times10 proximo_numero _altura alturaMAX
+```
+
+Exemplos de identificadores inválidos
+
+```bash
+10times proximo-numero
+```
+
+O caracter `-` é inválido, mas `_` é aceite.
+<!-- .element: class="fragment" -->
+
+--
+
+Os identificadores são sensíveis a letras maísculas e minúsculas, e.g. `alturaMAX` e `alturamax` seriam 2 identificadores distintos num programa.
+
+Existe um conjunto de palavras-chave que não podem ser usadas.
+Estas correspondem a elementos intrínsecos ao C, como o nome dos tipos básicos e dos ciclos, e.g. `int`, `while`.
+
+--
+
+Outros exemplos:
+
+```text
+int float double char void long short typedef
+if else switch default
+while do for continue break 
+struct enum union
+```
+
+O uso do nome de funções frequentemente usadas e pertencentes à biblioteca _standard_ do C também é de evitar, e.g. `printf`, `scanf`, ...
+<!-- .element: class="fragment" -->
+
+
+
