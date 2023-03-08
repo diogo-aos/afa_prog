@@ -160,19 +160,48 @@ printf("%lu", v);
 
 ## Reais
 
---
-
-float, double, long double
-
-tablea intervalos e precisão
-
---
-
-constantes 
+```text
+float
+double
+long double
+```
 
 --
 
-printf scanf
+<img src="img/7_basic_types/float_table.png">
+
+O long double não aparece porque os intervalos variam bastante de máquina para máquina.
+
+--
+
+### constantes 
+
+Diferentes formas de escrever o número 57:
+
+```text
+57.0
+57.
+57.0e0
+57E0
+5.7e1
+5.7e+1
+.57e2
+570.e-1
+```
+
+--
+
+### printf scanf
+
+```text
+double d;
+scanf("lf", &d);
+printf("lf", d);
+
+long double ld;
+scanf("%Lf", &ld);
+printf("%Lf", ld);
+```
 
 ---
 
