@@ -8,7 +8,7 @@
 ####  CAP / ENGEL
 dasilva@academiafa.edu.pt
 
-<!-- .slide: data-background="white" id="home"-->
+<!-- .slide: data-background="Cornsilk" id="home"-->
 
 ---
 

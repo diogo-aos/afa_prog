@@ -206,208 +206,424 @@ printf("%Lf", ld);
 ---
 
 ## Texto
+### char
 
-Até agora só usámos texto na escrita de frases "fixas" com o printf.
+--
+
+#### char
+
+Até agora usámos texto apenas no contexto do scanf e print.
+
+O C tem um tipo para texto: o char.
+
+```c
+char letra = 'C';
+```
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+- Um char guarda 1 letra.
+- As constantes de char são escritas com plicas ''. Não confundir com as aspas "" usadas para strings (e.g. o printf e scanf).
+
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+--
+
+Internamente, um char é apenas um número inteiro que pode ser interpretado como letras, através da tabela ASCII.
+
+
+![ascii](img/7_basic_types/ascii.png)
+
+<small>ASCII = American standard Code for Information Interchange</small>
+
+--
+
+Não precisamos de saber esta correspondência, porque podemos sempre interpretar um char como um inteiro e vice-versa.
+
+```c
+char letra = 'A';
+printf("A letra %c tem o valor %d\n", letra, letra);  // A 65
+```
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+A especificação de conversão para char é o %c.
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+--
+
+Por serem números inteiros, podemos realizar operações aritméticas sobre char.
+
+```c
+char letra = 'C';
+printf("A letra depois do %c = %c\n", letra, letra+1);  // C D
+```
 
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 ```c
-printf("Preco = %f\n", &preco);
+// abecedário completado em maísculas
+for(char l='A'; l<'Z'; l++)
+  printf("%c,"l);
+printf("\n");
+```
+
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+--
+
+Tal como vimos para os tipos inteiros, o char também pode ser signed ou unsigned.
+
+```c
+char n = 127+1;
+printf("n=%d\n", n); // -128
+
+unsigned char n2 = 255+1;
+printf("n2=%d\n", n2);  // 0
+```
+
+Também está sujeito a overflow.
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+--
+
+- Já usámos anteriormente caracteres especiais, e.g. \n e \t. Existem outros.
+- Alguns só podem ser especificados em formato octal ou hexadecimal.
+
+<img src="img/7_basic_types/ascii.png" height="400">
+
+--
+
+#### scanf
+
+- Quando o scanf acaba de processar um determinado input, existem caracteres que ficam por consumir.
+- Como todos os caracteres são válidos para o tipo char, isso pode ser um problema.
+
+--
+
+#### scanf
+
+```c
+char c1, c2;
+printf("Introduza um caracter:");
+scanf("%c", &c1);
+
+printf("Introduza outro caracter:");
+scanf("%c", &c2);
+
+printf("c1=%c   c2=%c  \n", c1, c2);
+```
+
+```text
+Introduza um caracter:a
+Introduza outro caracter:c1=a   c2=
+  
 ```
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
-E se quisermos receber, manipular e escrever texto?
+- Aparentemente, o segundo scanf foi ignorado:
+  - o utilizador não escreveu nada
+  - o que estaria depois de c2= está vazio
+
 <!-- .element: class="fragment" data-fragment-index="2"-->
 
 --
 
-O C tem 1 tipo para trabalhar com texto - ``char``
-
-```c
-char letra = 'D';
-```
-
-As constantes de char definem-se entre plicas '' e contêm apenas um valor. Não confundir com aspas "".
+- Na verdade, o primeiro scanf deixa um enter '\n' por consumir. 
+- No scanf seguinte, o que é pedido é um char. <!-- .element: class="fragment" data-fragment-index="2"-->
+- Como '\n' é um char válido, a especificação de conversão aceita-o como input <!-- .element: class="fragment" data-fragment-index="2"-->
+- Deixa de ser necessário pedir input ao utilizador porque as especificações de conversão já foram satisfeitas. <!-- .element: class="fragment" data-fragment-index="3"-->
 
 --
 
-Internamente os char são números que têm correspondência com letras, na tabela ASCII.
-
-
-![](img/7_basic_types/ascii.png)
-
-<small>ASCII = American Standard Code for Information Interchange</small>
-
---
-
-Não é necessário saber esta tabela.
-
-Facilmente, conseguimos obter o valor numérico de uma letra e vice-versa.
-
+Como confirmar? Vamos interpretar c2 como um inteiro.
 
 ```c
-char letra = 'A';
+char c1, c2;
+printf("Introduza um caracter:");
+scanf("%c", &c1);
+
+printf("Introduza outro caracter:");
+scanf("%c", &c2);
+
+printf("c1=%c   c2=%d  \n", c1, c2);
 ```
+
 <!-- .element: class="fragment" data-fragment-index="1"-->
-
-Como podemos saber o valor numérico de 'A'?
-<!-- .element: class="fragment" data-fragment-index="1"-->
-
---
-
-```c
-char letra = 'A';
-printf("letra %c = %d", letra, letra);
-
-char letra = '\n';
-printf("letra %c = %d", letra, letra);
-```
-
-A especificação de conversão para um char é %c.
-<!-- .element: class="fragment" data-fragment-index="1"-->
-
---
-
-Como um char é, internamente, um número inteiro, podemos realizar operações aritméticas.
-
-```c
-char letra = 'A';
-printf("A letra depois de %c = %c", letra, letra+1);
-```
-
-O tamanho de um char é sempre 1 byte.
-<!-- .element: class="fragment" data-fragment-index="1"-->
-
---
-
-O char pode ser signed ou unsigned.
-
-```c
-char num1 = 127;
-printf("num1=%d\n", num1);
-num1 = 127 + 1;
-printf("num1=%d\n", num1);
-
-
-```
 
 ```text
-num1=127
-num1=-128
-```
-
---
-
-```c
-unsigned char num2 = 255;
-printf("num2=%d\n", num2);
-num2 = 255 + 1;
-printf("num2=%d\n", num2);
-```
-
-```text
-num2=255
-num2=0
-```
-
-Também estamos sujeitos a overflow!
-
---
-
-Existem várias sequencias especiais, como podemos ver na tabela ASCII.
-
-![](img/7_basic_types/ascii.png)
-
---
-
-![](img/7_basic_types/ascii.png)
-
-- Algumas podem ser especificadas com letras, como já vimos `\n \t`.
-- Para outras é necessário usar o formato octal ou hexadecimal.
-
---
-
-#### scanf, printf
-
-```c []
-char letra;
-scanf("%c", &letra);
-printf("letra recebida: %c\n", letra);
-```
-
-- Quando usamos o scanf, o enter fica no buffer.
-- Se depois fossemos ler um número, o que não é número é ignorado.
-- Mas se formos ler um char, irá haver correspondência entre %c e o \n inserido.
-
---
-
-```c []
-char letra, letra2;
-scanf("%c", &letra);
-printf("letra recebida: %c\n", letra);
-scanf("%c", &letra2);
-printf("letra2 recebida: %c\n", letra2);
-```
-
-- Aparentemente, o segundo comando do scanf foi ignorado.
-- Na verdade, como já houve correspondência entre %c e um char do buffer, não foi necessário pedir input ao utilizador.
-
---
-
-Qual será o valor da ``letra2``?
-
-```c []
-printf("Insira letra 1:");
-scanf("%c", &letra);
-printf("letra recebida: %c\n", letra);
-printf("Insira letra 2:");
-scanf("%c", &letra2);
-printf("letra2 recebida: %d\n", letra2);
-```
-
-```text [4]
-Insira letra 1:a
-letra recebida: a
-Insira letra 2:
-letra2 recebida: 10
+Introduza um caracter:a
+Introduza outro caracter:c1=a   c2=10
 ```
 
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 --
 
-- Se formos à tabela ASCII, constatamos que 10 é o valor numérico para \n.
+#### alternativas para ler e escrever char
 
-![](img/7_basic_types/ascii.png)
+Existem outras formas de ler e escrever um char.
+- getchar
+- putchar
 
---
-
-#### outras formas de leitura e escrita de char
-
-getchar putchar
 
 --
 
-### exercicio - comprimento de mensagem
+#### putchar
+
+A função putchar escreve um caracter na consola.
+
+```c
+putchar('C');
+```
+
+#### getchar
+
+A função getchar lê um único char.
+
+```c
+l = getchar();
+```
+
+⚠️Tal como no scanf, o getchar não salta espaços em branco quando lê um char.⚠️
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+--
+
+E se quisermos ler vários chars?
+
+Usamos um ciclo. <!-- .element: class="fragment" data-fragment-index="1"-->
+
+```c
+// lê chars até encontrar \n
+char l;
+do{
+  scanf("%c", &l);
+} while (l != '\n');
+```
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+```c
+char l;
+while ((l = getchar()) != '\n')
+  ;
+```
+<!-- .element: class="fragment" data-fragment-index="2"-->
+
+---
+
+### exercicio
+#### Calcular comprimento de mensagem
 
 ---
 
 ## Conversão de tipos
 
+- No C, é possível converter de uns tipos para outros.
+- Na verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implicitas.
+- Outras têm de ser explicitamente declaradas.
+
 --
 
-### conversões implicitas
+#### conversões implicitas
+
+- Quando realizamos operações binárias, o C consegue detectar se os 2 operandos são do mesmo tipo.
+- Se não forem, um dos tipos é convertido no outro, porque as operações são feitas com operandos do mesmo tipo.
+- O resultado da operação será do tipo "superior".
+
 
 --
 
-### conversões explicitas
+#### conversões implicitas
 
-cast
+```c
+int i;
+float f, p;
+p = f + i;
+```
 
----
+- Neste caso, o valor de i será convertido para float.
+- Se o contrário ocorresse, perdiamos por completo a componente decimal de f.
+- Desta forma, o pior que pode acontecer é o valor de i perder precisão depois de convertido.
 
-## Definições de tipos - typedef
+--
+
+#### conversões implicitas > ambos operandos da mesma "classe"
+
+```text
+  reais                 inteiros
+
+long double         unsigned long int
+    ^                       ^
+    |                       |
+  double                long int
+    ^                       ^
+    |                       |
+  float                unsigned int
+                            ^
+                            |
+                           int
+```
+
+--
+
+#### conversões implicitas > exemplos
+
+```c
+char c;
+short int s;
+int i;
+unsigned int u;
+long int l;
+
+i = i + c; // c convertido para int
+i = i + s; // s convertido para int
+u = u + i; // i convertido para unsigned int
+l = l + u; // u convertido para long int
+```
+
+--
+
+#### conversões implicitas > mais exemplos
+
+```c
+long int l;
+unsigned long int ul;
+float f;
+double d;
+long double ld;
+
+ul = ul + l; // l convertido para unsigned long int
+f = f + ul; // ul convertido para float
+d = d + f; // f convertido para double
+ld = ld + d // d convertido para long double
+```
+
+--
+
+#### conversões implicitas > atribuição
+
+```c
+char c;
+int i;
+float f;
+double d;
+
+i = c; // c convertido para int
+f = i; // i convertido para float
+d = f; // f convertido para double
+
+i = 3.14; // 3.14 convertido para 3
+c = 10000; // overflow
+f = 1.0e100; // excede limite
+```
+
+--
+
+
+#### conversões explicitas > casting
+
+- Para fazer uma conversão explicita, escrevemos o nome do tipo final entre parêntises, seguido do valor que queremos converter.
+
+```c
+float f = 3 / 2; // 1.0 -> divisão de inteiros dá inteiro
+f = (float) 3 / 2; // 1.5 -> converter 3 para float e dividir por 2
+```
+
+- O operador de casting é uma operação unária.
+- Operações unárias têm precedência sobre operações binárias.
+
+--
+
+#### conversões explicitas > casting
+
+Quando realizamos algumas operações aritméticas, pode ser necessário fazer uma conversão explicita.
+
+```c []
+long i;
+int j = 10000; // 10000 * 10000 -> 100 000 000
+
+i = j * j;
+```
+
+- O resultado da multiplicação na linha 4 cabe na variável i de tipo long.
+- Contudo, o resultado da operação será um int e em algumas máquinas o resultado pode levar a overflow.
+
+--
+
+#### conversões explicitas > casting
+
+
+```c []
+long i;
+int j = 10000; // 10000 * 10000 -> 100 000 000
+
+i = j * j;
+
+i = (long) j * j;
+
+i = (long) (j * j); // ERRADO
+```
+
+- Para resolver isso, podemos fazer o cast da linha 6.
+- Na linha 8, a multiplicação é feita antes da conversão porque está entre ().
+
+--
+
+
+## Definições de tipos
+
+O C permite a definição de novos tipos com o comando ``typedef``.
+
+
+```c []
+typedef int Altura;
+```
+
+- typedef é seguido do nome original do tipo
+- e depois do novo nome que queremos usar
+
+--
+
+#### typedef
+
+```c []
+typedef int Altura;
+typedef int Massa;
+Altura a = 180;
+Massa m = 75;
+```
+
+- Essencialmente, o que fizémos foi criar um int com um novo nome.
+- Útil para tornar o código mais legível
+
+--
+
+#### typedef
+
+```c []
+typedef int Altura;
+typedef int massa;  // aceite, mas não é convenção
+
+int main(){
+  //...
+}
+```
+- As definições de tipo ocorrem fora de qualquer função, tipicamente após os #include.
+- Os nomes dos tipos obedecem às mesmas regras dos nomes das variáveis.
+- É convenção no C, capitalizar os nomes dos tipos.
+
 
 ---
 
 ## ``sizeof``
+
+A função sizeof recebe um valor ou um tipo e indica qual é o tamanho, em bytes, que esse tipo ocupa em memória.
+
+```c []
+char c;
+printf("size of int = %lu bytes\n", sizeof(int));  // 4
+printf("size of char = %lu bytes\n", sizeof(3.14));  // 8 -> double
+printf("size of char = %lu bytes\n", sizeof(c));  // 1
+```
+
+<!-- .element: class="fragment" data-fragment-index="2"-->
