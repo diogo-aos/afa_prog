@@ -207,34 +207,182 @@ printf("%Lf", ld);
 
 ## Texto
 
---
+Até agora só usámos texto na escrita de frases "fixas" com o printf.
 
-Tipo char
+<!-- .element: class="fragment" data-fragment-index="1"-->
 
---
+```c
+printf("Preco = %f\n", &preco);
+```
+<!-- .element: class="fragment" data-fragment-index="1"-->
 
-tabela ascii
-
---
-
-operações em chars
-
---
-
-signed/unsigned
+E se quisermos receber, manipular e escrever texto?
+<!-- .element: class="fragment" data-fragment-index="2"-->
 
 --
 
-caracteres especiais (escape sequences)
+O C tem 1 tipo para trabalhar com texto - ``char``
+
+```c
+char letra = 'D';
+```
+
+As constantes de char definem-se entre plicas '' e contêm apenas um valor. Não confundir com aspas "".
 
 --
 
-printf scanf
+Internamente os char são números que têm correspondência com letras, na tabela ASCII.
 
-problema com espaço em branco e leitura do scanf seguinte
 
+![](img/7_basic_types/ascii.png)
+
+<small>ASCII = American Standard Code for Information Interchange</small>
 
 --
+
+Não é necessário saber esta tabela.
+
+Facilmente, conseguimos obter o valor numérico de uma letra e vice-versa.
+
+
+```c
+char letra = 'A';
+```
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+Como podemos saber o valor numérico de 'A'?
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+--
+
+```c
+char letra = 'A';
+printf("letra %c = %d", letra, letra);
+
+char letra = '\n';
+printf("letra %c = %d", letra, letra);
+```
+
+A especificação de conversão para um char é %c.
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+--
+
+Como um char é, internamente, um número inteiro, podemos realizar operações aritméticas.
+
+```c
+char letra = 'A';
+printf("A letra depois de %c = %c", letra, letra+1);
+```
+
+O tamanho de um char é sempre 1 byte.
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+--
+
+O char pode ser signed ou unsigned.
+
+```c
+char num1 = 127;
+printf("num1=%d\n", num1);
+num1 = 127 + 1;
+printf("num1=%d\n", num1);
+
+
+```
+
+```text
+num1=127
+num1=-128
+```
+
+--
+
+```c
+unsigned char num2 = 255;
+printf("num2=%d\n", num2);
+num2 = 255 + 1;
+printf("num2=%d\n", num2);
+```
+
+```text
+num2=255
+num2=0
+```
+
+Também estamos sujeitos a overflow!
+
+--
+
+Existem várias sequencias especiais, como podemos ver na tabela ASCII.
+
+![](img/7_basic_types/ascii.png)
+
+--
+
+![](img/7_basic_types/ascii.png)
+
+- Algumas podem ser especificadas com letras, como já vimos `\n \t`.
+- Para outras é necessário usar o formato octal ou hexadecimal.
+
+--
+
+#### scanf, printf
+
+```c []
+char letra;
+scanf("%c", &letra);
+printf("letra recebida: %c\n", letra);
+```
+
+- Quando usamos o scanf, o enter fica no buffer.
+- Se depois fossemos ler um número, o que não é número é ignorado.
+- Mas se formos ler um char, irá haver correspondência entre %c e o \n inserido.
+
+--
+
+```c []
+char letra, letra2;
+scanf("%c", &letra);
+printf("letra recebida: %c\n", letra);
+scanf("%c", &letra2);
+printf("letra2 recebida: %c\n", letra2);
+```
+
+- Aparentemente, o segundo comando do scanf foi ignorado.
+- Na verdade, como já houve correspondência entre %c e um char do buffer, não foi necessário pedir input ao utilizador.
+
+--
+
+Qual será o valor da ``letra2``?
+
+```c []
+printf("Insira letra 1:");
+scanf("%c", &letra);
+printf("letra recebida: %c\n", letra);
+printf("Insira letra 2:");
+scanf("%c", &letra2);
+printf("letra2 recebida: %d\n", letra2);
+```
+
+```text [4]
+Insira letra 1:a
+letra recebida: a
+Insira letra 2:
+letra2 recebida: 10
+```
+
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+--
+
+- Se formos à tabela ASCII, constatamos que 10 é o valor numérico para \n.
+
+![](img/7_basic_types/ascii.png)
+
+--
+
+#### outras formas de leitura e escrita de char
 
 getchar putchar
 
