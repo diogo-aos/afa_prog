@@ -1018,6 +1018,23 @@ int main(){
 }
 ```
 
+--
+
+#### AFA 9.2. IRS generalizado
+
+
+- Reimplementa o exercício King 9.2. para funcionar para qualquer número de escalões e com quaisquer limites dos escalões.
+- A função recebe um vetor de reais (_escaloes_) com _n_ elementos, correspondentes aos limites dos escalões.
+- Existem no total _n-1_ escalões.
+- _escaloes[0]_ é o limite inferior do primeiro escalão, _escalores[1]_ é o limite superior do primeiro escalão e o inferior do segundo, etc.
+- A função recebe ainda um vetor de reais (_taxas_) com _n-1_ elementos que contém a taxa a aplicar em cada escalão: _taxas[0]_ é a taxa a aplicar no rendimento do primeiro escalão, _taxas[1]_ é a taxa a aplicar no rendimento do segundo escalão, etc.
+
+
+Dicas:
+- a lógica para um determinado escalão é sempre igual, mudando apenas os limites do escalão e a taxa a aplicar;
+- implementa uma função auxiliar para calcular o imposto num determinado escalão;
+- usa vetores de tamanho variável;
+
 ---
 
 # Exercícios
