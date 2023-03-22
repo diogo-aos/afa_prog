@@ -751,12 +751,20 @@ Nota:
 A tabela produzida deve ter o seguinte aspeto (se a=0.0, b=1.0, c=0.0, limInf=0.0, limSup=1.0, numPontos=5):
 
 ```text
-0.000000 0.000000 
-0.250000 0.250000 
-0.500000 0.500000 
-0.750000 0.750000 
-1.000000 1.000000 
+   ponto    resultado do polinómio no ponto
+f(0.000000) = 0.000000 
+f(0.250000) = 0.250000 
+f(0.500000) = 0.500000 
+f(0.750000) = 0.750000 
+f(1.000000) = 1.000000 
 ```
+
+Possível procedimento:
+1. Descobrir a distância entre os pontos a avaliar.
+2. Inicializar o ponto a avaliar no limite inferior.
+3. Calcular o polinómio no ponto.
+4. Incrementar o ponto com a distância entre pontos.
+5. Repetir 3-4 até chegar ao limite superior.
 
 Notas:
 - Além da função _poli2_intervalo_, implementa a função _poli2_ponto_ que recebe os coeficientes do polinómio, o ponto _x_ a avaliar e devolve o resultado desse polinómio no ponto recebido (ver exercício King 9.6)
