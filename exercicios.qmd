@@ -1374,3 +1374,9 @@ Escreva um programa que leia todas as linhas de um ficheiro “ler.txt” e escr
 
 
 ## 15 Exercícios Estruturas de Dados Dinâmicas AFA
+
+
+
+# Labs
+## 22/23
+### Lab 1
