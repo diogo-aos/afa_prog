@@ -3244,6 +3244,9 @@ vertical-align: -.125em;
   <li><a href="#afa-15.2-listlen" id="toc-afa-15.2-listlen" class="nav-link" data-scroll-target="#afa-15.2-listlen">AFA 15.2 listlen</a></li>
   <li><a href="#afa-15.3-soma-e-média" id="toc-afa-15.3-soma-e-média" class="nav-link" data-scroll-target="#afa-15.3-soma-e-média">AFA 15.3 soma e média</a></li>
   <li><a href="#afa-15.4.-filtro" id="toc-afa-15.4.-filtro" class="nav-link" data-scroll-target="#afa-15.4.-filtro">AFA 15.4. filtro</a></li>
+  <li><a href="#afa-15.5.-círculos-concêntricos---implementação-de-lista-ligada" id="toc-afa-15.5.-círculos-concêntricos---implementação-de-lista-ligada" class="nav-link" data-scroll-target="#afa-15.5.-círculos-concêntricos---implementação-de-lista-ligada">AFA 15.5. círculos concêntricos - implementação de lista ligada</a></li>
+  <li><a href="#afa-15.6.-círculos-concêntricos---família-de-círculos" id="toc-afa-15.6.-círculos-concêntricos---família-de-círculos" class="nav-link" data-scroll-target="#afa-15.6.-círculos-concêntricos---família-de-círculos">AFA 15.6. círculos concêntricos - família de círculos</a></li>
+  <li><a href="#afa-15.7.-círculos-concêntricos---famílias-de-círculos" id="toc-afa-15.7.-círculos-concêntricos---famílias-de-círculos" class="nav-link" data-scroll-target="#afa-15.7.-círculos-concêntricos---famílias-de-círculos">AFA 15.7. círculos concêntricos - famílias de círculos</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#labs" id="toc-labs" class="nav-link" data-scroll-target="#labs">Labs</a>
@@ -4590,6 +4593,92 @@ alunos1718.txt: 1190 Ramalho</code></pre></li>
 <ul>
 <li>Com base no AFA 15.1, adiciona uma função que recebe uma lista ligada e 2 valores <code>lower</code> e <code>upper</code>.</li>
 <li>A função irá remover da lista todos os elementos que estão abaixo do valor <code>lower</code> e os que estão acima de <code>upper</code>.</li>
+</ul>
+</section>
+<section id="afa-15.5.-círculos-concêntricos---implementação-de-lista-ligada" class="level3">
+<h3 class="anchored" data-anchor-id="afa-15.5.-círculos-concêntricos---implementação-de-lista-ligada">AFA 15.5. círculos concêntricos - implementação de lista ligada</h3>
+<ul>
+<li><p>No desenvolvimento de um sistema de aterragem automática com base em visão, uma das tarefas foi a deteção dos círculos de um marcador, com base em visão computacional.</p></li>
+<li><p>Considera a seguinte implementação de uma lista ligada de círculos.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> circle <span class="op">{</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> x<span class="op">;</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> y<span class="op">;</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> radius<span class="op">;</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> circle <span class="op">*</span>next<span class="op">;</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Circle<span class="op">;</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>  Circle <span class="op">*</span> head<span class="op">;</span></span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> size<span class="op">;</span></span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> CircleList<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Cria uma função <code>addCircle</code> que recebe uma lista ligada de círculos e os dados de um novo círculo.</p></li>
+<li><p>A função cria um novo círculo com os dados recebidos e adiciona-o à lista ligada.</p>
+<ul>
+<li>exemplo:
+<ul>
+<li>lista ligada: <code>c1 -&gt; c2 -&gt; c3 -&gt; c4</code></li>
+<li>novo círculo: <code>c5</code></li>
+<li>lista ligada: <code>c1 -&gt; c2 -&gt; c3 -&gt; c4 -&gt; c5</code></li>
+</ul></li>
+</ul></li>
+<li><p>Usa o seguinte vector tridimensional de floats com os centros e raios como base dos dados para preencher a lista ligada:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> circles<span class="op">[</span><span class="dv">5</span><span class="op">][</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">5</span> <span class="op">},</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span> <span class="fl">10.1</span><span class="op">,</span> <span class="fl">10.1</span><span class="op">,</span> <span class="dv">15</span><span class="op">},</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span> <span class="fl">9.9</span><span class="op">,</span> <span class="fl">10.1</span><span class="op">,</span> <span class="dv">10</span><span class="op">},</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">10</span> <span class="op">},</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span> <span class="fl">19.9</span><span class="op">,</span> <span class="fl">20.2</span><span class="op">,</span> <span class="dv">15</span><span class="op">},</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span> <span class="fl">19.8</span><span class="op">,</span> <span class="fl">20.1</span><span class="op">,</span> <span class="dv">2</span><span class="op">},</span></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span> <span class="dv">5</span><span class="op">,</span> <span class="fl">5.2</span><span class="op">,</span> <span class="dv">5</span> <span class="op">},</span></span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span> <span class="fl">5.3</span><span class="op">,</span> <span class="fl">4.8</span><span class="op">,</span> <span class="dv">10</span> <span class="op">},</span></span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span> <span class="fl">4.9</span><span class="op">,</span> <span class="fl">4.9</span><span class="op">,</span> <span class="dv">15</span> <span class="op">},</span></span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Implementa uma função <code>printCircleList</code> que recebe uma lista ligada de círculos e escreve na consola os dados de todos os círculos da lista.</p></li>
+<li><p>Na main, cria uma nova lista ligada e adiciona os círculos do vector <code>circles</code> à lista ligada, usando a função <code>addCircle</code>.</p></li>
+<li><p>No final da main, usa a função <code>printCircleList</code> para escrever na consola os dados de todos os círculos da lista ligada.</p></li>
+</ul>
+</section>
+<section id="afa-15.6.-círculos-concêntricos---família-de-círculos" class="level3">
+<h3 class="anchored" data-anchor-id="afa-15.6.-círculos-concêntricos---família-de-círculos">AFA 15.6. círculos concêntricos - família de círculos</h3>
+<ul>
+<li>Com base no AFA 15.5, adiciona uma função <code>newCircleFamily</code> que recebe uma lista ligada de círculos, as coordenadas de um centro e um desvio máximo.</li>
+<li>A função devolve uma nova lista ligada com todos os círculos da lista recebida que estão dentro do desvio máximo em relação ao círculo recebido. Cada círculo adicionado é retirado da lista original.
+<ul>
+<li>exemplo:
+<ul>
+<li>lista ligada: <code>c1 -&gt; c2 -&gt; c3 -&gt; c4</code></li>
+<li>centro: <code>c2</code></li>
+<li>desvio máximo: <code>2</code></li>
+<li>lista ligada: <code>c1 -&gt; c3</code></li>
+<li>nova lista ligada: <code>c2 -&gt; c4</code></li>
+</ul></li>
+</ul></li>
+<li>Na main, verifica o correto funcionamento da função escolhendo as coordenadas do centro de um dos círculos conhecidos e um desvio máximo adequado. Depois usa a função <code>printCircleList</code> para escrever na consola os dados de todos os círculos da nova lista ligada (com a família de círculos).</li>
+<li>Confirma também que a lista ligada original ficou corretamente atualizada (sem os círculos da nova lista ligada).</li>
+</ul>
+</section>
+<section id="afa-15.7.-círculos-concêntricos---famílias-de-círculos" class="level3">
+<h3 class="anchored" data-anchor-id="afa-15.7.-círculos-concêntricos---famílias-de-círculos">AFA 15.7. círculos concêntricos - famílias de círculos</h3>
+<ul>
+<li>Com base no AFA 15.6, cria um vector de listas ligadas de círculos. Cada uma destas listas deve ser correctamente inicializada como estando vazia (head = NULL, size = 0).</li>
+<li>Cada lista ligada do vector representa uma família de círculos.</li>
+<li>Cria uma função que recebe o vector de listas ligadas de círculos (com o seu tamanho) e a lista ligada com os círculos detetados.</li>
+<li>A função preenche o vector de listas ligadas de círculos atualizado e devolve o número de famílias criadas.
+<ul>
+<li>exemplo:
+<ul>
+<li>lista ligada de círculos detetados: <code>c1 -&gt; c2 -&gt; c3 -&gt; c4 -&gt; c5 -&gt; c6</code></li>
+<li>vector de listas ligadas de círculos:
+<ul>
+<li>família 1: <code>c1 -&gt; c5 -&gt; c6</code></li>
+<li>família 2: <code>c2 -&gt; c4</code></li>
+<li>família 3: <code>c3</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Na main, verifica o correto funcionamento da função imprimindo na consola cada uma das famílias de círculos.</li>
 </ul>
 </section>
 </section>
