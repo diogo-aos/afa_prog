@@ -196,12 +196,8 @@ head->next = b;
 ## Demo implementação
 
 - Gravação em aula
-    - Parte 1 [18min]
-        - [Loom](https://www.loom.com/share/3799c929dc2c4c088379b7348c578f23)
-        - [Sharepoint]()
-    - Parte 2 [10min]
-        - [Loom](https://www.loom.com/share/0a066eabbef54218b82de895c08b785f)
-        - [Sharepoint]()
+    - Parte 1 [18min], [Loom](https://www.loom.com/share/3799c929dc2c4c088379b7348c578f23), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EQchSjaLg6tBj-ExwuXsI8QBeuZJLwfb6KGVcpGbD6olsg?e=ZBCv1K)
+    - Parte 2 [10min], [Loom](https://www.loom.com/share/0a066eabbef54218b82de895c08b785f), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EQvJbvk6HYlEodPTQMOdWS4BfqlZSs_CTtLuTa7fMglcUg?e=bZ58Vg)
 
 ---
 

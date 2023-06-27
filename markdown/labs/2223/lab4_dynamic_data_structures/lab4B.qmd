@@ -1,0 +1,192 @@
+---
+title: "Programação"
+subtitle: "Laboratório 4 - Versão B"
+institute: "Academia da Força Aérea"
+author: CAP Diogo Silva
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    html-math-method: katex
+    embed-resources: true
+---
+
+# Laboratório 4 - Carregar base de dados
+
+## Notas
+- Apenas é permitido o uso do computador para
+  - aceder ao replit.com (para resolução do laboratório)
+  - aceder ao conteúdo das aulas e exercícios passados
+  - aceder aos livros da bibliografia
+- A resolução dos laboratório é individual.
+- No final, submeter a solução no replit.
+
+
+## Parte 1 - Adicionar um nó a lista ligada [30%]
+- Implementa a função `addAeronave` que recebe uma lista ligada de `Aeronave` e um `Aeronave` para adicionar.
+- A função cria um novo nó na lista com os dados do `Aeronave` recebido.
+- Nota: se não conseguires implementar esta função, tenta implementar a mesma funcionalidade diretamente na `main`.
+
+## Parte 2 - Escrever todos os elementos de lista ligada  [20%]
+- Implementa a função `printAeronaves` que recebe uma lista ligada de `Aeronave` e escreve na consola todos os elementos da lista.
+- Usa a função `printAeronave` para escrever na consola cada um dos elementos da lista.
+
+
+## Parte 3 - Integração [30%]
+- Escreve a função main de modo a que:
+  - o programa receba um vetor de `n` aeronaves com dados aleatórios
+    - usa a função `createAeronaves` para este efeito
+  - crie uma lista ligada de Aeronave
+  - adicione cada um das aeronaves do vetor à lista ligada (`addAeronave`)
+  - liberte a memória do vetor
+  - escreva na consola todos os elementos da lista ligada (`printAeronaves`)
+
+
+## Parte 4 - Filtro [20%]
+
+- Modifica a função main de modo a que, no final:
+  - elimina da lista ligada todos as aeronaves com ano de fabrico superior a 2000
+    - para cada aeronave removido, escreve na consola "removida aeronave com número de cauda <n_cauda>"
+  - escreve na consola todas as aeronaves com ano inferior ou igual a 2000 (`printAeronaves`)
+
+  
+
+## Código inicial
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* * * * * * * * * * * * * * * * * * * * * * * *
+    * ESTRUTURAS *
+* * * * * * * * * * * * * * * * * * * * * * * */
+
+
+// struct para Aeronave
+typedef struct {
+    char fabricante[20];
+    int n_cauda;
+    int ano_fabrico;
+} Aeronave;
+
+// linked list node of type Aeronave
+typedef struct node {
+    Aeronave aeroanve;
+    struct node *next;
+} Node;
+
+// function to print a Aeronave pointer
+void printAeronave(Aeronave *aeronave) {
+    printf("Aeronave: %s, %d, %d\n", aeronave->fabricante, aeronave->n_cauda, aeronave->ano_fabrico);
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * *
+    * MOCK DATA *
+* * * * * * * * * * * * * * * * * * * * * * * */
+
+// array of 20 aircraft makers
+char *fabricantes[] = {
+    "Boeing",
+    "Airbus",
+    "Embraer",
+    "Bombardier",
+    "Cessna",
+    "Dassault",
+    "Gulfstream",
+    "Pilatus",
+    "Beechcraft",
+    "Lockheed",
+    "Saab",
+    "Sukhoi",
+    "Antonov",
+    "Tupolev",
+    "Ilyushin",
+    "Yakovlev",
+    "Aero",
+    "Fokker",
+    "McDonnell Douglas",
+    "Lockheed Martin",
+};
+
+
+
+// function createAeronaves receives an unsigned int n and returns a pointer to an array of n Aeronaves
+Aeronave *createAeronaves(unsigned int n) {
+    Aeronave *aeronaves = malloc(n * sizeof(Aeronave));
+    for (int i = 0; i < n; i++) {
+        int rand_fabricante = rand() % 20;
+        strcpy(aeronaves[i].fabricante, fabricantes[rand_fabricante]);
+        aeronaves[i].n_cauda = 1000 + i;
+        aeronaves[i].ano_fabrico = 1990 + rand() % 30;
+    }
+    return aeronaves;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * *
+    * LISTA LIGADA *
+* * * * * * * * * * * * * * * * * * * * * * * */
+
+// function to add aeronave to list
+void addAeronave(Node **head, Aeronave aeronave) {
+}
+
+
+// function to print a linked list of Aeronave
+void printAeronaves(Node *head) {
+}
+
+
+int main(){
+    // podes alterar este valor para testar com arrays de tamanhos diferentes
+    int n_aeronaves = 10;
+
+    // receber array de Aeronaves aleatórios, com a função createAeronaves
+    
+
+    // criar lista ligada
+    
+
+    // adicionar todos os Aeronave do array à lista ligada
+    
+
+    // libertar array de Aeronave da memória
+
+    // escrever na consola todos os Aeronave da lista ligada
+
+    // eliminar da lista ligada todos os Aeronave com ano de fabrico superior a 2000
+    //     para cada Aeronave removido, escrever na consola "removida aeronave com número de cauda <n_cauda> do fabricante <fabricante>"
+
+
+    // imprimir novamente a lista ligada com as aeronaves sobrantes
+
+
+}
+```
+
+
+
+## Ajuda
+
+Se ajudar, podes criar outra estrutura de dados para ter a cabeça da lista ligada e modificar as funções para receber uma lsita desse tipo, e.g.
+
+```c
+
+typedef struct {
+    Node * head;
+} Lista;
+
+void addAeronave(Lista * lista, Aeronave aeronave) {
+
+}
+
+
+// function to print a linked list of Aeronave
+void printAeronaves(Lista * lista) {
+}
+
+```

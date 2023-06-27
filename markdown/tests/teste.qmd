@@ -1,0 +1,367 @@
+---
+title: "Programação 22/23 S2"
+subtitle: "Teste"
+institute: "Academia da Força Aérea"
+author: CAP Diogo Silva
+date: "19 de junho de 2023"
+format:
+#  pdf:
+#    margin-left: 0.5cm
+#    margin-right: 0.5cm
+#    margin-top: 0.5cm
+#    margin-bottom: 0.5cm
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    html-math-method: katex
+    embed-resources: true
+---
+
+
+# Informações gerais
+
+## Regras
+- Podem consultar o livro e apenas o livro.
+- Se não tiver o livro em formato físico, pode consultar o livro em formato digital.
+- No caso de usar o livro em formato digital, o livro é a única janela que pode estar aberta no computador.
+- Não podem usar o telemóvel.
+- Pode resolver o teste a lápis.
+- A resolução do teste é individual.
+- Não podem sair da sala durante o teste.
+
+
+
+## Cotação
+- [8 valores] - Parte 1
+    - Cada pergunta vale 1 valor
+    - Repostas erradas descontam 25% do seu valor
+        - Pergunta com 1 resposta, resposta errada desconta 0.25 valores
+        - Pergunta com 2 respostas, cada resposta errada desconta 0.125 valores
+        - etc.
+- [12 valores] - Parte 2
+    - [3 valores] - Problema 1
+    - [5 valores] - Problema 2
+    - [4 valores] - Problema 3
+
+{{< pagebreak >}}
+
+# Parte 1
+
+## Pergunta 1 
+
+Se quisermos passar um array multidimensional com um número de elementos variável para uma função, quais das seguinte opções são válidas? (2 respostas)
+
+a. `void funcao(int array[][], int n_linhas, int n_colunas);`
+b. `void funcao(int array[n_linhas][n_colunas], int n_linhas, int n_colunas);`
+c. `void funcao(int n_linhas, int n_colunas, int array[n_linhas][n_colunas]);`
+d. `void funcao(int array[][10], int n_linhas);`
+e. `void funcao(int array[10][], int n_linhas);`
+f. Nenhuma das respostas anteriores.
+
+
+---
+
+## Pergunta 2 
+
+
+```c
+void funcao(int val) {
+    val = 1;
+}
+P
+int main() {
+    int x = 2;
+    funcao(x);
+    return 0;
+}
+```
+
+
+
+No final da execução do seguinte código, qual é o valor da variável x? (1 resposta)
+
+
+
+a. 0
+b. 1
+c. 2
+d. 10
+e. Nenhuma das respostas anteriores.
+
+
+
+
+---
+
+## Pergunta 3
+
+Considera o seguinte programa:
+
+```c
+int main() {
+    int soma;
+    int array[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    for (int i=0; i<10; i++) {
+        soma += i;
+    }
+    return 0;
+}
+```
+
+Escolhe a resposta correcta (1 resposta):
+a. O valor final de `soma` é 0.
+b. O valor final de `soma` é 10.
+c. Não é possível saber o valor de `soma` sem executar o programa.
+d. O programa não compila porque a variável soma não está inicializada.
+e. Nenhuma das respostas anteriores.
+
+
+
+---
+
+## Pergunta 4
+
+Considera o seguinte programa:
+
+```c
+for (int i = 0; i < 10; i++) {
+    printf("%d ", i);
+}
+
+for (int i = 0; i < 10;) {
+    printf("%d ", i++);
+}
+```
+
+Escolhe a resposta correcta (1 resposta):
+a. O programa não compila porque a variável `i` é redeclarada.
+b. Os dois ciclos fazem exactamente o mesmo.
+c. O primeiro ciclo imprime os números de 0 a 9, enquanto o segundo imprime os números de 0 a 10.
+d. O programa não compila porque o segundo ciclo não tem pós-instrução.
+e. Nenhuma das respostas anteriores.
+
+
+
+
+---
+
+## Pergunta 5
+
+No final da execução do seguinte código, qual é o valor da variável x? (1 resposta)
+
+```c
+void funcao1(int * arg) {
+    *arg = 1;
+}
+
+void funcao42(int arg) {
+    arg = 42;
+}
+
+int main() {
+    int x = 2;
+    int *y = &x;
+
+    funcao1(&x);
+    funcao42(*y);
+
+    return 0;
+}
+```
+
+a. 0
+b. 1
+c. 2
+d. 42
+e. Nenhuma das respostas anteriores.
+
+
+
+
+---
+
+## Pergunta 6
+
+Quais das seguintes formas de imprimir todos os elementos de `int array[10]` estão correctas? (2 respostas)
+
+a. `for(int i=0; i<10; i++) printf("%d ", array[i]);`
+b. `for(int i=0; i<10; i++) printf("%d ", *(array+i));`
+c. `for(int i=0; i<10; i++) printf("%d ", &(array+i));`
+d. `for(int i=0; i<10; i++) printf("%d ", &array[i]);`
+e. `for(int i=0; i<=10; i++) printf("%d ", array[i]);`
+f. Nenhuma das respostas anteriores.
+
+
+
+
+---
+
+## Pergunta 7
+
+Considera o seguinte programa:
+
+
+```c
+int x = 0;
+for (int i = 0; i < 10; i++) {
+    if (i % 2 == 0) printf("x=%d\n", x);
+}
+
+int x = 0;
+int i;
+for (i = 0; i < 10; i+=2) {
+    printf("x=%d\n", x);
+}
+
+```
+
+Escolhe a resposta correcta (1 resposta):
+a. Os dois ciclos fazem exactamente o mesmo.
+b. O primeiro ciclo imprime os números ímpares de 0 a 9, enquanto o segundo imprime os números pares de 0 a 10.
+c. O primeiro ciclo imprime os números pares de 0 a 10, enquanto o segundo imprime os números ímpares de 0 a 9.
+d. O programa não compila porque a variável `i` é redeclarada.
+e. Nenhuma das respostas anteriores.
+
+
+
+
+---
+
+## Pergunta 8
+
+Considera o seguinte programa:
+
+
+```c
+typedef struct
+{
+    int x;
+    int y;
+    char c; // c=0 inativo, c=1 ativo
+} Ponto;
+
+void filter(Ponto * pontos, int n) {
+    for (int i = 0; i < n; i++)
+        if (pontos[i].y < pontos[i].x)
+            pontos[i].c = 0;
+
+}
+```
+
+Escolhe a resposta correcta (1 resposta):
+a. A função filter não altera o array, porque é passado por valor e não por referência.
+b. A função filter muda o array de forma a que todos os pontos abaixo da diagonal principal $y=x$ fiquem inactivos.
+c. A função filter muda o array de forma a que todos os pontos acima da diagonal principal $y=x$ fiquem inactivos.
+d. A função não faz nada porque o ciclo não tem chavetas `{ }`.
+e. Nenhuma das respostas anteriores.
+
+
+
+{{< pagebreak >}}
+
+# Parte 2
+## Problema 1
+- Considera o seguinte código.
+
+```c
+#include <stdio.h>
+#include <string.h>
+#define MAX_STRINGS 100
+
+char *nomes_proprios[] = {
+    "Maria", "Joao", "Ana", "Pedro", "Carla", "Jose",
+    "Margarida", "Miguel", "Sofia", "Ricardo"
+};
+
+char *apelidos[] = {
+    "Silva", "Santos", "Rodrigues", "Costa", "Oliveira",
+    "Martins", "Ferreira", "Pereira", "Carvalho", "Marques"
+};
+
+void create_full_names(int n_strings, char * nomes_proprios[10],
+    char * apelidos[10], char nomes_completos[n_strings][MAX_STRINGS]) {
+    for (int i = 0; i < n_strings; i++) {
+        strcpy(nomes_completos[i], nomes_proprios[i]);
+        strcat(nomes_completos[i], " ");
+        strcat(nomes_completos[i], apelidos[10 - i - 1]);
+    }
+}
+
+int main() {
+    int n = 5;
+    char nomes_completos[n][MAX_STRINGS];
+    create_full_names(n, nomes_proprios, apelidos, nomes_completos);
+    for (int i = 0; i < n; i++)
+        printf("%s\n", nomes_completos[i]);
+    return 0;
+}
+```
+
+a. [1 val] Indica o output do programa na consola.
+b. [1.5 val] Explica o que o programa está a fazer.
+c. [0.5 val] Qual é o tamanho máximo que um nome completo pode ter (sem contar com o `\0`)?
+
+{{< pagebreak >}}
+
+## Problema 2
+
+- Escreve uma função que recebe um array de reais e o seu tamanho e um array de inteiros correspondente aos índices do array de reais. A função deve ordenar os índices de forma a que o array de reais fique ordenado.
+
+- Exemplo:
+
+```c
+
+float array[] = {1.2, 3.4, 2.1, 0.5};
+int indices[] = {0, 1, 2, 3};
+
+// depois de chamar a função, o conteúdo dos dois arrays seria o seguinte:
+
+float array[] = {1.2, 3.4, 2.1, 0.5};
+int indices[] = {3, 0, 2, 1};
+```
+
+{{< pagebreak >}}
+
+## Problema 3
+
+- Escreve uma função que recebe 2 matrizes. As matrizes podem ser de qualquer tamanho.
+- A matriz foi implementada da seguinte forma:
+
+    ```c
+    #define MAX_LINHAS 100
+    #define MAX_COLUNAS 100
+
+    typedef struct {
+        int n_linhas, n_colunas;
+        float vals[MAX_LINHAS][MAX_COLUNAS];
+    } Matriz;
+    ```
+- A função efetua a multiplicação das 2 matrizes, e devolve uma terceira matriz com o resultado.
+- A função tem de verificar se as dimensões das matrizes são compatíveis. Se não forem, a função deve devolver uma matriz com o número de linhas e colunas igual a -1.
+
+- Exemplo:
+
+    ```c
+
+    Matriz m1 = {2, 3, {{1, 2, 3}, {4, 5, 6}}};
+    Matriz m2 = {3, 2, {{1, 2}, {3, 4}, {5, 6}}};
+
+    Matriz m3 = multiplica_matrizes(m1, m2);
+
+    // m3.n_linhas = 2
+    // m3.n_colunas = 2
+    // m3.vals = {{22, 28}, {49, 64}}
+    ```
+- Exemplo de matrizes duas matrizes de dimensões incompatíveis:
+
+    ```c
+    Matriz m1 = {2, 3, {{1, 2, 3}, {4, 5, 6}}};
+    Matriz m2 = {2, 3, {{1, 2, 3}, {4, 5, 6}}};
+
+    Matriz m3 = multiplica_matrizes(m1, m2);
+
+    // m3.n_linhas = -1
+    // m3.n_colunas = -1
+    ```
+
