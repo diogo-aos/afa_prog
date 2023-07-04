@@ -1,0 +1,26 @@
+project:
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!*hide*.qmd"
+
+execute:
+  freeze: auto  # re-render only when source changes
+
+toc: true
+number-sections: true
+#bibliography: references.bib  
+  
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    html-math-method: katex
+    embed-resources: true
+#    css: styles.css
+#  pdf:
+#    documentclass: report
+#    margin-left: 30mm
+#    margin-right: 30mm
+

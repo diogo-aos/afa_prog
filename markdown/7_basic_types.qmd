@@ -1,20 +1,34 @@
-<!-- .slide: data-background="Cornsilk" -->
+---
+title: "Tipos básicos do C"
+#subtitle: "Laboratório 3"
+institute: "Academia da Força Aérea"
+author: CAP Diogo Silva
+email: "dasilva@academiafa.edu.pt"
+logo: "afa.svg"
 
-<img src="img/afa.png" height="100">
-
-
+format:
+    revealjs:
+        theme: "serif"
+        slideNumber: true
+        html-math-method: katex
+        embed-resources: true
+    html:
+        theme: "sandstone"
+        toc: true
+        toc-depth: 3
+        code-fold: true
+        html-math-method: katex
+        embed-resources: true
+        output-file: 7_basic_types_doc.html
+---
 ## Tipos básicos do C
 
-### Diogo Silva
-####  CAP / ENGEL
-dasilva@academiafa.edu.pt
-<!-- .slide: data-background="Cornsilk" -->
 
 ---
 
 ## Inteiros
 
---
+---
 
 Até agora usámos apenas o tipo `int` para representar números inteiros, mas existem outros:
 
@@ -29,7 +43,7 @@ long int
 unsigned lont int
 ```
 
---
+---
 
 Diferentes tipos podem representar números inteiros em diferentes intervalos e ocupam mais ou menos espaço em memória.
 
@@ -37,13 +51,13 @@ Estes intervalos e espaço ocupado em memória pode variar de máquina para máq
 
 `short int < int < long int`
 
---
+---
 
 Processadores com arquitecturas de 64 bits começam a ser comuns e os intervalos de valores comuns são:
 
 <img src="img/7_basic_types/int_table_64bits.png">
 
---
+---
 
 Uma forma rápida de verificar os limites de um determinado tipo numa máquina, é usar a biblioteca ``<limits.h>``.
 
@@ -78,7 +92,7 @@ int main(void) {
 }
 ```
 
---
+---
 
 
 Mas existem outras formas.
@@ -86,7 +100,7 @@ Mas existem outras formas.
 É possível definir constantes em formato octal e hexadecimal.
 Não iremos explorar estas bases, mas veremos como escrever constantes de inteiros diferentes.
 
---
+---
 
 ```text
 15L  -> interpretar 15 como um long int
@@ -96,7 +110,7 @@ Não iremos explorar estas bases, mas veremos como escrever constantes de inteir
 
 Também se pode escrever U e L em minúsculas. Pode-se escrever UL ou LU.
 
---
+---
 
 ### Overflow
 
@@ -117,7 +131,7 @@ int main(void) {
 - `v = ?`
 - `v + 1 = ?`
 
---
+---
 
 ```c
 #include <limits.h>
@@ -134,7 +148,7 @@ int main(void) {
 - `v     = 2147483647`
 - `v + 1 = -2147483648`
 
---
+---
 
 ### printf e scanf
 
@@ -172,7 +186,7 @@ long double
 
 O long double não aparece porque os intervalos variam bastante de máquina para máquina.
 
---
+---
 
 ### constantes 
 
@@ -189,7 +203,7 @@ Diferentes formas de escrever o número 57:
 570.e-1
 ```
 
---
+---
 
 ### printf scanf
 
@@ -208,7 +222,7 @@ printf("%Lf", ld);
 ## Texto
 ### char
 
---
+---
 
 #### char
 
@@ -226,7 +240,7 @@ char letra = 'C';
 
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
---
+---
 
 Internamente, um char é apenas um número inteiro que pode ser interpretado como letras, através da tabela ASCII.
 
@@ -235,7 +249,7 @@ Internamente, um char é apenas um número inteiro que pode ser interpretado com
 
 <small>ASCII = American standard Code for Information Interchange</small>
 
---
+---
 
 Não precisamos de saber esta correspondência, porque podemos sempre interpretar um char como um inteiro e vice-versa.
 
@@ -248,7 +262,7 @@ printf("A letra %c tem o valor %d\n", letra, letra);  // A 65
 A especificação de conversão para char é o %c.
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
---
+---
 
 Por serem números inteiros, podemos realizar operações aritméticas sobre char.
 
@@ -269,7 +283,7 @@ printf("\n");
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 
---
+---
 
 Tal como vimos para os tipos inteiros, o char também pode ser signed ou unsigned.
 
@@ -284,21 +298,21 @@ printf("n2=%d\n", n2);  // 0
 Também está sujeito a overflow.
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
---
+---
 
 - Já usámos anteriormente caracteres especiais, e.g. \n e \t. Existem outros.
 - Alguns só podem ser especificados em formato octal ou hexadecimal.
 
 <img src="img/7_basic_types/ascii.png" height="400">
 
---
+---
 
 #### scanf
 
 - Quando o scanf acaba de processar um determinado input, existem caracteres que ficam por consumir.
 - Como todos os caracteres são válidos para o tipo char, isso pode ser um problema.
 
---
+---
 
 #### scanf
 
@@ -326,14 +340,14 @@ Introduza outro caracter:c1=a   c2=
 
 <!-- .element: class="fragment" data-fragment-index="2"-->
 
---
+---
 
 - Na verdade, o primeiro scanf deixa um enter '\n' por consumir. 
 - No scanf seguinte, o que é pedido é um char. <!-- .element: class="fragment" data-fragment-index="2"-->
 - Como '\n' é um char válido, a especificação de conversão aceita-o como input <!-- .element: class="fragment" data-fragment-index="2"-->
 - Deixa de ser necessário pedir input ao utilizador porque as especificações de conversão já foram satisfeitas. <!-- .element: class="fragment" data-fragment-index="3"-->
 
---
+---
 
 Como confirmar? Vamos interpretar c2 como um inteiro.
 
@@ -357,7 +371,7 @@ Introduza outro caracter:c1=a   c2=10
 
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
---
+---
 
 #### alternativas para ler e escrever char
 
@@ -366,7 +380,7 @@ Existem outras formas de ler e escrever um char.
 - putchar
 
 
---
+---
 
 #### putchar
 
@@ -387,7 +401,7 @@ l = getchar();
 ⚠️Tal como no scanf, o getchar não salta espaços em branco quando lê um char.⚠️
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
---
+---
 
 E se quisermos ler vários chars?
 
@@ -422,7 +436,7 @@ while ((l = getchar()) != '\n')
 - Na verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implicitas.
 - Outras têm de ser explicitamente declaradas.
 
---
+---
 
 #### conversões implicitas
 
@@ -431,7 +445,7 @@ while ((l = getchar()) != '\n')
 - O resultado da operação será do tipo "superior".
 
 
---
+---
 
 #### conversões implicitas
 
@@ -445,7 +459,7 @@ p = f + i;
 - Se o contrário ocorresse, perdiamos por completo a componente decimal de f.
 - Desta forma, o pior que pode acontecer é o valor de i perder precisão depois de convertido.
 
---
+---
 
 #### conversões implicitas > ambos operandos da mesma "classe"
 
@@ -464,7 +478,7 @@ long double         unsigned long int
                            int
 ```
 
---
+---
 
 #### conversões implicitas > exemplos
 
@@ -481,7 +495,7 @@ u = u + i; // i convertido para unsigned int
 l = l + u; // u convertido para long int
 ```
 
---
+---
 
 #### conversões implicitas > mais exemplos
 
@@ -498,7 +512,7 @@ d = d + f; // f convertido para double
 ld = ld + d // d convertido para long double
 ```
 
---
+---
 
 #### conversões implicitas > atribuição
 
@@ -517,7 +531,7 @@ c = 10000; // overflow
 f = 1.0e100; // excede limite
 ```
 
---
+---
 
 
 #### conversões explicitas > casting
@@ -532,13 +546,13 @@ f = (float) 3 / 2; // 1.5 -> converter 3 para float e dividir por 2
 - O operador de casting é uma operação unária.
 - Operações unárias têm precedência sobre operações binárias.
 
---
+---
 
 #### conversões explicitas > casting
 
 Quando realizamos algumas operações aritméticas, pode ser necessário fazer uma conversão explicita.
 
-```c []
+```c
 long i;
 int j = 10000; // 10000 * 10000 -> 100 000 000
 
@@ -548,12 +562,12 @@ i = j * j;
 - O resultado da multiplicação na linha 4 cabe na variável i de tipo long.
 - Contudo, o resultado da operação será um int e em algumas máquinas o resultado pode levar a overflow.
 
---
+---
 
 #### conversões explicitas > casting
 
 
-```c []
+```c
 long i;
 int j = 10000; // 10000 * 10000 -> 100 000 000
 
@@ -567,7 +581,7 @@ i = (long) (j * j); // ERRADO
 - Para resolver isso, podemos fazer o cast da linha 6.
 - Na linha 8, a multiplicação é feita antes da conversão porque está entre ().
 
---
+---
 
 
 ## Definições de tipos
@@ -575,18 +589,18 @@ i = (long) (j * j); // ERRADO
 O C permite a definição de novos tipos com o comando ``typedef``.
 
 
-```c []
+```c
 typedef int Altura;
 ```
 
 - typedef é seguido do nome original do tipo
 - e depois do novo nome que queremos usar
 
---
+---
 
 #### typedef
 
-```c []
+```c
 typedef int Altura;
 typedef int Massa;
 Altura a = 180;
@@ -596,11 +610,11 @@ Massa m = 75;
 - Essencialmente, o que fizemos foi criar um int com um novo nome.
 - Útil para tornar o código mais legível
 
---
+---
 
 #### typedef
 
-```c []
+```c
 typedef int Altura;
 typedef int massa;  // aceite, mas não é convenção
 
@@ -619,7 +633,7 @@ int main(){
 
 A função sizeof recebe um valor ou um tipo e indica qual é o tamanho, em bytes, que esse tipo ocupa em memória.
 
-```c []
+```c
 char c;
 printf("size of int = %lu bytes\n", sizeof(int));  // 4
 printf("size of char = %lu bytes\n", sizeof(3.14));  // 8 -> double

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Diogo Silva">
-<meta name="dcterms.date" content="2023-05-20">
 
-<title>Enunciado SIGIT</title>
+<title>Programação</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +18,40 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -2985,270 +3017,504 @@ vertical-align: -.125em;
 
 <body>
 
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Enunciado SIGIT</h1>
-            <p class="subtitle lead">Programação 22/23 2º Semestre</p>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Diogo Silva </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">May 20, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a></li>
-  <li><a href="#estrutura-organização" id="toc-estrutura-organização" class="nav-link" data-scroll-target="#estrutura-organização">Estrutura &amp; Organização</a></li>
-  <li><a href="#funcionalidades" id="toc-funcionalidades" class="nav-link" data-scroll-target="#funcionalidades">Funcionalidades</a></li>
-  <li><a href="#formato-dos-ficheiros" id="toc-formato-dos-ficheiros" class="nav-link" data-scroll-target="#formato-dos-ficheiros">Formato dos ficheiros</a></li>
-  <li><a href="#notas" id="toc-notas" class="nav-link" data-scroll-target="#notas">Notas</a></li>
-  <li><a href="#entrega-do-trabalho" id="toc-entrega-do-trabalho" class="nav-link" data-scroll-target="#entrega-do-trabalho">Entrega do trabalho</a></li>
-  <li><a href="#critérios-de-avaliação" id="toc-critérios-de-avaliação" class="nav-link" data-scroll-target="#critérios-de-avaliação">Critérios de avaliação</a></li>
-  <li><a href="#grelha-de-avaliação-preliminar" id="toc-grelha-de-avaliação-preliminar" class="nav-link" data-scroll-target="#grelha-de-avaliação-preliminar">Grelha de avaliação (preliminar)</a></li>
+  <li><a href="#variáveis" id="toc-variáveis" class="nav-link active" data-scroll-target="#variáveis"><span class="header-section-number">1</span> Variáveis</a></li>
+  <li><a href="#operadores" id="toc-operadores" class="nav-link" data-scroll-target="#operadores"><span class="header-section-number">2</span> Operadores</a></li>
+  <li><a href="#io-formatado" id="toc-io-formatado" class="nav-link" data-scroll-target="#io-formatado"><span class="header-section-number">3</span> I/O Formatado</a></li>
+  <li><a href="#io-não-formatado" id="toc-io-não-formatado" class="nav-link" data-scroll-target="#io-não-formatado"><span class="header-section-number">4</span> I/O Não Formatado</a></li>
+  <li><a href="#estruturas-de-controlo" id="toc-estruturas-de-controlo" class="nav-link" data-scroll-target="#estruturas-de-controlo"><span class="header-section-number">5</span> Estruturas de controlo</a></li>
+  <li><a href="#funções" id="toc-funções" class="nav-link" data-scroll-target="#funções"><span class="header-section-number">6</span> Funções</a></li>
+  <li><a href="#vetores" id="toc-vetores" class="nav-link" data-scroll-target="#vetores"><span class="header-section-number">7</span> Vetores</a></li>
+  <li><a href="#vetores-multidimensionais" id="toc-vetores-multidimensionais" class="nav-link" data-scroll-target="#vetores-multidimensionais"><span class="header-section-number">8</span> Vetores multidimensionais</a></li>
+  <li><a href="#strings" id="toc-strings" class="nav-link" data-scroll-target="#strings"><span class="header-section-number">9</span> Strings</a></li>
+  <li><a href="#apontadores" id="toc-apontadores" class="nav-link" data-scroll-target="#apontadores"><span class="header-section-number">10</span> Apontadores</a></li>
+  <li><a href="#alocação-dinâmica-de-memória" id="toc-alocação-dinâmica-de-memória" class="nav-link" data-scroll-target="#alocação-dinâmica-de-memória"><span class="header-section-number">11</span> Alocação dinâmica de memória</a></li>
+  <li><a href="#estruturas" id="toc-estruturas" class="nav-link" data-scroll-target="#estruturas"><span class="header-section-number">12</span> Estruturas</a></li>
+  <li><a href="#ficheiros" id="toc-ficheiros" class="nav-link" data-scroll-target="#ficheiros"><span class="header-section-number">13</span> Ficheiros</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="cheatsheet.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Programação</h1>
+<p class="subtitle lead">Cheatsheet</p>
+</div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+  </div>
 
+<div class="quarto-title-meta">
 
-<section id="introdução" class="level1">
-<h1>Introdução</h1>
-<p>A Força Aérea Portuguesa, com a sua missão de garantir a defesa do espaço aéreo nacional, tem à sua responsabilidade um diverso leque de missões que são cumpridas por muitas tripulações distintas, de naturezas variadas. A correcta gestão das tripulações é crucial para otimizar os recursos existentes, garantir o cumprimentos da missão e salvaguardar a saúde e bem-estar dos nossos militares. O esforço para criar tripulações e manter um registo atualiado das disponibilidades e tempos mínimos de descanso dos tripulantes é significativo e um sistema digital integrado é necessário. A sua missão é desenhar e implementar o <strong>Sistema de Informação para a Gestão Integrada de Tripulações (SIGIT)</strong>. O sistema contém os dados de todos os tripulantes e possíveis missões a realizar. O CA define as missões que devem ser executadas e em que datas. O SIGIT cria automaticamente, e de forma otimizada, as tripulações necessárias para o efeito.</p>
+      
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="variáveis" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Variáveis</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">;</span> <span class="co">// declarar variável inteira chamada a</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> b<span class="op">=</span><span class="fl">3.14</span><span class="op">;</span> <span class="co">// declarar variável real chamada b e inicializar com 3.14</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> c1<span class="op">,</span>c2<span class="op">=</span><span class="ch">&#39;a&#39;</span><span class="op">;</span> <span class="co">// declarar variável char c1 e c2, e inicializar c2 com &#39;a&#39;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="estrutura-organização" class="level1">
-<h1>Estrutura &amp; Organização</h1>
+<section id="operadores" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Operadores</h1>
+<table class="table">
+<caption>Operadores aritméticos, relacionais, lógicos e de atribuição</caption>
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+<th>Operador</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>Soma</td>
+<td>a + b</td>
+<td>==</td>
+<td>Igual</td>
+<td>a == b</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>Subtração</td>
+<td>a - b</td>
+<td>!=</td>
+<td>Diferente</td>
+<td>a != b</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>Multiplicação</td>
+<td>a * b</td>
+<td>&gt;</td>
+<td>Maior</td>
+<td>a &gt; b</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>Divisão</td>
+<td>a / b</td>
+<td>&lt;</td>
+<td>Menor</td>
+<td>a &lt; b</td>
+</tr>
+<tr class="odd">
+<td>%</td>
+<td>Resto da divisão</td>
+<td>a % b</td>
+<td>&gt;=</td>
+<td>Maior ou igual</td>
+<td>a &gt;= b</td>
+</tr>
+<tr class="even">
+<td>++</td>
+<td>Incremento</td>
+<td>a++</td>
+<td>&amp;&amp;</td>
+<td>E</td>
+<td>a &amp;&amp; b</td>
+</tr>
+<tr class="odd">
+<td>–</td>
+<td>Decremento</td>
+<td>a–</td>
+<td>||</td>
+<td>OU</td>
+<td>a || b</td>
+</tr>
+<tr class="even">
+<td>=</td>
+<td>Atribuição</td>
+<td>a = b</td>
+<td>!</td>
+<td>NÃO</td>
+<td>!a</td>
+</tr>
+<tr class="odd">
+<td>+=</td>
+<td>Atribuição com soma</td>
+<td>a += b</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-=</td>
+<td>Atribuição com subtração</td>
+<td>a -= b</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>*=</td>
+<td>Atribuição com multiplicação</td>
+<td>a *= b</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>/=</td>
+<td>Atribuição com divisão</td>
+<td>a /= b</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="io-formatado" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> I/O Formatado</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">escritor&quot;</span><span class="op">,</span> <span class="op">&amp;</span>variavel<span class="op">);</span> <span class="co">// lê um dado do tipo tipo_dado e armazena em variavel</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">escritor&quot;</span><span class="op">,</span> variavel<span class="op">);</span> <span class="co">// escreve um dado do tipo tipo_dado e armazena em variavel</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="table">
+<caption>Descritores de tipos de dados</caption>
+<thead>
+<tr class="header">
+<th>Descritor</th>
+<th>Tipo de dado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>%d</td>
+<td>int</td>
+</tr>
+<tr class="even">
+<td>%f</td>
+<td>float</td>
+</tr>
+<tr class="odd">
+<td>%c</td>
+<td>char</td>
+</tr>
+<tr class="even">
+<td>%s</td>
+<td>string</td>
+</tr>
+<tr class="odd">
+<td>%lf</td>
+<td>double</td>
+</tr>
+<tr class="even">
+<td>%u</td>
+<td>unsigned int</td>
+</tr>
+<tr class="odd">
+<td>%ld</td>
+<td>long int</td>
+</tr>
+<tr class="even">
+<td>%lu</td>
+<td>unsigned long int</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="io-não-formatado" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> I/O Não Formatado</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>getchar<span class="op">();</span> <span class="co">// lê um char</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fgets<span class="op">(</span>variavel<span class="op">,</span> tamanho<span class="op">,</span> stdin<span class="op">);</span> <span class="co">// lê uma string</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>putchar<span class="op">(</span>variavel<span class="op">);</span> <span class="co">// escreve um char</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>puts<span class="op">(</span>variavel<span class="op">);</span> <span class="co">// escreve uma string</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="estruturas-de-controlo" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Estruturas de controlo</h1>
 <ul>
-<li>Existem Tripulante, Missão, Voo, Função</li>
-<li>Cada Tripulante está associado a uma Função</li>
-<li>Cada Missão está associado a uma ou mais Função</li>
-<li>Cada Voo está associado a uma missão e a um conjunto de Tripulante</li>
-<li>Dados de Tripulante
-<ul>
-<li>id</li>
-<li>estado (operacional ou inop)</li>
-<li>nome</li>
-<li>função</li>
-</ul></li>
-<li>Dados de Missão
-<ul>
-<li>id da missão</li>
-<li>nome da missão</li>
-<li>número de tripulantes</li>
-<li>indicação das funções dos tripulantes</li>
-</ul></li>
-<li>Dados de Voo
-<ul>
-<li>id do voo</li>
-<li>data</li>
-<li>id da Missão</li>
-<li>lista de ids dos tripulantes</li>
-</ul></li>
-<li>Dados de Função
-<ul>
-<li>id da função</li>
-<li>nome da função</li>
-</ul></li>
-<li>O programa guarda os tripulantes e voos numa base de dados binária.</li>
-<li>O programa guarda a lista de funções e missões em 2 ficheiros de texto de configuração</li>
+<li><p>if</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>condição<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// bloco de código</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>condição<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// bloco de código</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// bloco de código</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>switch</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">switch</span> <span class="op">(</span>variavel<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> valor1<span class="op">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// bloco de código</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> valor2<span class="op">:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// bloco de código</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// bloco de código</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Ciclos</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>condição<span class="op">)</span> <span class="op">{</span> <span class="co">// enquanto condição for verdadeira</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// bloco de código</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span> <span class="op">{</span> <span class="co">// executa o bloco de código pelo menos uma vez</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// bloco de código</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">while</span> <span class="op">(</span>condição<span class="op">);</span> <span class="co">// enquanto condição for verdadeira</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>inicialização<span class="op">;</span> condição<span class="op">;</span> incremento<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// bloco de código</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">// inicialização é executada uma vez</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">// condição é testada antes de cada iteração</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">// pós-instrução é executada no final de cada iteração</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
-<section id="funcionalidades" class="level1">
-<h1>Funcionalidades</h1>
-<ol type="1">
-<li>Importar dados de ficheiro de texto
-<ol type="a">
-<li>Tripulantes</li>
-<li>Voos</li>
-</ol></li>
-<li>Marcar voos
-<ol type="a">
-<li>SIGIT mostra lista das missões disponíveis e utilizador escolhe.</li>
-<li>SIGIT pede uma data para o voo desejado.</li>
-<li>SIGIT cria tripulação para o voo automaticamente</li>
-<li>Condições
-<ol type="i">
-<li>Um tripulante não pode ser selecionado para 2 voos no mesmo dia.</li>
-<li>Um tripulante não pode ser selecionado para um voo se estiver inoperacional.</li>
-</ol></li>
-</ol></li>
-<li>Listas
-<ol type="a">
-<li>Lista com todos os voos</li>
-<li>Lista com todos os voos entre 2 datas</li>
-<li>Lista com todos os tripulantes</li>
-<li>Qualquer uma destas listas pode ser exportada para um fiheiro de texto (⚠️ para grupos de 4 elementos)</li>
-<li>Notas:
-<ol type="i">
-<li>Os dados do voo incluem a sua missão, data e o nome e função de todos os tripulantes</li>
-<li>A lista de tripulantes inclui o nome, função e estado atual de cada tripulante</li>
-</ol></li>
-</ol></li>
-<li>Mudar estado de tripulante
-<ol type="a">
-<li>Recebe id do tripulante</li>
-<li>Comuta o estado desse tripulante para o contrário do que está</li>
-</ol></li>
-</ol>
-</section>
-<section id="formato-dos-ficheiros" class="level1">
-<h1>Formato dos ficheiros</h1>
+<section id="funções" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Funções</h1>
 <ul>
-<li>Tripulantes
-<ul>
-<li>cada tripulante em cada linha</li>
-<li>id estado função nome</li>
-<li>e.g.</li>
-</ul>
-<pre class="text"><code>135531 1 1 João Silva
-136535 0 5 Maria Santos</code></pre></li>
-<li>Voo
-<ul>
-<li>cada campo em cada linha
-<ul>
-<li>id do voo</li>
-<li>id do tipo de missão</li>
-<li>data</li>
-<li>ids dos tripulantes, um por linha</li>
-</ul></li>
-<li>cada voo separado por “% % % % %”</li>
-<li>exemplo</li>
-</ul>
-<pre class="text"><code>1
-2
-2023-05-17
-135658
-136797
-% % % % %
-2
-5
-2023-04-13
-135658
-% % % % %</code></pre></li>
-<li>Tipos de missão
-<ul>
-<li>cada campo em cada linha
-<ul>
-<li>id do tipo de missão</li>
-<li>nome do tipo de missão</li>
-<li>número de tripulantes</li>
-<li>ids das funções, um por linha</li>
-</ul></li>
-<li>exemplo</li>
-</ul>
-<pre class="text"><code>1
-Transporte de Doentes
-4
-1
-2
-5
-6
-% % % % %
-2
-Transporte de Carga
-3
-1
-2
-4
-% % % % %</code></pre></li>
-<li>Funções
-<ul>
-<li>cada função numa linha</li>
-<li>campos separados por espaço</li>
-<li>exemplo</li>
-</ul>
-<pre class="text"><code>1 Piloto
-2 Co-Piloto
-3 Navegador
-4 Load Master
-5 Médico
-6 Enfermeiro</code></pre></li>
+<li><p>Declaração de função</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tipo_retorno nome_função <span class="op">(</span>tipo_parametro1 nome_parametro1<span class="op">,</span> tipo_parametro2 nome_parametro2<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// bloco de código</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Chamada de função</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> funcao<span class="op">(</span>parametro1<span class="op">,</span> parametro2<span class="op">);</span> <span class="co">// se funcao devolvesse um int</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
-<section id="notas" class="level1">
-<h1>Notas</h1>
+<section id="vetores" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Vetores</h1>
 <ul>
-<li>Se for conveniente, podes assumir que nunca existirão mais de 500 tripulantes e 1000 voos em sistema.</li>
-<li>Pode ajudar manter a base de dados dos voos ordenada por data.</li>
-<li>Não usar qualquer biblioteca além das que foram introduzidas nas aulas sem aprovação do docente.</li>
+<li><p>Declaração de vetor</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> vetor<span class="op">[</span><span class="dv">10</span><span class="op">];</span> <span class="co">// declara vetor de inteiros com 10 posições</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Acesso a posição do vetor</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>vetor<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// acessa a primeira posição do vetor e atribui 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Vetores e funções</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> vetor<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>funcao<span class="op">(</span>vetor<span class="op">);</span> <span class="co">// passa o vetor como parâmetro</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> funcao<span class="op">(</span><span class="dt">int</span> vetor<span class="op">[])</span> <span class="op">{</span> <span class="co">// recebe o vetor como parâmetro</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// função não sabe o tamanho do vetor</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// alterações ao vetor são persistentes</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
-<section id="entrega-do-trabalho" class="level1">
-<h1>Entrega do trabalho</h1>
+<section id="vetores-multidimensionais" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Vetores multidimensionais</h1>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> matriz<span class="op">[</span><span class="dv">10</span><span class="op">][</span><span class="dv">10</span><span class="op">];</span> <span class="co">// declara matriz de inteiros com 10 linhas e 10 colunas</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>matriz<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// acessa a primeira linha e primeira coluna da matriz e atribui 1</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> b <span class="op">=</span> matriz<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">0</span><span class="op">];</span> <span class="co">// acessa a primeira linha e primeira coluna da matriz e atribui a b</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> matriz<span class="op">[</span><span class="dv">10</span><span class="op">][</span><span class="dv">10</span><span class="op">][</span><span class="dv">10</span><span class="op">];</span> <span class="co">//vetor tridimensional</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>funcao<span class="op">(</span>matriz<span class="op">);</span> <span class="co">// passa a matriz como parâmetro</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> funcao<span class="op">(</span><span class="dt">int</span> matriz<span class="op">[][</span><span class="dv">10</span><span class="op">][</span><span class="dv">10</span><span class="op">])</span> <span class="op">{</span> <span class="co">// recebe a matriz como parâmetro</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// obrigatório indicar o tamanho de todas as dimensões menos a primeira</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// alterações à matriz são persistentes</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">// VLAs (Variable Length Arrays)</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> funcao<span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> z<span class="op">,</span> <span class="dt">int</span> matriz<span class="op">[</span>x<span class="op">][</span>y<span class="op">][</span>z<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// alterações à matriz são persistentes</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="strings" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Strings</h1>
 <ul>
-<li>O trabalho deve implementar uma aplicação para o problema enunciado. Os ficheiros de código (.c e .h) assim como documentação auxiliar (.txt, .pdf) são submetidos pelo chefe do grupo no Moodle. Ficheiros a submeter:
+<li><p>Declaração de string</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> string<span class="op">[</span><span class="dv">10</span><span class="op">];</span> <span class="co">// declara string de 10 caracteres</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> string<span class="op">[</span><span class="dv">10</span><span class="op">]</span> <span class="op">=</span> <span class="st">&quot;ola&quot;</span><span class="op">;</span> <span class="co">// declara e inicializa string</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> string<span class="op">[</span><span class="dv">10</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="ch">&#39;o&#39;</span><span class="op">,</span> <span class="ch">&#39;l&#39;</span><span class="op">,</span> <span class="ch">&#39;a&#39;</span><span class="op">,</span> <span class="ch">&#39;</span><span class="sc">\0</span><span class="ch">&#39;</span><span class="op">};</span> <span class="co">// declara e inicializa string</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>string.h</p></li>
+</ul>
+<table class="table">
+<caption>Funções úteis da string.h</caption>
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Função</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>strlen(string)</td>
+<td>retorna o tamanho da string</td>
+</tr>
+<tr class="even">
+<td>strcpy(string1, string2)</td>
+<td>copia string2 para string1</td>
+</tr>
+<tr class="odd">
+<td>strcat(string1, string2)</td>
+<td>concatena string2 a string1</td>
+</tr>
+<tr class="even">
+<td>strcmp(string1, string2)</td>
+<td>compara string1 com string2, devolve 0 se forem iguais, &lt; 0 se string1 &lt; string2 e &gt; 0 se string1 &gt; string2</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="apontadores" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Apontadores</h1>
+<div class="sourceCode" id="cb17"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="op">*</span>p<span class="op">;</span> <span class="co">// declara ponteiro para inteiro</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="op">&amp;</span>a<span class="op">;</span> <span class="co">// ponteiro recebe o endereço de memória da variável a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="op">*</span>p<span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="op">&amp;</span>a<span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">*</span>p<span class="op">);</span> <span class="co">// imprime o valor apontado por ponteiro</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="alocação-dinâmica-de-memória" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Alocação dinâmica de memória</h1>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="op">*</span>p<span class="op">;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="op">(</span><span class="dt">int</span> <span class="op">*)</span> malloc<span class="op">(</span><span class="dv">1</span> <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">));</span> <span class="co">// aloca memória para um inteiro</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>free<span class="op">(</span>ponteiro<span class="op">);</span> <span class="co">// libera a memória alocada para ponteiro</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="estruturas" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Estruturas</h1>
 <ul>
-<li>todos os ficheiros .c e .h necessários para a compilação e execução do programa;</li>
-<li>todos os ficheiros necessários para a execução do programa (e.g. ficheiros de configuração, devem ser do tipo .txt);</li>
-<li>um manual de utilização MANUAL.pdf com uma descrição simples e curta de como utilizar o programa (é o documento que um utilizador iria ler para aprender a utilizar o programa);</li>
-<li>um relatório REPORT.pdf simples e curto sobre como implementaram as diversas funcionalidades e as decisões que tomaram, e onde se clarifica a estrutura do código (e.g. o ficheiro comandos.c contém as funções que manipulam a lista de comandos, grava a lista em ficheiro; optámos por manter a base de dados dos voos ordenada porque…; a estratégia para exportar os relatórios para ficheiro foi….; etc.);</li>
-</ul></li>
-<li>Caso necessário, irão ocorrer discussões para defesa dos trabalhos.</li>
+<li><p>Declaração de estrutura</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> nome_estrutura <span class="op">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    tipo1 nome1<span class="op">;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    tipo2 nome2<span class="op">;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Acesso a campo da estrutura</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> nome_estrutura variavel<span class="op">;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>variavel<span class="op">.</span>nome1 <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// acessa o campo nome1 da variável variavel e atribui 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Estruturas e apontadores</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> nome_estrutura <span class="op">*</span>ponteiro<span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ponteiro <span class="op">=</span> <span class="op">&amp;</span>variavel<span class="op">;</span> <span class="co">// ponteiro recebe o endereço de memória da variável variavel</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ponteiro<span class="op">-&gt;</span>nome1 <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// acessa o campo nome1 da variável apontada por ponteiro e atribui 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><code>typedef</code></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> nome_estrutura <span class="op">{</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    tipo1 nome1<span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    tipo2 nome2<span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> NomeEstrutura<span class="op">;</span> <span class="co">// NomeEstrutura passa a ser um tipo</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>NomeEstrutura variavel<span class="op">;</span> <span class="co">// declara variável do tipo NomeEstrutura</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> funcao<span class="op">(</span>NomeEstrutura x<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// bloco de código</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>NomeEstrutura funcao2<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    temp <span class="op">=</span> NomeEstrutura<span class="op">;</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> temp<span class="op">;</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
-<section id="critérios-de-avaliação" class="level1">
-<h1>Critérios de avaliação</h1>
+<section id="ficheiros" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Ficheiros</h1>
 <ul>
-<li>A avaliação do trabalho será feita de acordo com os seguintes princípios:
+<li><p>Abertura e fecho de ficheiro</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">FILE</span> <span class="op">*</span>ficheiro<span class="op">;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ficheiro <span class="op">=</span> fopen<span class="op">(</span><span class="st">&quot;nome_ficheiro&quot;</span><span class="op">,</span> <span class="st">&quot;modo_abertura&quot;</span><span class="op">);</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">// abre o ficheiro nome_ficheiro no modo modo_abertura</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">// se devolver NULL, não foi possível abrir o ficheiro</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>fclose<span class="op">(</span>ficheiro<span class="op">);</span> <span class="co">// fecha o ficheiro</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>fcloseall<span class="op">();</span> <span class="co">// fecha todos os ficheiros abertos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Modos de abertura de ficheiro</p>
 <ul>
-<li>O programa deve estar estruturado em funções consideradas necessárias para a resolução do problema. O programa deve estar dividido em vários ficheiros quando for relevante.</li>
-<li>O programa pode e deve reutilizar código tanto quanto possível e for adequado.</li>
-<li>O programa deve executar todas as funcionalidades tal como pedido.</li>
-<li>Devem ser escolhidos nomes apropriados para os tipos de dados, operações, variáveis e constantes de modo a facilitar o entendimento do programa. A formatação do código é importante.</li>
-<li>O código deve ser comentado. Todas as funções devem ter um breve comentário sobre a sua função, imediatamente abaixo do cabeçalho.</li>
-<li>Devem ser utilizadas as estruturas de dados (e.g. vectores, registos) apropriadas para cada problema.</li>
+<li>Para ficheiros binários, acrescentar b ao modo de abertura, e.g. “rb”, “wb”, “ab”, “rb+”, “wb+”, “ab+”.</li>
 </ul></li>
 </ul>
-</section>
-<section id="grelha-de-avaliação-preliminar" class="level1">
-<h1>Grelha de avaliação (preliminar)</h1>
+<table class="table">
+<caption>Modos de abertura de ficheiro</caption>
+<thead>
+<tr class="header">
+<th>Modo</th>
+<th>Leitura</th>
+<th>Escrita</th>
+<th>Criação</th>
+<th>Posicionamento</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>r</td>
+<td>Sim</td>
+<td>Não</td>
+<td>Não</td>
+<td>Início</td>
+</tr>
+<tr class="even">
+<td>w</td>
+<td>Não</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Início</td>
+</tr>
+<tr class="odd">
+<td>a</td>
+<td>Não</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Fim</td>
+</tr>
+<tr class="even">
+<td>r+</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Não</td>
+<td>Início</td>
+</tr>
+<tr class="odd">
+<td>w+</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Início</td>
+</tr>
+<tr class="even">
+<td>a+</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Fim</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>[6] Genérico
-<ul>
-<li>[1] Manual de utilização</li>
-<li>[1] Relatório</li>
-<li>[2] Legibilidade/Comentários/Reutilização de código</li>
-<li>[2] Estrutura do programa</li>
-</ul></li>
-<li>[2] Importar
-<ul>
-<li>[1] Importar tripulantes</li>
-<li>[1] Importar voos</li>
-</ul></li>
-<li>[4] Marcar voo</li>
-<li>[7] Listar
-<ul>
-<li>[1] Listar todos os voos</li>
-<li>[2] Listar voos entre datas</li>
-<li>[1] Listar todos os tripulantes</li>
-<li>[1] Listar tripulantes por estado</li>
-<li>[2] Exportar listas</li>
-</ul></li>
-<li>[1] Mudar estado de tripulante</li>
+<li><p>Leitura e escrita formatada ```c int a = 10; float b = 3.14; char c = ‘a’; // escreve no ficheiro os valores de a, b e c fprintf(ficheiro, “%d %f %c”, a, b, c); // lê do ficheiro os valores de a, b e c // devolve EOF se apanhar o fim do ficheiro fscanf(ficheiro, “%d %f %c”, &amp;a, &amp;b, &amp;c);</p>
+<p>char linha[100]; // lê uma linha do ficheiro (ou um máximo de 100 char) e guarda em linha // devolve NULL se apanhar o fim do ficheiro fgets(linha, 100, ficheiro);</p>
+<p>fgetc(ficheiro); // lê um char do ficheiro fputc(‘a’, ficheiro); // escreve um char no ficheiro fputs(“ola”, ficheiro); // escreve uma string no ficheiro ```</p></li>
+<li><p>Leitura e escrita ficheiros binários</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n_lidos<span class="op">,</span> n_escritos<span class="op">;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="dt">FILE</span> <span class="op">*</span>ficheiro <span class="op">=</span> fopen<span class="op">(</span><span class="st">&quot;nome_ficheiro&quot;</span><span class="op">,</span> <span class="st">&quot;wb&quot;</span><span class="op">);</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>n_escritos<span class="op">=</span>fwrite<span class="op">(&amp;</span>a<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">),</span> <span class="dv">1</span><span class="op">,</span> ficheiro<span class="op">);</span> <span class="co">// escreve no ficheiro o valor de a</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>fclose<span class="op">(</span>ficheiro<span class="op">);</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>ficheiro <span class="op">=</span> fopen<span class="op">(</span><span class="st">&quot;nome_ficheiro&quot;</span><span class="op">,</span> <span class="st">&quot;rb&quot;</span><span class="op">);</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>n_lidos<span class="op">=</span>fread<span class="op">(&amp;</span>a<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">),</span> <span class="dv">1</span><span class="op">,</span> ficheiro<span class="op">);</span> <span class="co">// lê do ficheiro o valor de a</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>fclose<span class="op">(</span>ficheiro<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Posicionamento no ficheiro</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">// posiciona o cursor no ficheiro na posição 10</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fseek<span class="op">(</span>ficheiro<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> SEEK_SET<span class="op">);</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">// posiciona o cursor no ficheiro 10 posições à frente da posição atual</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>fseek<span class="op">(</span>ficheiro<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> SEEK_CUR<span class="op">);</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">// posiciona o cursor no ficheiro 10 posições antes do fim do ficheiro</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>fseek<span class="op">(</span>ficheiro<span class="op">,</span> <span class="op">-</span><span class="dv">10</span><span class="op">,</span> SEEK_END<span class="op">);</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ftell<span class="op">(</span>ficheiro<span class="op">);</span> <span class="co">// devolve a posição atual do cursor no ficheiro</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>rewind<span class="op">(</span>ficheiro<span class="op">);</span> <span class="co">// posiciona o cursor no início do ficheiro</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
 

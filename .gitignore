@@ -14,3 +14,5 @@ slides/demo.html
 slides/test/
 slides/examples/
 /.quarto/
+
+*_hide*
