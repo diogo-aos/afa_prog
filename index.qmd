@@ -44,7 +44,7 @@ format:
     - break, continue - 7min, [Loom](https://www.loom.com/share/cc6c4759e0d146a7beca0bf6eab39838)
     - ciclos infinitos - 3min, [Loom](https://www.loom.com/share/fd69abb573e249db86cec288fa71bcd1)
 7. [Tipos básicos do C](#/7_basic_types)
-  - [Slides](markdown/7_basic_types.html)
+  - [Slides](markdown/7_basic_types.qmd)
 8. Funções
   - [Slides, PDF](pdf/05_funcoes.pptx.pdf)
   - Videos
@@ -52,11 +52,11 @@ format:
     2. [Caracteristicas - 3min](https://www.loom.com/share/cbd82b399f684b03b4b2fba6fed51ed6)
     3. [Exemplos, mais caracteristicas - 6min](https://www.loom.com/share/77f9f39daa334be8bd95f4729feac9e0)
     4. [Parâmetros - 9min](https://www.loom.com/share/1586bc9c822c4822aa1bc80ede29ca37)
-      1. Intro teórica - 2min
-      2. Demo - 4min
-      3. Tipos - 1min
-      4. Erros de compilador - 1min
-      5. Return - 1min
+        - Intro teórica - 2min
+        - Demo - 4min
+        - Tipos - 1min
+        - Erros de compilador - 1min
+        - Return - 1min
     5. [Protótipos - 2min](https://www.loom.com/share/9951e3a62822415f904cd20afa0bc180)
     6. [Demo - 4min](https://www.loom.com/share/ee1c7a5efc354011a5d9a2088cbb0cc0)
     7. [Variáveis globais - 4min](https://www.loom.com/share/716217fc1f724df39eebb312d5c2cebf)
@@ -68,17 +68,17 @@ format:
     1. [Intro, criar, mudar - 5min](https://www.loom.com/share/72db64a535b2489ba91d65010bfadc63)
     2. [Arrays e funções - 5min](https://www.loom.com/share/2ce3044d564e49f9bd11c4ca138e6851)
     3. [Demo exercício salários - 14min](https://www.loom.com/share/2583c4a69d0141de8f1a1271ad92c9e1)
-      a. 00:00 explicar enunciado
-      b. 01:10 inicio da solução
-      c. 02:28 função pedir salarios
-      d. 04:05 função para mostrar salários
-      e. 07:25 função para somar salários
-      f. 9:30 função para a média dos salários
-      g. 11:56 utilizador indica quantos salários quer introduzir
+        - 00:00 explicar enunciado
+        - 01:10 inicio da solução
+        - 02:28 função pedir salarios
+        - 04:05 função para mostrar salários
+        - 07:25 função para somar salários
+        - 9:30 função para a média dos salários
+        - 11:56 utilizador indica quantos salários quer introduzir
     4. [_Arrays_ multi-dimensionais - 4min](https://www.loom.com/share/9316e9020fa74a409f6c492d69dc7b76)
     5. [Demo _Arrays_ multi-dimensionais - 10min](https://www.loom.com/share/2c9dfef1a9f64ae7b84092c4111933cc)
-      1. 0:00 explicação do enunciado
-      2. 0:56 inicio do resolução
+        - 0:00 explicação do enunciado
+        - 0:56 inicio do resolução
     6. [Erros comuns, VLAs - 5min](https://www.loom.com/share/a5ef7a580a604309b9b3938e3b47552e)
 10. [Strings](#/string)
 - [Videos](#/string_videos)
@@ -129,7 +129,9 @@ format:
     2. [Ficheiros de texto](https://www.loom.com/share/8c334b2f99464207b1c9add3f1a4c1ab)
     3. [Texto demo](https://www.loom.com/share/7181d4a0a92c4bcca7210e693419e9a0)
     4. [Ficheiros binários](https://www.loom.com/share/b40a7131473447f8a14373b36df6a0a5)
-      1. Errata: eu digo que o valor de retorno de fread e fwrite é o número de bytes. Na verdade é o número de items lidos. Só é o número de bytes se o tamanho dos items for 1 byte.
+
+        > **Errata**: eu digo que o valor de retorno de fread e fwrite é o número de bytes. Na verdade é o número de items lidos. Só é o número de bytes se o tamanho do item for 1 byte.
+    
     5. [Binários demo](https://www.loom.com/share/2e168ff6137a4f4882a5ef52cb63ffbd)
 
 14. Memória
@@ -138,9 +140,15 @@ format:
     - Intro, [Loom](https://www.loom.com/share/2c9e5aa739764e05a8cb664ad0d5afef), [SharePoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG_GERAL/ETOY2CT6fItCq5puj37XmCoBXsxgD4y83VAKejGOrgV4OQ?e=CymNfq)
     - malloc, calloc, free, [Loom](https://www.loom.com/share/35d2a5b215e84870889b33be33f2ef27), [SharePoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG_GERAL/EQFff4qsSb9Dn-ReH2UCUWYB2bMqoVvixznqL5trHK9Nww?e=0VglTO)
 
-15. [Dynamic Data Structures](markdown/15_data_structs_slides.html)
+15. Estruturas de Dados Dinâmicas
+  - [Slides](markdown/15_data_structs.qmd)
+  - Demo lista ligada simples
+    - Parte 1 [18min], [Loom](https://www.loom.com/share/3799c929dc2c4c088379b7348c578f23), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EQchSjaLg6tBj-ExwuXsI8QBeuZJLwfb6KGVcpGbD6olsg?e=ZBCv1K)
+    - Parte 2 [10min], [Loom](https://www.loom.com/share/0a066eabbef54218b82de895c08b785f), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EQvJbvk6HYlEodPTQMOdWS4BfqlZSs_CTtLuTa7fMglcUg?e=bZ58Vg)
+
+
 16. [Extra](#/extra)
-17. [Exercícios](exercicios.html)
+17. [Exercícios](exercicios.qmd)
 
 
 ---

@@ -1,16 +1,28 @@
 project:
+  type: website
   output-dir: docs
   render:
     - "*.qmd"
+    - "*.md"
     - "!*hide*.qmd"
+  resources: 
+    - "*.pdf"
 
 execute:
   freeze: auto  # re-render only when source changes
 
 toc: true
-number-sections: true
+#number-sections: true
 #bibliography: references.bib  
-  
+
+
+website:
+  title: "Programação"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+
 format: 
   html:
     toc: true

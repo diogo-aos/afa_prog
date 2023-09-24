@@ -1,0 +1,26 @@
+---
+title: "Programação 22/23 S2"
+subtitle: "Guia Exame Oral - Componente prática"
+institute: "Academia da Força Aérea"
+author: CAP Diogo Silva
+#date: "07 de julho de 2023"
+format:
+    pdf:
+        toc: false
+    html:
+        toc: true
+        toc-depth: 3
+        code-fold: true
+        html-math-method: katex
+        embed-resources: true
+---
+
+# Laboratórios
+
+- Escreva uma estrutura para uma lista duplamente ligada com 3 dados reais: _timestamp_ (marca temporal em segundos), x e y (em metros), correspondendo a um ponto num plano cartesiano.
+- Escreva uma função que recebe a cabeça de uma lista duplamente ligada (que tem como conteúdo as coordenadas com a respetiva marca temporal de uma detemrinada viagem), e devolve a duração da viagem em minutos.
+- Altera a estrutura para ter mais um campo, a velocidade atual (em m/s).
+- Altere a função para calcular a velocidade para cada ponto (nó da lista).
+- Adicione outro campo à estrutura, a distância ao destino.
+- Altere a função para receber mais um parâmetro, o destino, e calcular a distância ao destino para cada ponto (nó da lista).
+    - Escreva uma função auxiliar que recebe 2 pontos e calcula a distância entre eles. Pode usar as funções `sqrt` e `pow` da biblioteca `math.h`.

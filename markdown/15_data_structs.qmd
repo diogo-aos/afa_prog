@@ -1,23 +1,13 @@
 ---
 title: "Estruturas de Dados Dinâmicas"
-#subtitle: "Laboratório 3"
 institute: "Academia da Força Aérea"
 author: CAP Diogo Silva
 email: "dasilva@academiafa.edu.pt"
 logo: "afa.svg"
-
 format:
     revealjs:
         theme: "serif"
         slideNumber: true
-        html-math-method: katex
-        embed-resources: true
-        output-file: 15_data_structs_slides.html
-    html:
-        theme: "sandstone"
-        toc: true
-        toc-depth: 3
-        code-fold: true
         html-math-method: katex
         embed-resources: true
 ---

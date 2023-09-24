@@ -12,14 +12,14 @@ format:
         slideNumber: true
         html-math-method: katex
         embed-resources: true
-    html:
-        theme: "sandstone"
-        toc: true
-        toc-depth: 3
-        code-fold: true
-        html-math-method: katex
-        embed-resources: true
-        output-file: 7_basic_types_doc.html
+    # html:
+    #     theme: "sandstone"
+    #     toc: true
+    #     toc-depth: 3
+    #     code-fold: true
+    #     html-math-method: katex
+    #     embed-resources: true
+    #     output-file: 7_basic_types_doc.html
 ---
 ## Tipos básicos do C
 
