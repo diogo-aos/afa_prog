@@ -2,6 +2,7 @@
 format:
   html:
     embed-resources: true
+  pdf: default
 ---
 
 # Navegação

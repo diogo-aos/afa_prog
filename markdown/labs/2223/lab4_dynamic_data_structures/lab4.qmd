@@ -10,6 +10,7 @@ format:
     code-fold: true
     html-math-method: katex
     embed-resources: true
+  pdf: default
 ---
 
 # Laboratório 4 - Carregar base de dados
