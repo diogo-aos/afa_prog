@@ -1,0 +1,62 @@
+---
+title: "Apresentação da UC Programação"
+institute: "Academia da Força Aérea"
+author: Diogo Silva
+email: "dasilva@academiafa.edu.pt"
+#logo: "img/afa.png"
+format:
+    html: default
+    revealjs: default
+    beamer:
+        toc: false
+    pdf: default
+format-links: true
+---
+
+
+## Equipa
+
+- CAP Diogo Silva 
+    - 501753
+    - [dasilva@academiafa.edu.pt](mailto:dasilva@academiafa.edu.pt)
+- TEN Gabriel Santos
+    - 500xxx
+    - [gcsantos@academiafa.edu.pt](mailto:gcsantos@academiafa.edu.pt)
+
+## Avaliação
+
+| Peso | Descrição |
+| ---- | ---- |
+| 20% | 4 laboratórios x 5% |
+| 40% | Projecto [^projecto] |
+| 40% | Teste [^oral] |
+
+
+[^projecto]: Todos os elementos de um grupo são responsáveis pelo trabalho de grupo.
+
+[^oral]: Numa avaliação oral, qualquer aluno deverá ser capaz e apresentar e responder a perguntas sobre toda a avaliação.
+
+
+---
+
+- Nota mínima de 9,5 em cada componente:
+    - Teórica = teste
+    - Prática = média dos laboratórios com o projecto (20%/40%) normalizada a 20 valores
+
+## Laboratórios
+
+- Lab 1 | Tipos, decisões, funções e ciclos.
+- Lab 2 | Arrays e strings.
+- Lab 3 | Pointers, struct e ficheiros.
+- Lab 4 | Alocação de memória e estruturas dinâmicas.
+
+## Exame
+
+- Incide sobre as componentes reprovadas.
+
+
+## Bibliografia
+
+- Luís Damas, Linguagem C, FCA [qualquer ano]
+- “C Programming: A Modern Approach, 2nd Edition”, K. N. King, 2008.
+- Brian W. Kernighan, Dennis M. Ritchie, The C programming language, 2nd Edition, Prentice-Hall, 1988

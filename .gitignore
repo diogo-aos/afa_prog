@@ -13,6 +13,11 @@ node_modules/
 slides/demo.html
 slides/test/
 slides/examples/
-/.quarto/
+
 
 *_hide*
+
+
+/.quarto/
+.mypy_cache/
+.vscode/

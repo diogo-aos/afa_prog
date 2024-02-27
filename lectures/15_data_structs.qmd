@@ -1,0 +1,253 @@
+---
+title: "Estruturas de Dados Dinâmicas"
+institute: "Academia da Força Aérea"
+author: CAP Diogo Silva
+email: "dasilva@academiafa.edu.pt"
+logo: "afa.svg"
+format:
+    html: default
+    revealjs: default
+---
+
+
+
+## Estruturas estáticas
+
+Estruturas de dados que vimos:
+
+- array
+- string (=array)
+- struct
+
+. . .
+
+Estas estruturas são estáticas, i.e. o seu tamanho é fixo e definido no início.
+
+```c
+int mat[10][10];
+char frase[200];
+struct aluno {
+    char nome[50];
+    int nip;
+}
+```
+
+---
+
+## Alocação dinâmica de memória
+
+Com alocação dinâmica de memória, aprendemos a criar estruturas de dados
+com um _tamanho definido durante a execução do programa_.
+
+```c
+// allocate array, vec_size=size of vector
+int * vect = calloc(vec_size, sizeof(int));
+
+// allocate bidimensional array
+// dim1_size = #lines, dim2_size = #cols
+int ** mat = calloc(dim1_size, sizeof(int*));
+for(int i=0; i<dim1_size; i++)
+    mat[i] = calloc(dim2_size, sizeof(int));
+```
+
+---
+
+
+Mas depois de criadas, o tamanho destas estruturas não é alterado[^1],
+i.e. um array não pode crescer ou diminuir conforme a necessidade.
+
+
+[^1]: a função realloc muda um pouco esta dinâmica
+
+
+
+---
+
+## E as estruturas dinâmicas?
+Estas crescem e diminuem conforme adicionamos ou removemos dados.
+
+Além disso, a forma de organização e ligação entre os dados permite
+otimizar o tempo de várias operações ou o espaço ocupado. 
+
+---
+
+## Estruturas de dados dinâmicas
+
+- Lista ligada simples
+- Lista duplamente ligada
+- Fila (queue)
+- Pilha (stack)
+- entre muitas outras...
+
+
+## Lista ligada simples
+
+Um conjunto de elementos ligados não pela sua posição na memória (array),
+mas por **referências explicitas entre elementos**.
+
+
+
+## Lista ligada simples
+
+![Diagrama de lista ligada simples](img/cap15/linked-list.svg){fig-align="center"}
+
+- HEAD aponta para o elemento inicial da lista.
+- Cada elemento aponta para o elemento seguinte (apontador).
+
+
+## Algumas caracteristicas 1/2
+::: {.incremental}
+
+- O último elemento aponta sempre para `NULL`.
+    - Se a lista estiver vazia, `HEAD` aponta para `NULL`.
+- Só podemos percorrer a lista numa direção
+- se quisermos o elemento na posição X, temos de percorrer
+    todos os elementos nas posições $[0,X[$
+:::
+
+## Algumas caracteristicas 2/2
+::: {.incremental}
+
+
+- sempre que removemos um elemento da lista, não esquecer de libertar a memória.
+- Sempre que removemos um elemento
+    -   libertar e memória associada.
+    -   mudar a referência da lista que apontava para esse elemento
+:::
+
+## Lista ligada simples
+
+Os elementos de uma lista ligada também são frequentemente denominados por nós.
+
+. . .
+
+Um nó pode ser implementado com `struct`.
+
+```c
+struct node {
+    int data;
+    struct node * next;
+}
+```
+
+![Diagrama de um nó de lista ligada simples.](img/cap15/linked-list-node.svg){fig-align="center"}
+
+
+
+## Exemplo
+
+- Criar lista e primeiro nó
+
+```c
+struct node * head;
+
+
+head = malloc(sizeof(struct node));
+head->data = 42;
+head->next = NULL;
+```
+
+. . .
+
+- Criar segundo nó
+
+```c
+struct node * b = malloc(sizeof(struct node));
+b->data = 87;
+b->next = NULL;
+```
+
+. . .
+
+- Adicionar segundo nó à lista
+
+```c
+// adicionar b à lista
+head->next = b;
+```
+
+---
+
+## Algumas operações em listas ligadas
+
+- inserir novo elemento em determinada posição
+- eliminar elemento em determinada posição
+- tirar elemento de determinada posição
+- procurar nó por valor
+- contar número de nós
+
+
+
+---
+
+## Demo implementação
+
+- Gravação em aula
+    - Parte 1 [18min], [Loom](https://www.loom.com/share/3799c929dc2c4c088379b7348c578f23), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EQchSjaLg6tBj-ExwuXsI8QBeuZJLwfb6KGVcpGbD6olsg?e=ZBCv1K)
+    - Parte 2 [10min], [Loom](https://www.loom.com/share/0a066eabbef54218b82de895c08b785f), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EQvJbvk6HYlEodPTQMOdWS4BfqlZSs_CTtLuTa7fMglcUg?e=bZ58Vg)
+
+---
+
+## Lista duplamente ligada
+
+Em tudo igual à lista ligada simples,
+mas cada nó aponta para o elemento anterior e para o seguinte.
+
+. . .
+
+![Diagram de um nó](img/cap15/doubly-linked-list-node.svg){fig-align="center"}
+
+. . .
+
+![Diagrama de como os nós se ligam](img/cap15/doubly-linked-list.svg){fig-align="center"}
+
+---
+
+## Fila
+### (queue)
+
+- Parecida com uma lista ligada, mas os elementos são sempre adicionados no fim e retirados do início.
+- O primeiro elemento a entrar é o primeiro elemento a sair (FIFO - _first in first out_)
+
+---
+
+## Fila
+
+::: columns
+
+::: column
+![Adicionar um nó](img/cap15/stack-push.svg){fig-align="center"}
+:::
+
+::: column
+![Remover um nó](img/cap15/stack-pop.svg){fig-align="center"}
+
+:::
+
+:::
+
+---
+
+
+## Pilha
+### (stack)
+
+- Parecida com uma lista ligada, mas os elementos são sempre adicionados no fim e retirados do fim, ou adicionados no início e retirados do início.
+- O último elemento a entrar é o primeiro elemento a sair (LIFO - _last in first out_)
+
+---
+
+## Pilha
+
+::: columns
+
+::: column
+![Adicionar um nó](img/cap15/queue-enqueue.svg){fig-align="center"}
+:::
+
+::: column
+![Remover um nó](img/cap15/queue-dequeue.svg){fig-align="center"}
+
+:::
+
+:::

@@ -1,0 +1,169 @@
+---
+title: "Programação"
+institute: "Academia da Força Aérea"
+author: CAP Diogo Silva
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    html-math-method: katex
+    embed-resources: true
+---
+
+
+# Links úteis
+
+- [Replit PROG](https://replit.com/team/prog-2223-spring)
+- [Teams PROG](https://teams.microsoft.com/l/team/19%3adZZ31rCQAvu0eEXj_VSCSn5L8nacNUAkkRmGhTqEFuk1%40thread.tacv2/conversations?groupId=696ce216-60a9-4f1e-87fb-296d6bafc8a2&tenantId=134d2a6d-3191-4c4a-a80b-1b18cb5bdba1)
+- [Ficheiros SharePoint](https://academiafaedupt.sharepoint.com/sites/PROG2223Spring/Documentos%20Partilhados/Forms/AllItems.aspx?id=%2Fsites%2FPROG2223Spring%2FDocumentos%20Partilhados%2FGeneral&viewid=9162f8b4%2Def01%2D49b3%2D97a7%2D13cb7be9b804)
+- [Setup VSCode locally](https://www.youtube.com/watch?v=HiyfEbbCWT4)
+
+
+# Aulas
+
+1. Apresentação da UC
+  - [Slides](pdf/00_apresentacao_UC.pptx.pdf)
+2. C Fundamentals
+  - [Slides](markdown/2_fundamentals.html)
+3. Leitura e escrita formatada
+  - [Slides](markdown/3_formated_io.html)
+4. Expressões
+  - [Slides](markdown/4_expressoes.html)
+5. Testes e Condições
+  - [Slides](pdf/03_testes_condicoes.pptx.pdf)
+6. Ciclos
+  - [Videos](markdown/06_ciclos.hmtl)
+  - Videos
+    - Intro - 1min, [Loom](https://www.loom.com/share/48dd9bb7662343159bb581f499debdc0)
+    - while - 7min, [Loom](https://www.loom.com/share/2b435d2ec2da4165ae5e943a9dc36182)
+    - do while - 4min, [Loom](https://www.loom.com/share/69275e49f264496d85c0fde6389f1dd6)
+    - for - 6min, [Loom](https://www.loom.com/share/fb94b099d5f04023b024a243b3dfa376)
+    - for demo - 3min, [Loom](https://www.loom.com/share/3512230a0dc949dd80054172b6e5d1bf)
+    - for demo 2 - 5min, [Loom](https://www.loom.com/share/4a77c55a3af34b6b9e06f7047ade10b1)
+    - break, continue - 7min, [Loom](https://www.loom.com/share/cc6c4759e0d146a7beca0bf6eab39838)
+    - ciclos infinitos - 3min, [Loom](https://www.loom.com/share/fd69abb573e249db86cec288fa71bcd1)
+7. [Tipos básicos do C](#/7_basic_types)
+  - [Slides](markdown/7_basic_types.qmd)
+8. Funções
+  - [Slides, PDF](pdf/05_funcoes.pptx.pdf)
+  - Videos
+    1. [Intro - 3min](https://www.loom.com/share/28199e9e95b548db82288bd28de587e0)
+    2. [Caracteristicas - 3min](https://www.loom.com/share/cbd82b399f684b03b4b2fba6fed51ed6)
+    3. [Exemplos, mais caracteristicas - 6min](https://www.loom.com/share/77f9f39daa334be8bd95f4729feac9e0)
+    4. [Parâmetros - 9min](https://www.loom.com/share/1586bc9c822c4822aa1bc80ede29ca37)
+        - Intro teórica - 2min
+        - Demo - 4min
+        - Tipos - 1min
+        - Erros de compilador - 1min
+        - Return - 1min
+    5. [Protótipos - 2min](https://www.loom.com/share/9951e3a62822415f904cd20afa0bc180)
+    6. [Demo - 4min](https://www.loom.com/share/ee1c7a5efc354011a5d9a2088cbb0cc0)
+    7. [Variáveis globais - 4min](https://www.loom.com/share/716217fc1f724df39eebb312d5c2cebf)
+    8. [Exercício variáveis globais - 4min](https://www.loom.com/share/1bd159b2d98548d980cf061986c51482)
+9. Arrays
+  - [Slides, PDF](pdf/06_arrays.pptx.pdf)
+  - [Slides, extra](markdown/09_arrays.html)
+  - Videos
+    1. [Intro, criar, mudar - 5min](https://www.loom.com/share/72db64a535b2489ba91d65010bfadc63)
+    2. [Arrays e funções - 5min](https://www.loom.com/share/2ce3044d564e49f9bd11c4ca138e6851)
+    3. [Demo exercício salários - 14min](https://www.loom.com/share/2583c4a69d0141de8f1a1271ad92c9e1)
+        - 00:00 explicar enunciado
+        - 01:10 inicio da solução
+        - 02:28 função pedir salarios
+        - 04:05 função para mostrar salários
+        - 07:25 função para somar salários
+        - 9:30 função para a média dos salários
+        - 11:56 utilizador indica quantos salários quer introduzir
+    4. [_Arrays_ multi-dimensionais - 4min](https://www.loom.com/share/9316e9020fa74a409f6c492d69dc7b76)
+    5. [Demo _Arrays_ multi-dimensionais - 10min](https://www.loom.com/share/2c9dfef1a9f64ae7b84092c4111933cc)
+        - 0:00 explicação do enunciado
+        - 0:56 inicio do resolução
+    6. [Erros comuns, VLAs - 5min](https://www.loom.com/share/a5ef7a580a604309b9b3938e3b47552e)
+10. [Strings](#/string)
+- [Videos](#/string_videos)
+- [Slides, PDF](pdf/07_strings.pptx.pdf)
+- Videos
+  1. Intro - 1min, [Loom](https://www.loom.com/share/052f8b6943a24194a8c230c1ee2b373e), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EflKPccpx3ZGsIg_mdXQ9WgBNXK8todrctgeiIPzLTMQwQ?e=rnKyXM)
+  2. Criar, inicializar, literal - 5min [Loom](https://www.loom.com/share/fa4721a776c3422b8a010c078c6feec9), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/Ed8UpvOvBqZKsBksYk8Jj1kBSqvIkrpLwa6dDwOflHSIKQ?e=HmaEq6)
+  3. Ler, escrever - 5min, [Loom](https://www.loom.com/share/fa5d7352b0444e1485d71054e8f8d595), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EazN3K3j0rxPr1jxJiNaWoYB442Juc2ydb1UzMdV_GO2zw?e=i319iJ)
+  4. Funções, string.h, [Loom](https://www.loom.com/share/71ce0707b88f4859bc68e64a3460db35), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/ERFd3N2aXi5EqJcMA3FZAwMBfrLIwlswJgiHFQOtiFY44w?e=3cRImV)
+  5. Demos
+    a. Demo - strlen, [Loom](https://www.loom.com/share/71db4a4008af4790b87e1e6968aa5bb2), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/Ed5di9hPiixAsB_j1Z9RTt4BFw0-6u5edBTQQY6UKb60vA?e=33hZ2K)
+    b. Demo - strcpy, [Loom](https://www.loom.com/share/ee62ce4b631d498e83a8088b201f64fa), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EWtON_ZHX8lBvLtzfNFGVRkB9yEM7yMCmXFdLF-eRiTHLg?e=AfjcRh)
+    c. Demo - strcat, [Loom](https://www.loom.com/share/483befaa51ec4931b6e19752f084d678), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/ETw_d7vexypGkvDlrXrn_IYBmK6s17uTdYXShxpBil7t4Q?e=IW4tEp)
+    d. Demo - strcmp, [Loom](https://www.loom.com/share/d70b512fa5f249efadd1c15c78c6044b), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EVdBbHGKHqFCuKrn_12u2-oBjj5Na_yVBPZb3sfyTpECvQ?e=iJfHwN)
+11. Apontadores
+  - [Slides, PDF](pdf/08_pointers.pptx.pdf)
+  - Videos
+    1. Intro, declaração, endereço e desreferenciar - 4min, [Loom](https://www.loom.com/share/637504006dd44b679cc9340ead5f07e7), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/Eco8bQHDApFEjWrpb_V3zS4BqoZnurU5TbifgTKNpMZ7YQ?e=fr5JMs)
+    2. Exemplos - 6min, [Loom](https://www.loom.com/share/a11e3238c9a7434a8f70df8324572f52), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EYCJ_7iig71OkyHH4W2IP-YBqMjtelkSMVPVaJ6duFSCjQ?e=hTMwZr)
+    3. Operações - 5min, [Loom](https://www.loom.com/share/6f8dd8ef744a458bb3a53d9be907598b), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/ESlM0vQcOe5OuBmCGXTB5EwB7LODp4BvSsnSfLVxlovg6A?e=faxdJ6)
+    4. Loom, [Apontadores e _arrays_ - 4min](https://www.loom.com/share/cfe237b27168414aaaefac3fd0d0a574), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/Ef9Ilw0e1YdPs4FhHnM_IT4BBaDox1ogY5qSrhPKx9MFSA?e=RjczwN)
+    5. Apontadores de apontadores - 4min, [Loom](https://www.loom.com/share/ce0ebf11069f4881890057a919dce182), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EZl17sL3w39GqRhWRQsrI2YBKzAU-sqtiZhDTodu1JhrPA?e=deQeO5)
+    6. Funções - passagem por valor vs. referência - 3min, [Loom](https://www.loom.com/share/ba92de73d5e9466eb4272e0cd26e7512), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EYEbfIMPrtZHiyOhHfBkZGoBw16bCdrw5ToadbufHB7buw?e=S0kBEt)
+    7. Exercício - passagem por valor vs. referência - 2min, [Loom](https://www.loom.com/share/ba92de73d5e9466eb4272e0cd26e7512), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EWPt94J0dFdNpB7XGz33uS4Bu40iOg_vT924r-OVX_g-AQ?e=o3WfTd)
+
+12. Struct
+  - [Slides, PDF](pdf/10_struct.pdf)
+  - Videos
+    1. [Intro, motivação | 1.5min](https://www.loom.com/share/bea2cbd37ce74a7b9d5c7a881169985a)
+    2. [Declarar, aceder | 4min](https://www.loom.com/share/b7f6b136b06945deabb4a46d5f96a1f2)
+    3. [Comparação, estruturas dentro de estruturas, funções | 4min](https://www.loom.com/share/2ce3c39cdd18400e9a21221f73ecc6bc)
+    4. [typedef | 2min](https://www.loom.com/share/9867f03b2f3d4a18a9b2fbeaa4cf08f7)
+    5. [estruturas e apontadores | 4min](https://www.loom.com/share/3d28ce3e73e748bf89c3daad774940b5)
+    6. [Demo 1 | 10min](https://www.loom.com/share/80c0eace852b42c897bb420b4bd8dcfd)
+    7. [Demo 1 | correção de criar_aluno | 3min](https://www.loom.com/share/f6c2db7eb645495dbd207f37fdb7366d)
+    8. [Demo 1a | vector de Aluno | 4min](https://www.loom.com/share/e9dc20b505b04c1891e4efd0cea2e548)
+    9. [Demo 1b](https://www.loom.com/share/f067103801864b5cb8bc2bcbaa7f4eea)
+    10. [Demo 1c](https://www.loom.com/share/6440a24081944296bc94c7e0e768a98b)
+    11. [Demo 1d](https://www.loom.com/share/6440a24081944296bc94c7e0e768a98b)
+    12. [Demo 1f](https://www.loom.com/share/93b3b54c1b694e91b50bd27513855725)
+    13. [Demo 1g](https://www.loom.com/share/ab6294191a52423ca921aacd6c550be6)
+
+13. Ficheiros
+  - [Slides, PDF](pdf/11_files.pptx.pdf)
+  - Videos
+    0. [Intro](https://www.loom.com/share/cbb3b9eac5294664b9d3a021737cb5b8)
+    1. [Ficheiros geral](https://www.loom.com/share/9e2d4b6876f445dd861949ac8b2821a1)
+    2. [Ficheiros de texto](https://www.loom.com/share/8c334b2f99464207b1c9add3f1a4c1ab)
+    3. [Texto demo](https://www.loom.com/share/7181d4a0a92c4bcca7210e693419e9a0)
+    4. [Ficheiros binários](https://www.loom.com/share/b40a7131473447f8a14373b36df6a0a5)
+
+        > **Errata**: eu digo que o valor de retorno de fread e fwrite é o número de bytes. Na verdade é o número de items lidos. Só é o número de bytes se o tamanho do item for 1 byte.
+    
+    5. [Binários demo](https://www.loom.com/share/2e168ff6137a4f4882a5ef52cb63ffbd)
+
+14. Memória
+  - [Slides, PDF](pdf/12_memoria.pptx.pdf)
+  - Videos
+    - Intro, [Loom](https://www.loom.com/share/2c9e5aa739764e05a8cb664ad0d5afef), [SharePoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG_GERAL/ETOY2CT6fItCq5puj37XmCoBXsxgD4y83VAKejGOrgV4OQ?e=CymNfq)
+    - malloc, calloc, free, [Loom](https://www.loom.com/share/35d2a5b215e84870889b33be33f2ef27), [SharePoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG_GERAL/EQFff4qsSb9Dn-ReH2UCUWYB2bMqoVvixznqL5trHK9Nww?e=0VglTO)
+
+15. Estruturas de Dados Dinâmicas
+  - [Slides](markdown/15_data_structs.qmd)
+  - Demo lista ligada simples
+    - Parte 1 [18min], [Loom](https://www.loom.com/share/3799c929dc2c4c088379b7348c578f23), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EQchSjaLg6tBj-ExwuXsI8QBeuZJLwfb6KGVcpGbD6olsg?e=ZBCv1K)
+    - Parte 2 [10min], [Loom](https://www.loom.com/share/0a066eabbef54218b82de895c08b785f), [Sharepoint](https://academiafaedupt.sharepoint.com/:v:/s/PROG2223Spring/EQvJbvk6HYlEodPTQMOdWS4BfqlZSs_CTtLuTa7fMglcUg?e=bZ58Vg)
+
+
+16. [Extra](#/extra)
+17. [Exercícios](exercicios.qmd)
+
+
+---
+
+# Labs 22/23
+
+- [Lab 1](markdown/labs/2223/lab1_funcoes/lab1_navigation.html)
+- [Lab 2](markdown/labs/2223/lab2_array/lab2_stats.html)
+- [Lab 3](markdown/labs/2223/lab3_file_struct/lab3.html)
+- [Lab 4](markdown/labs/2223/lab4_dynamic_data_structures/lab4_encrypted.html)
+
+---
+
+# Projectos 22/23
+
+- [SIGIF](markdown/projects/2223/enunciado_frota.html)
+- [SIGIT](markdown/projects/2223/enunciado_tripulacao.html)
+- [SIGA](markdown/projects/2223/enunciado_ativos.html)

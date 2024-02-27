@@ -1,0 +1,428 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, frame hidden, borderline west={3pt}{0pt}{shadecolor}, interior hidden, boxrule=0pt, sharp corners, breakable]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+\begin{frame}[allowframebreaks]
+  \frametitle{Table of contents}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+\begin{frame}
+\end{frame}
+
+\begin{frame}{Array}
+\protect\hypertarget{array}{}
+\begin{block}{Diogo Silva}
+\protect\hypertarget{diogo-silva}{}
+\begin{block}{CAP / ENGEL}
+\protect\hypertarget{cap-engel}{}
+dasilva@academiafa.edu.pt
+
+--
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}{Array}
+\protect\hypertarget{array-1}{}
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{ux2farray_videos}{Videos}
+\item
+  \href{../pdf/06_arrays.pptx.pdf}{Slides, PDF}
+\item
+  \protect\hyperlink{ux2farray_slides_extra}{Slides, extra}
+\end{itemize}
+
+--
+
+\begin{block}{videos 1/2}
+\protect\hypertarget{videos-12}{}
+\begin{enumerate}
+\tightlist
+\item
+  \href{https://www.loom.com/share/72db64a535b2489ba91d65010bfadc63}{Intro,
+  criar, mudar - 5min}
+\item
+  \href{https://www.loom.com/share/2ce3044d564e49f9bd11c4ca138e6851}{Arrays
+  e funções - 5min}
+\item
+  \href{https://www.loom.com/share/2583c4a69d0141de8f1a1271ad92c9e1}{Demo
+  exercício salários - 14min}
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    00:00 explicar enunciado
+  \item
+    01:10 inicio da solução
+  \item
+    02:28 função pedir salarios
+  \item
+    04:05 função para mostrar salários
+  \item
+    07:25 função para somar salários
+  \item
+    9:30 função para a média dos salários
+  \item
+    11:56 utilizador indica quantos salários quer introduzir
+  \end{enumerate}
+\end{enumerate}
+
+--
+\end{block}
+
+\begin{block}{videos 2/2}
+\protect\hypertarget{videos-22}{}
+\begin{enumerate}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \href{https://www.loom.com/share/9316e9020fa74a409f6c492d69dc7b76}{\emph{Arrays}
+  multi-dimensionais - 4min}
+\item
+  \href{https://www.loom.com/share/2c9dfef1a9f64ae7b84092c4111933cc}{Demo
+  \emph{Arrays} multi-dimensionais - 10min}
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    0:00 explicação do enunciado
+  \item
+    0:56 inicio do resolução
+  \end{enumerate}
+\item
+  \href{https://www.loom.com/share/a5ef7a580a604309b9b3938e3b47552e}{Erros
+  comuns, VLAs - 5min}
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Erros comuns}
+\protect\hypertarget{erros-comuns}{}
+\begin{itemize}
+\tightlist
+\item
+  Aceder a posições inexistentes do \emph{array}
+\item
+  C permite mas o comportamento não está definido.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{int}\NormalTok{ vec}\OperatorTok{[}\DecValTok{20}\OperatorTok{];}
+\NormalTok{vec}\OperatorTok{[}\DecValTok{25}\OperatorTok{]} \OperatorTok{=} \DecValTok{4}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Arrays de tamanho variável (VLA)}
+\protect\hypertarget{arrays-de-tamanho-variuxe1vel-vla}{}
+\begin{itemize}
+\tightlist
+\item
+  O que são?
+\item
+  Exemplos
+\item
+  VLA e funções
+\item
+  VLA multidimensional e funções
+\end{itemize}
+
+--
+\end{block}
+
+\begin{block}{VLA - o que são?}
+\protect\hypertarget{vla---o-que-suxe3o}{}
+\begin{itemize}
+\tightlist
+\item
+  Variable Length Arrays (VLA)
+\item
+  Disponíveis apenas para compiladores \textgreater C99
+\item
+  Permitem criar \emph{arrays} cujo tamanho é definido durante a
+  execução do programa
+\item
+  Estes \emph{arrays} não podem ser globais.
+\item
+  Aplicável a arrays multi-dimensionais.
+\end{itemize}
+
+--
+
+\begin{block}{VLA - exemplo 1}
+\protect\hypertarget{vla---exemplo-1}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{unsigned} \DataTypeTok{int}\NormalTok{ n}\OperatorTok{;}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"tamanho do vector:"}\OperatorTok{);}
+\NormalTok{scanf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%u}\StringTok{"}\OperatorTok{,} \OperatorTok{\&}\NormalTok{n}\OperatorTok{);}
+\DataTypeTok{int}\NormalTok{ posicoes}\OperatorTok{[}\NormalTok{n}\OperatorTok{];}
+\end{Highlighting}
+\end{Shaded}
+
+--
+\end{block}
+
+\begin{block}{VLA - exemplo 2 - multi-dimensional}
+\protect\hypertarget{vla---exemplo-2---multi-dimensional}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{unsigned} \DataTypeTok{int}\NormalTok{ rows}\OperatorTok{,}\NormalTok{ cols}\OperatorTok{;}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"linhas e colunas da matriz:"}\OperatorTok{);}
+\NormalTok{scanf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%u\%u}\StringTok{"}\OperatorTok{,} \OperatorTok{\&}\NormalTok{rows}\OperatorTok{,} \OperatorTok{\&}\NormalTok{cols}\OperatorTok{);}
+\DataTypeTok{int}\NormalTok{ matrix}\OperatorTok{[}\NormalTok{rows}\OperatorTok{][}\NormalTok{cols}\OperatorTok{];}
+\end{Highlighting}
+\end{Shaded}
+
+--
+\end{block}
+
+\begin{block}{VLA e funções}
+\protect\hypertarget{vla-e-funuxe7uxf5es}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{int}\NormalTok{ func}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ n}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ vec}\OperatorTok{[}\NormalTok{n}\OperatorTok{])\{}
+   \CommentTok{//...}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+--
+\end{block}
+
+\begin{block}{VLA multi-dimensional e funções}
+\protect\hypertarget{vla-multi-dimensional-e-funuxe7uxf5es}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{int}\NormalTok{ func}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ rows}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ cols}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ mat}\OperatorTok{[}\NormalTok{rows}\OperatorTok{][}\NormalTok{cols}\OperatorTok{])\{}
+   \CommentTok{//...}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Desta forma, deixa de ser necessário especificar o tamanho concreto das
+últimas N-1 dimensões.
+\end{block}
+\end{block}
+\end{frame}
+
+
+
+\end{document}

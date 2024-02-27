@@ -5,8 +5,11 @@ project:
     - "*.qmd"
     - "*.md"
     - "!*hide*.qmd"
+    - "!2223/"
   resources: 
     - "*.pdf"
+  post-render: 
+    - fix_suffix.py
 
 execute:
   freeze: auto  # re-render only when source changes
@@ -22,14 +25,27 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: exercises/exercicios.qmd
+        text: Exercícios
+      - href: https://www.academiafa.edu.pt/
+        text: AFA
 
 format: 
   html:
     toc: true
     toc-depth: 3
     code-fold: true
+    code-line-numbers: true
     html-math-method: katex
     embed-resources: true
+  revealjs:
+    theme: "serif"
+    slideNumber: true
+    html-math-method: katex
+    output-ext: revealjshtml
+  beamer: 
+    output-ext: beamerpdf
+
 #    css: styles.css
 #  pdf:
 #    documentclass: report

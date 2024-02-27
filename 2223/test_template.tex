@@ -1,0 +1,59 @@
+\documentclass[]{article}
+$pandoc.tex()$
+
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+
+% code listings
+\usepackage{listings}
+
+% figures
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\usepackage{fancyhdr} %
+
+% setup headers
+
+\pagestyle{fancy}
+
+% header for first page
+\fancypagestyle{firstpage}{%
+  \lhead{Nome: }
+  \rhead{NIP: \_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+}
+
+% headaer for all pages
+\fancyhead[L]{}
+%\fancyhead[C]{Teste}
+\fancyhead[R]{NIP: \_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+
+
+%\author{dasilva }
+
+\begin{document}
+
+
+
+% setup cover page
+\title{$title$}
+%\title{
+%    \centering %\includegraphics[scale=0.3]{afa.png}
+%    
+%    Programação 2022/2023
+%    
+%    Teste
+%}
+
+\date{$date$}
+
+\maketitle
+\thispagestyle{firstpage}
+
+
+$body$
+\end{document}

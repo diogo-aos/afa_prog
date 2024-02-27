@@ -1,0 +1,603 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, frame hidden, borderline west={3pt}{0pt}{shadecolor}, sharp corners, breakable, boxrule=0pt, enhanced]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+\begin{frame}[allowframebreaks]
+  \frametitle{Table of contents}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+\begin{frame}
+\end{frame}
+
+\begin{frame}{\emph{Struct}}
+\protect\hypertarget{struct}{}
+\begin{block}{Diogo Silva}
+\protect\hypertarget{diogo-silva}{}
+\begin{block}{CAP / ENGEL}
+\protect\hypertarget{cap-engel}{}
+dasilva@academiafa.edu.pt
+
+--
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{\emph{Struct}}
+\protect\hypertarget{struct-1}{}
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{ux2fstruct_videos}{Videos}
+\item
+  \href{../pdf/10_struct.pdf}{Slides, PDF}
+\item
+  \protect\hyperlink{exercuxedcio-1}{Exercícios}
+\end{itemize}
+
+--
+
+\begin{block}{videos 1/2}
+\protect\hypertarget{videos-12}{}
+\begin{enumerate}
+\tightlist
+\item
+  \href{https://www.loom.com/share/bea2cbd37ce74a7b9d5c7a881169985a}{Intro,
+  motivação \textbar{} 1.5min}
+\item
+  \href{https://www.loom.com/share/b7f6b136b06945deabb4a46d5f96a1f2}{Declarar,
+  aceder \textbar{} 4min}
+\item
+  \href{https://www.loom.com/share/2ce3c39cdd18400e9a21221f73ecc6bc}{Comparação,
+  estruturas dentro de estruturas, funções \textbar{} 4min}
+\item
+  \href{https://www.loom.com/share/9867f03b2f3d4a18a9b2fbeaa4cf08f7}{typedef
+  \textbar{} 2min}
+\item
+  \href{https://www.loom.com/share/3d28ce3e73e748bf89c3daad774940b5}{estruturas
+  e apontadores \textbar{} 4min}
+\end{enumerate}
+
+--
+\end{block}
+
+\begin{block}{videos 2/2}
+\protect\hypertarget{videos-22}{}
+\begin{enumerate}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  \href{https://www.loom.com/share/80c0eace852b42c897bb420b4bd8dcfd}{Demo
+  1 \textbar{} 10min}
+\item
+  \href{https://www.loom.com/share/f6c2db7eb645495dbd207f37fdb7366d}{Demo
+  1 \textbar{} correção de criar\_aluno \textbar{} 3min}
+\item
+  \href{https://www.loom.com/share/e9dc20b505b04c1891e4efd0cea2e548}{Demo
+  1a \textbar{} vector de Aluno \textbar{} 4min}
+\item
+  \href{https://www.loom.com/share/f067103801864b5cb8bc2bcbaa7f4eea}{Demo
+  1b}
+\item
+  \href{https://www.loom.com/share/6440a24081944296bc94c7e0e768a98b}{Demo
+  1c}
+\item
+  \href{https://www.loom.com/share/6440a24081944296bc94c7e0e768a98b}{Demo
+  1d}
+\item
+  \href{https://www.loom.com/share/93b3b54c1b694e91b50bd27513855725}{Demo
+  1f}
+\item
+  \href{https://www.loom.com/share/ab6294191a52423ca921aacd6c550be6}{Demo
+  1g}
+\end{enumerate}
+
+--
+\end{block}
+
+\begin{block}{Exercício 1}
+\protect\hypertarget{exercuxedcio-1}{}
+\begin{itemize}
+\tightlist
+\item
+  Escreva um programa que guarde e mostre o registo de um aluno
+  \texttt{Aluno} da cadeira de programação.
+\item
+  Um aluno tem os seguintes parâmetros:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{nome} (string)
+  \item
+    \texttt{NIP} (int)
+  \item
+    \texttt{notas} (vector com 3 números reais para guardar as
+    classificações das avaliações)
+  \end{itemize}
+\item
+  Escreva uma função \texttt{criar\_aluno} que pede os dados do aluno ao
+  utilizador e devolve um registo de aluno com esses dados.
+\item
+  Escreva uma função \texttt{mostrar\_aluno} que recebe o apontador de
+  um registo de aluno e imprime os seus valores na consola.
+\end{itemize}
+
+--
+\end{block}
+
+\begin{block}{Exercício 1a}
+\protect\hypertarget{exercuxedcio-1a}{}
+\begin{itemize}
+\tightlist
+\item
+  Expanda o programa anterior para mostrar os registos dos alunos da
+  cadeira de Programação.
+\item
+  Crie um vector de \texttt{Aluno} de tamanho \texttt{MAX\_ALUNOS} e uma
+  variável \texttt{n\_alunos} que recebe do utilizador quantos alunos
+  vai receber.
+\item
+  Peça os dados de todos os alunos a receber e no final, escreva na
+  consola os dados de todos os alunos.
+\end{itemize}
+
+--
+\end{block}
+
+\begin{block}{Exercício 1b}
+\protect\hypertarget{exercuxedcio-1b}{}
+\begin{itemize}
+\tightlist
+\item
+  Modifique o programa anterior por forma a termos várias Unidades
+  Curriculares (UC).
+\item
+  Crie uma estrutura para uma UC, com os seguintes campos:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{nome} (string, max 50 chars)
+  \item
+    \texttt{abreviatura} (vector 4 chars)
+  \item
+    \texttt{n\_creditos} (int): número de créditos (ECTS)
+  \item
+    \texttt{alunos} (vector de apontadores para Aluno, max 100): lista
+    de alunos inscritos
+  \item
+    \texttt{n\_inscritos} (unsigned char): número de alunos inscritos
+  \item
+    \texttt{avals} (vector de reais): notas finais dos alunos à UC
+  \end{itemize}
+\item
+  Agora a estrutura \texttt{Aluno} já não precisa do campo
+  \texttt{notas}, estes dados estão guardados nas UCs. Remova esse
+  campo.
+\item
+  Agora a lista de \texttt{Aluno} é a lista de todos os alunos.
+\item
+  Crie um vector para a lista de UCs (tamanho de \texttt{MAX\_UC}) na
+  \texttt{main}.
+\item
+  Crie a função \texttt{criarUC}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    não recebe argumentos
+  \item
+    pede os dados de uma \texttt{UC} (nome, abreviatura, número de
+    créditos) ao utilizador
+  \item
+    devolver a \texttt{UC} criada
+  \end{itemize}
+\item
+  Cria a função \texttt{mostrarUC}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    recebe um apontador de \texttt{UC}
+  \item
+    mostra os dados da \texttt{UC}, incluindo a lista dos alunos
+    inscritos
+  \end{itemize}
+\item
+  Dicas:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    para facilitar o teste das funcionalidades, inicialize o vector de
+    todos os alunos com dados no código
+  \item
+    para facilitar o teste das funcionalidades, inicialize o vetor de
+    todas as UCs com algumas UCs já com alunos inscritos
+  \end{itemize}
+\end{itemize}
+
+--
+\end{block}
+
+\begin{block}{Exercício 1c}
+\protect\hypertarget{exercuxedcio-1c}{}
+\begin{itemize}
+\tightlist
+\item
+  Implementa a função \texttt{media\_UC} que recebe um apontador de UC e
+  calcula a média das notas dos alunos.
+\item
+  Altera a função \texttt{mostrarUC} para mostrar a média da UC que
+  recebe.
+\end{itemize}
+
+--
+\end{block}
+
+\begin{block}{Exercício 1d}
+\protect\hypertarget{exercuxedcio-1d}{}
+\begin{itemize}
+\tightlist
+\item
+  Implementa a função \texttt{media\_aluno}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    recebe
+
+    \begin{itemize}
+    \tightlist
+    \item
+      apontador de Aluno
+    \item
+      lista de todas as UCs
+    \end{itemize}
+  \item
+    devolve
+
+    \begin{itemize}
+    \tightlist
+    \item
+      valor real com a média ponderada (ter em conta os ECTS de cada UC)
+      de todas as UCs em que o aluno está inscrito
+    \end{itemize}
+  \item
+    esta função tem de percorrer todas as UCs e verificar se o aluno
+    está inscrito nessa UC
+  \end{itemize}
+\end{itemize}
+
+--
+\end{block}
+
+\begin{block}{Exercício 1e}
+\protect\hypertarget{exercuxedcio-1e}{}
+\begin{itemize}
+\tightlist
+\item
+  Implementa a função \texttt{media\_total}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    recebe
+
+    \begin{itemize}
+    \tightlist
+    \item
+      lista de todos os alunos
+    \item
+      lista de todas as UCs
+    \end{itemize}
+  \item
+    devolve
+
+    \begin{itemize}
+    \tightlist
+    \item
+      real correspondente à média aritmética da média ponderada de todos
+      os alunos
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+--
+\end{block}
+
+\begin{block}{Exercício 1f}
+\protect\hypertarget{exercuxedcio-1f}{}
+\begin{itemize}
+\tightlist
+\item
+  Implementa a função \texttt{inscrever\_UC}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    recebe apontador de \texttt{UC}
+  \item
+    lista de todos os alunos
+  \end{itemize}
+\item
+  mostra lista de todos os alunos
+\item
+  utilizador escolhe quais os alunos da lista a inscrever nesta UC
+
+  \begin{itemize}
+  \item
+    escrever os índices e terminar lista com algum carater não numérico
+  \item
+    exemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Lista de todos os alunos:}
+\NormalTok{        0 {-} 136787 {-} Asimov}
+\NormalTok{        1 {-} 136867 {-} Turing}
+\NormalTok{        2 {-} 122444 {-} Oppenheimer}
+\NormalTok{        3 {-} 133555 {-} Newton}
+\NormalTok{Índices dos alunos que quer inscrever (separados por espaço):}
+\NormalTok{1 5 3 f}
+\end{Highlighting}
+\end{Shaded}
+  \end{itemize}
+\item
+  adicionar os alunos escolhidos ao vetor \texttt{alunos} da UC
+\end{itemize}
+
+--
+\end{block}
+
+\begin{block}{Exercício 1g}
+\protect\hypertarget{exercuxedcio-1g}{}
+\begin{itemize}
+\tightlist
+\item
+  Implementa a função \texttt{inscrever\_aluno}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    recebe
+
+    \begin{itemize}
+    \tightlist
+    \item
+      apontador de \texttt{Aluno}
+    \item
+      lista de todas as UCs
+    \end{itemize}
+  \item
+    mostra lista de todas as UCs e permite escolher as UCs em que o
+    aluno está inscrito
+  \item
+    para cada UC selecionada
+
+    \begin{itemize}
+    \tightlist
+    \item
+      adicionar o aluno à lista de inscritos
+    \end{itemize}
+  \item
+    não devolve nada
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+\end{document}
