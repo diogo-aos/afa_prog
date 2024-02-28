@@ -1,18 +1,17 @@
-
-<img src="img/afa.png" height="100">
-
-
-## Fundamentos do C
-
-### Diogo Silva
-####  CAP / ENGEL
-dasilva@academiafa.edu.pt
-
-<!-- .slide: data-background="Cornsilk" -->
-
+---
+title: "Fundamentos do C"
+institute: "Academia da Força Aérea"
+author: CAP Diogo Silva
+email: "dasilva@academiafa.edu.pt"
+logo: "afa.svg"
+format:
+    html: default
+    revealjs: default
+    beamer: default
+    pdf: default
 ---
 
-Tópicos
+## Tópicos
 
 - [O primeiro programa](#/2_1_primeiro_programa)
 - [Componentes de um programa](#/2_2_componentes_programa)
@@ -435,10 +434,6 @@ O descritor escolhido deve ser coerente com o tipo da variável que se vai mostr
 
 ---
 
-Importante: o C não impede um "desalinhamento" entre tipo e descritor - é responsabildiade do programador garantir a coerência.
-
----
-
 ```c
 int altura; // em cm
 float massa, imc; // em kg
@@ -451,11 +446,25 @@ printf("Indice massa corporal: %f\n", imc);
 
 O descritor `%f` é usado para valores do tipo `float`.
 
+--- 
+
+- `int` ->  `%d`
+- `float` ->  `%f`
+
+
+::: {.callout-caution collapse="true"}
+## Importante
+
+O C não impede um "desalinhamento" entre tipo e descritor - é responsabildiade do programador garantir a coerência.
+:::
+
+
+
 ---
 
 ### Variáveis > ``printf`` de expressões
 
-O cálculo do IMC na variável intermédia `imc` é desnecessário, uma vez que podemos inserir a expressão completa do cálculo na função ``printf``.
+O cálculo do IMC na variável intermédia `imc` é desnecessário, uma vez que podemos inserir a **expressão** completa do cálculo na função ``printf``.
 
 ```c
 int altura; // em cm
@@ -466,29 +475,21 @@ massa = 75.2;
 printf("Indice massa corporal: %f\n", massa / (altura / 100.0));
 ```
 
----
+--- 
 
-O que é uma expressão?
+### O que é uma **expressão**? {.incremental}
 
-Uma expressão é algo que produz um valor concreto.
-<!-- .element: class="fragment" -->
 
-**Uma expressão produz sempre um valor com um valor concreto**, mesmo quando variáveis de tipos diferentes são misturadas (conversão automática de tipos será abordada posteriormente.)
-<!-- .element: class="fragment" -->
-
----
-
-Um valor de um determinado tipo pode sempre ser substituido por uma expressão do mesmo tipo.
+- Uma expressão é algo que produz um valor concreto.
+- **Uma expressão produz sempre um valor com um valor concreto**, mesmo quando variáveis de tipos diferentes são misturadas (conversão automática de tipos será abordada posteriormente.)
+- Um valor de um determinado tipo pode sempre ser substituido por uma expressão do mesmo tipo.
 
 ---
 
-### Variáveis > inicialização
+### Variáveis > inicialização {.incremental}
 
-Algumas variáveis são automaticamente inicializadas com o valor de 0 quando são declaradas, mas a maior parte não é.
-<!-- .element: class="fragment" -->
-
-Uma variável que não tenha um valor por defeito e que não tenha sofrido nenhuma atribuição está **não inicializada**.
-<!-- .element: class="fragment" -->
+- Algumas variáveis são automaticamente inicializadas com o valor de 0 quando são declaradas, mas a maior parte não é.
+- Uma variável que não tenha um valor por defeito e que não tenha sofrido nenhuma atribuição está **não inicializada**.
 
 ---
 
@@ -502,7 +503,7 @@ massa = 75.2;
 imc = massa / (altura / 100.0); //indice massa corporal
 ```
 
-É **responsabilidade do programador saber que o programa pode ter um comportamento inválido**, porque a variável que não foi inicializada (que não teve nenhuma atribuição) pode conter qualquer valor.
+É **responsabilidade do programador saber que o programa pode ter um comportamento inválido**, porque a variável que não foi inicializada (não teve nenhuma atribuição) pode conter qualquer valor.
 <!-- .element: class="fragment" -->
 
 ---
@@ -512,15 +513,15 @@ As variáveis podem ser inicializadas no momento da sua declaração.
 ```c
 int altura=180; // em cm
 float massa=75.2, imc=0.0; // em kg
-``
+```
 
 ---
 
 ### Exercício
 
-Conversão de ºF para ºC.
+- Conversão de Fahrenheit para Celsius.
+- $C = \frac{5}{9}(F-32)$
 
----
 
 <!-- .slide: id="2_5_scanf"-->
 
@@ -643,7 +644,6 @@ A diretiva `#define` permite-nos definir constantes que, durante o préprocessam
 Por convenção, os nomes das constantes são sempre em letras maíusculas e os nomes das variáveis são em minúsculas.
 
 
----
 
 <!-- .slide: id="2_7_identificadores"-->
 
@@ -688,8 +688,15 @@ while do for continue break
 struct enum union
 ```
 
+::: {.callout-caution collapse="true"}
+## Importante
+
 O uso do nome de funções frequentemente usadas e pertencentes à biblioteca _standard_ do C também é de evitar, e.g. `printf`, `scanf`, ...
-<!-- .element: class="fragment" -->
+:::
+
+
+
+
 
 
 

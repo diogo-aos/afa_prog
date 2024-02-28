@@ -43,6 +43,7 @@ format:
     slideNumber: true
     html-math-method: katex
     output-ext: revealjshtml
+    toc: false
   beamer: 
     output-ext: beamerpdf
 

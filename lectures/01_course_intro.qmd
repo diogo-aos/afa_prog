@@ -7,8 +7,7 @@ email: "dasilva@academiafa.edu.pt"
 format:
     html: default
     revealjs: default
-    beamer:
-        toc: false
+    beamer: default
     pdf: default
 format-links: true
 ---
@@ -20,7 +19,7 @@ format-links: true
     - 501753
     - [dasilva@academiafa.edu.pt](mailto:dasilva@academiafa.edu.pt)
 - TEN Gabriel Santos
-    - 500xxx
+    - 500873
     - [gcsantos@academiafa.edu.pt](mailto:gcsantos@academiafa.edu.pt)
 
 ## Avaliação

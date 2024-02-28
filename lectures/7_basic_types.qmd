@@ -5,21 +5,11 @@ institute: "Academia da Força Aérea"
 author: CAP Diogo Silva
 email: "dasilva@academiafa.edu.pt"
 logo: "afa.svg"
-
 format:
-    revealjs:
-        theme: "serif"
-        slideNumber: true
-        html-math-method: katex
-        embed-resources: true
-    # html:
-    #     theme: "sandstone"
-    #     toc: true
-    #     toc-depth: 3
-    #     code-fold: true
-    #     html-math-method: katex
-    #     embed-resources: true
-    #     output-file: 7_basic_types_doc.html
+    html: default
+    revealjs: default
+    beamer: default
+    pdf: default
 ---
 ## Tipos básicos do C
 
@@ -300,7 +290,7 @@ Também está sujeito a overflow.
 
 ---
 
-- Já usámos anteriormente caracteres especiais, e.g. \n e \t. Existem outros.
+- Já usámos anteriormente caracteres especiais, e.g. `'\n'` e `'\t'`. Existem outros.
 - Alguns só podem ser especificados em formato octal ou hexadecimal.
 
 <img src="img/7_basic_types/ascii.png" height="400">
@@ -342,9 +332,9 @@ Introduza outro caracter:c1=a   c2=
 
 ---
 
-- Na verdade, o primeiro scanf deixa um enter '\n' por consumir. 
+- Na verdade, o primeiro scanf deixa um enter `'\n'` por consumir. 
 - No scanf seguinte, o que é pedido é um char. <!-- .element: class="fragment" data-fragment-index="2"-->
-- Como '\n' é um char válido, a especificação de conversão aceita-o como input <!-- .element: class="fragment" data-fragment-index="2"-->
+- Como `'n'` é um char válido, a especificação de conversão aceita-o como input <!-- .element: class="fragment" data-fragment-index="2"-->
 - Deixa de ser necessário pedir input ao utilizador porque as especificações de conversão já foram satisfeitas. <!-- .element: class="fragment" data-fragment-index="3"-->
 
 ---
