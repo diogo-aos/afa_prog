@@ -1,22 +1,20 @@
 ---
 title: "Programação 23/24 S2"
-institute: "Academia da Força Aérea"
-author: CAP Diogo Silva
+#institute: "Academia da Força Aérea"
+#author: CAP Diogo Silva
 format: 
-  html:
-    toc: true
-    toc-depth: 3
-    code-fold: true
-    html-math-method: katex
-    embed-resources: true
+  html: default
 ---
 
 # Links úteis
 
-- [Replit PROG](https://replit.com/team/prog-2223-spring)
 - [Teams 2324](https://teams.microsoft.com/l/channel/19%3aUhGoWvUxizl9VFmhtzmIyRbgLj1HeLzirn8GHJq19Io1%40thread.tacv2/General?groupId=de6239b3-e0f6-426e-a3ab-e8646f1f232b&tenantId=134d2a6d-3191-4c4a-a80b-1b18cb5bdba1)
 - [SharePoint 2324](https://academiafaedupt.sharepoint.com/sites/PROG2324/Documentos%20Partilhados)
-- [Setup VSCode locally](https://www.youtube.com/watch?v=HiyfEbbCWT4)
+- Ambientes de desenvolvimento
+  - [Replit - IDE Online](https://replit.com/)
+  - [CodeBlocks](https://www.codeblocks.org/)
+  - [Visual Studio Code](https://code.visualstudio.com/)
+    - [Setup VSCode locally](https://www.youtube.com/watch?v=HiyfEbbCWT4)
 
 
 # Equipa docente
@@ -26,9 +24,10 @@ format:
 
 # Aulas
 
-1. [Apresentação da UC](lectures/01_course_intro.qmd)
+0. [Apresentação da UC](lectures/01_course_intro.qmd)
+1. Motivação [[Slides](pdf/01_motivacao.pdf)]
 2. C Fundamentals [[Slides](lectures/2_fundamentals.html)]
-3. Leitura e escrita formatada [[Slides](lectures/3_formated_io.md)]
+<!-- 3. Leitura e escrita formatada [[Slides](lectures/3_formated_io.md)]
 4. Expressões [[Slides](lectures/4_expressoes.html)]
 5. Testes e Condições [[Slides](pdf/03_testes_condicoes.pptx.pdf)]
 6. [Ciclos](lectures/06_ciclos.md)
@@ -41,8 +40,7 @@ format:
 13. [Ficheiros](lectures/13_files.md)
 14. [Memória](lectures/14_memoria.md)
 15. [Estruturas de Dados Dinâmicas](lectures/15_data_structs.qmd)
-16. [Extra](#/extra)
-17. [Exercícios](exercises/exercicios.qmd)
+16. [Extra](#/extra) -->
 
 
 <!-- ---

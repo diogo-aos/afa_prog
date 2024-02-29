@@ -1,19 +1,19 @@
 ---
 title: "Fundamentos do C"
 institute: "Academia da Força Aérea"
-author: CAP Diogo Silva
+author: Diogo Silva
 email: "dasilva@academiafa.edu.pt"
 logo: "afa.svg"
 format:
     html: default
     revealjs: default
-    beamer: default
-    pdf: default
+    # beamer: default
+    # pdf: default
 ---
 
 ## Tópicos
 
-- [O primeiro programa](#/2_1_primeiro_programa)
+- [O primeiro programa](#o-primeiro-programa)
 - [Componentes de um programa](#/2_2_componentes_programa)
 - [Comentários](#/2_3_comentarios)
 - [Variáveis](#/2_4_variaveis)
@@ -21,8 +21,6 @@ format:
 - [Constantes](#/2_6_constantes)
 - [Identificadores](#/2_7_identificadores)
 
-
----
 
 ## O primeiro programa
 
@@ -117,7 +115,7 @@ neste caso 0 (linha 5).
 
 ---
 
-- preprocessamento
+- pré-processamento
   - obedece a comandos que começam com # (diretivas) 
   <!-- .element: class="fragment" -->
   - funciona um pouco como um editor de texto, onde se adicionam ou modificam partes do código <!-- .element: class="fragment" -->
@@ -294,7 +292,7 @@ As **variáveis** são locais na memória onde é possível gravar algum dado, t
 
 ---
 
-### Variáveis > Tipos
+### Variáveis: Tipos
 
 No C, todas as variáveis têm um **tipo** associado.
 
@@ -330,7 +328,7 @@ Operações aritméticas em `float` podem ser mais lentas.
 
 ---
 
-### Variáveis > declaração
+### Variáveis: declaração
 
 Quando queremos usar uma variável, esta tem de ser declarada.
 
@@ -352,7 +350,7 @@ float massa, lucro; // kg, €
 
 ---
 
-### Variáveis > atribuição
+### Variáveis: atribuição
 
 As variáveis recebem valores através da instrução de atribuição `=`.
 
@@ -403,7 +401,7 @@ Este código é inválido porque estamos a atribuir um valor à variável ``mass
 
 ---
 
-### Variáveis > printf
+### Variáveis: printf
 
 Se quisermos mostrar o valor de uma determinada variável, podemos usar novamente a função ``printf``.
 
@@ -462,7 +460,7 @@ O C não impede um "desalinhamento" entre tipo e descritor - é responsabildiade
 
 ---
 
-### Variáveis > ``printf`` de expressões
+### Variáveis: ``printf`` de expressões
 
 O cálculo do IMC na variável intermédia `imc` é desnecessário, uma vez que podemos inserir a **expressão** completa do cálculo na função ``printf``.
 
@@ -486,7 +484,7 @@ printf("Indice massa corporal: %f\n", massa / (altura / 100.0));
 
 ---
 
-### Variáveis > inicialização {.incremental}
+### Variáveis: inicialização {.incremental}
 
 - Algumas variáveis são automaticamente inicializadas com o valor de 0 quando são declaradas, mas a maior parte não é.
 - Uma variável que não tenha um valor por defeito e que não tenha sofrido nenhuma atribuição está **não inicializada**.
@@ -636,7 +634,7 @@ int main(){
     return 0;
 }
 ```
-A diretiva `#define` permite-nos definir constantes que, durante o préprocessamento, são substituidas pelo valor especificado.
+A diretiva `#define` permite-nos definir constantes que, durante o pré-processamento, são substituidas pelo valor especificado.
 <!-- .element: class="fragment" -->
 
 ---

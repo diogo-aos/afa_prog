@@ -19,7 +19,7 @@ format-links: true
     - 501753
     - [dasilva@academiafa.edu.pt](mailto:dasilva@academiafa.edu.pt)
 - TEN Gabriel Santos
-    - 500873
+    - 500877
     - [gcsantos@academiafa.edu.pt](mailto:gcsantos@academiafa.edu.pt)
 
 ## Avaliação

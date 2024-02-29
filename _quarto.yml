@@ -38,12 +38,16 @@ format:
     code-line-numbers: true
     html-math-method: katex
     embed-resources: true
+    theme:
+      light: flatly
+      dark: darkly
   revealjs:
-    theme: "serif"
+    theme: "night"
     slideNumber: true
     html-math-method: katex
     output-ext: revealjshtml
     toc: false
+    center: true
   beamer: 
     output-ext: beamerpdf
 
