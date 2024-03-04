@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
-  <meta name="author" content="CAP Diogo Silva">
+  <meta name="author" content="Diogo Silva">
   <title>Programação - Fundamentos do C</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -411,7 +411,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-CAP Diogo Silva 
+Diogo Silva 
 </div>
         <p class="quarto-title-affiliation">
             Academia da Força Aérea
@@ -446,45 +446,45 @@ CAP Diogo Silva
 </section>
 <section class="slide level2 center">
 
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<div class="sourceCode" id="cb2" data-code-line-numbers="1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="dt">int</span> main<span class="op">(){</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a>    printf<span class="op">(</span><span class="st">"Hello world!"</span><span class="op">);</span></span>
 <span id="cb2-5"><a href="#cb2-5"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>“Importa” código externo ao nosso programa, permitindo chamar a função printf, que não está aqui definida (linha 1).</p>
+<p>“Importa” código externo ao nosso programa, permitindo chamar a função printf, que não está aqui definida.</p>
 </section>
 <section class="slide level2 center">
 
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<div class="sourceCode" id="cb3" data-code-line-numbers="3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="dt">int</span> main<span class="op">(){</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>    printf<span class="op">(</span><span class="st">"Hello world!"</span><span class="op">);</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb3-6"><a href="#cb3-6"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>É a função principal do programa (linhas 3-6). Os programas em C começam sempre nesta função. Todos os programas têm uma função <code>main</code>.</p>
+<p>É a função principal do programa. Os programas em C começam sempre nesta função. Todos os programas têm uma função <code>main</code>.</p>
 </section>
 <section class="slide level2 center">
 
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<div class="sourceCode" id="cb4" data-code-line-numbers="4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="dt">int</span> main<span class="op">(){</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a>    printf<span class="op">(</span><span class="st">"Hello world!"</span><span class="op">);</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>É uma instrução (linha 4) que chama a função <code>printf</code> da biblioteca <code>stdio.h</code> (que faz parte do próprio C), dando-lhe como input o literal de <em>string</em> <code>"Hello world!"</code>.</p>
+<p>É uma instrução que chama a função <code>printf</code> da biblioteca <code>stdio.h</code> (que faz parte do próprio C), dando-lhe como input o literal de <em>string</em> <code>"Hello world!"</code>.</p>
 <p>A função “imprime” no terminal o input recebido.</p>
 <p>Todas as instruções no C acabam com <code>;</code>. <!-- .element: class="fragment" --></p>
 </section>
 <section class="slide level2 center">
 
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<div class="sourceCode" id="cb5" data-code-line-numbers="5"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="dt">int</span> main<span class="op">(){</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a>    printf<span class="op">(</span><span class="st">"Hello world!"</span><span class="op">);</span></span>
 <span id="cb5-5"><a href="#cb5-5"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb5-6"><a href="#cb5-6"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Especifica o valor de retorno do nosso programa, neste caso 0 (linha 5).</p>
+<p>Especifica o valor de retorno do nosso programa, neste caso 0.</p>
 </section>
 <section class="slide level2 center">
 
@@ -567,7 +567,7 @@ CAP Diogo Silva
 <section class="slide level2 center">
 
 <p>Os programas devem ter várias informações sobre o programa em si, e.g.&nbsp;autor, propósito, etc.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">/* Nome: hello_world.c*/</span></span>
+<div class="sourceCode" id="cb10" data-code-line-numbers="1-3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">/* Nome: hello_world.c*/</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="co">/* Autor: Diogo Silva*/</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="co">/* Proposito: Mostrar "Hello world!" na consola.*/</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -684,7 +684,7 @@ CAP Diogo Silva
 <section class="slide level2 center">
 
 <p>As variáveis só podem ser usadas depois de declaradas. Ver linha 3.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<div class="sourceCode" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a></span>
 <span id="cb17-3"><a href="#cb17-3"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
 <span id="cb17-4"><a href="#cb17-4"></a></span>
@@ -699,7 +699,7 @@ CAP Diogo Silva
 
 <h3 id="variáveis-printf">Variáveis: printf</h3>
 <p>Se quisermos mostrar o valor de uma determinada variável, podemos usar novamente a função <code>printf</code>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<div class="sourceCode" id="cb18" data-code-line-numbers="5"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a></span>
 <span id="cb18-4"><a href="#cb18-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
