@@ -144,6 +144,22 @@
 \makeatother
 
 \makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
 \makeatother
 \makeatletter
 \makeatother
@@ -210,14 +226,15 @@
 \date{}
 
 \begin{document}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, interior hidden, enhanced, borderline west={3pt}{0pt}{shadecolor}, breakable, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, interior hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, frame hidden, boxrule=0pt, sharp corners]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 \begin{frame}[allowframebreaks]
   \frametitle{Table of contents}
   \tableofcontents[hideallsubsections]
 \end{frame}
-\begin{frame}
+\begin{frame}{Slides}
+\protect\hypertarget{slides}{}
 \end{frame}
 
 \begin{frame}{Leitura e escrita formatada}
@@ -238,36 +255,50 @@ O \texttt{printf} e \texttt{scanf} são 2 das funções mais usadas quando
 programamos em C.
 
 Ambas as funções permitem escrever/ler um número arbitrário de valores:
+\end{block}
+\end{frame}
 
-\begin{verbatim}
-printf("string", expr1, ..., exprN);
-scanf("string", &var1, ..., &varN);
-\end{verbatim}
-
-\begin{verbatim}
-int altura, idade;
-float massa, imc;
-printf("Insira a idade e massa separadas por um espaco:");
-scanf("%d %f", &altura, &massa);
-printf("altura: %d\nmassa:%f\n", altura, massa);
-\end{verbatim}
-
---
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{printf}\OperatorTok{(}\StringTok{"string"}\OperatorTok{,}\NormalTok{ expr1}\OperatorTok{,} \OperatorTok{...,}\NormalTok{ exprN}\OperatorTok{);}
+\NormalTok{scanf}\OperatorTok{(}\StringTok{"string"}\OperatorTok{,} \OperatorTok{\&}\NormalTok{var1}\OperatorTok{,} \OperatorTok{...,} \OperatorTok{\&}\NormalTok{varN}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{scanf("\%d \%f", \&altura, \&massa);}
-\NormalTok{printf("altura: \%d\textbackslash{}nmassa:\%f\textbackslash{}n", altura, massa);}
+\DataTypeTok{int}\NormalTok{ altura}\OperatorTok{,}\NormalTok{ idade}\OperatorTok{;}
+\DataTypeTok{float}\NormalTok{ massa}\OperatorTok{,}\NormalTok{ imc}\OperatorTok{;}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"Insira a idade e massa separadas por um espaco:"}\OperatorTok{);}
+\NormalTok{scanf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%d}\StringTok{ }\SpecialCharTok{\%f}\StringTok{"}\OperatorTok{,} \OperatorTok{\&}\NormalTok{altura}\OperatorTok{,} \OperatorTok{\&}\NormalTok{massa}\OperatorTok{);}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"altura: }\SpecialCharTok{\%d\textbackslash{}n}\StringTok{massa:}\SpecialCharTok{\%f\textbackslash{}n}\StringTok{"}\OperatorTok{,}\NormalTok{ altura}\OperatorTok{,}\NormalTok{ massa}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{scanf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%d}\StringTok{ }\SpecialCharTok{\%f}\StringTok{"}\OperatorTok{,} \OperatorTok{\&}\NormalTok{altura}\OperatorTok{,} \OperatorTok{\&}\NormalTok{massa}\OperatorTok{);}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"altura: }\SpecialCharTok{\%d\textbackslash{}n}\StringTok{massa:}\SpecialCharTok{\%f\textbackslash{}n}\StringTok{"}\OperatorTok{,}\NormalTok{ altura}\OperatorTok{,}\NormalTok{ massa}\OperatorTok{);}
 \end{Highlighting}
 \end{Shaded}
 
 Quando usamos múltiplos descritores nestas funções, a correspondência
-com as variáveis/expressões é feita por ordem sequencial: - linha 1: o
-primeiro \texttt{\%d} corresponde à variável \texttt{altura},
-\texttt{\%f} corresponde à \texttt{massa} - linha 2: idem
+com as variáveis/expressões é feita por ordem sequencial:
 
---
+\begin{itemize}
+\tightlist
+\item
+  linha 1: o primeiro \texttt{\%d} corresponde à variável
+  \texttt{altura}, \texttt{\%f} corresponde à \texttt{massa}
+\item
+  linha 2: idem
+\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]
 Os compiladores de C não são obrigados a verificar que o número de
 descritores é coerente com o número de valores fornecidos.
 
@@ -277,9 +308,9 @@ descritores é coerente com o número de valores fornecidos.
 \NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%d\textbackslash{}n}\StringTok{"}\OperatorTok{,}\NormalTok{ i}\OperatorTok{,}\NormalTok{ j}\OperatorTok{,}\NormalTok{ x}\OperatorTok{,}\NormalTok{ y}\OperatorTok{,}\NormalTok{ k}\OperatorTok{);} \CommentTok{/*** ERRADO ***/}
 \end{Highlighting}
 \end{Shaded}
+\end{frame}
 
---
-
+\begin{frame}[fragile]
 Os compiladores de C não são obrigados a verificar que o descritor
 \texttt{\%} usado é o apropriado para o tipo da expressão/variável.
 
@@ -290,7 +321,6 @@ Os compiladores de C não são obrigados a verificar que o descritor
 \NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%f}\StringTok{ }\SpecialCharTok{\%d\textbackslash{}n}\StringTok{"}\OperatorTok{,}\NormalTok{ natural}\OperatorTok{,}\NormalTok{ realj}\OperatorTok{);} \CommentTok{/*** ERRADO ***/}
 \end{Highlighting}
 \end{Shaded}
-\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -298,134 +328,218 @@ Os compiladores de C não são obrigados a verificar que o descritor
 \protect\hypertarget{printf}{}
 Os descritores \texttt{\%d}, \texttt{\%f}, \ldots{} também podem ser
 denominados por \textbf{especificações de conversão}.
-
---
 \end{block}
+\end{frame}
 
+\begin{frame}[fragile]
 \begin{block}{Número de digitos}
 \protect\hypertarget{nuxfamero-de-digitos}{}
 \texttt{\%d} escreve o número inteiro que recebe, mas podemos definir um
 número de ditigos mínimo.
 
-\texttt{c\ {[}{]}\ //\ output\ no\ comentário\ após\ as\ linhas\ //\ •\ significa\ um\ espaço\ printf("\%d\textbackslash{}n",\ 42);\ \ \ \ //\ -\textgreater{}\ 42\ printf("\%5d\textbackslash{}n",\ 42);\ \ \ //\ -\textgreater{}\ •••42\ (3\ espaços\ antes\ do\ 2)\ printf("\%05d\textbackslash{}n",\ 422);\ //\ -\textgreater{}\ 00042\ (3\ zeros\ antes\ do\ 2)}
-
-\begin{itemize}
-\tightlist
-\item
-  a linha 2 especifica que o que é escrito deve ter pelo menos 5
-  caracteres, se não tiver, são adicionados espaços antes do número até
-  os perfazer;
-\item
-  a linha 3 indica o mesmo, para são usados 0s para preencher.
-\end{itemize}
-
---
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// output no comentário após as linhas}
+\CommentTok{// • significa um espaço}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%d\textbackslash{}n}\StringTok{"}\OperatorTok{,} \DecValTok{42}\OperatorTok{);}    \CommentTok{// {-}\textgreater{} 42}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%5d\textbackslash{}n}\StringTok{"}\OperatorTok{,} \DecValTok{42}\OperatorTok{);}   \CommentTok{// {-}\textgreater{} •••42 (3 espaços antes do 2)}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%05d\textbackslash{}n}\StringTok{"}\OperatorTok{,} \DecValTok{422}\OperatorTok{);} \CommentTok{// {-}\textgreater{} 00042 (3 zeros antes do 2)}
+\end{Highlighting}
+\end{Shaded}
 \end{block}
+\end{frame}
 
-\begin{block}{casas decimais}
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{// output no comentário após as linhas}
+\CommentTok{// • significa um espaço}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%d\textbackslash{}n}\StringTok{"}\OperatorTok{,} \DecValTok{42}\OperatorTok{);}    \CommentTok{// {-}\textgreater{} 42}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%5d\textbackslash{}n}\StringTok{"}\OperatorTok{,} \DecValTok{42}\OperatorTok{);}   \CommentTok{// {-}\textgreater{} •••42 (3 espaços antes do 2)}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%05d\textbackslash{}n}\StringTok{"}\OperatorTok{,} \DecValTok{422}\OperatorTok{);} \CommentTok{// {-}\textgreater{} 00042 (3 zeros antes do 2)}
+\end{Highlighting}
+\end{Shaded}
+
+Especifica que o que é escrito deve ter pelo menos 5 caracteres, se não
+tiver, são adicionados espaços antes do número até os perfazer;
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\CommentTok{// output no comentário após as linhas}
+\CommentTok{// • significa um espaço}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%d\textbackslash{}n}\StringTok{"}\OperatorTok{,} \DecValTok{42}\OperatorTok{);}    \CommentTok{// {-}\textgreater{} 42}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%5d\textbackslash{}n}\StringTok{"}\OperatorTok{,} \DecValTok{42}\OperatorTok{);}   \CommentTok{// {-}\textgreater{} •••42 (3 espaços antes do 4)}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%05d\textbackslash{}n}\StringTok{"}\OperatorTok{,} \DecValTok{422}\OperatorTok{);} \CommentTok{// {-}\textgreater{} 00042 (3 zeros antes do 4)}
+\end{Highlighting}
+\end{Shaded}
+
+Indica o mesmo, mas são usados 0s para preencher.
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Casas decimais}
 \protect\hypertarget{casas-decimais}{}
 Podemos fazer o mesmo com os números reais.
 
-\texttt{c\ {[}{]}\ printf("\%f\textbackslash{}n",\ 3.14159);\ \ \ \ \ //\ -\textgreater{}\ 3.141590\ printf("\%.2f\textbackslash{}n",\ 3.14159);\ \ \ //\ -\textgreater{}\ 3.14\ (2\ casas\ decimais)\ printf("\%.f\textbackslash{}n",\ 3.14159);\ \ \ \ //\ -\textgreater{}\ 3\ (0\ casas\ decimais,\ arredonda)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //também\ podia\ ser\ \%.0f}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%f\textbackslash{}n}\StringTok{"}\OperatorTok{,} \FloatTok{3.14159}\OperatorTok{);}     \CommentTok{// {-}\textgreater{} 3.141590}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%.2f\textbackslash{}n}\StringTok{"}\OperatorTok{,} \FloatTok{3.14159}\OperatorTok{);}   \CommentTok{// {-}\textgreater{} 3.14 (2 casas decimais)}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"\%.f}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\OperatorTok{,} \FloatTok{3.14159}\OperatorTok{);}    \CommentTok{// {-}\textgreater{} 3 (0 casas decimais, arredonda)}
+                             \CommentTok{//também podia ser \%.0f}
+\end{Highlighting}
+\end{Shaded}
+\end{block}
+\end{frame}
 
-\texttt{c\ {[}{]}\ printf("\%5.2f\textbackslash{}n",\ 3.14159);\ \ //\ -\textgreater{}\ •3.14\ (2\ casas\ decimais,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ pelo\ menos\ 5\ characteres\ no\ total,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ adiciona\ 1\ espaço\ antes)\ printf("\%05.2f\textbackslash{}n",\ 3.14159);\ //\ -\textgreater{}\ 03.14\ (adiciona\ 0s)}
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%5.2f\textbackslash{}n}\StringTok{"}\OperatorTok{,} \FloatTok{3.14159}\OperatorTok{);}  \CommentTok{// {-}\textgreater{} •3.14 (2 casas decimais,}
+                             \CommentTok{// pelo menos 5 characteres no total,}
+                             \CommentTok{// adiciona 1 espaço antes)}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%05.2f\textbackslash{}n}\StringTok{"}\OperatorTok{,} \FloatTok{3.14159}\OperatorTok{);} \CommentTok{// {-}\textgreater{} 03.14 (adiciona 0s)}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
 
-```c {[}{]} printf(``\%-5.2f\n'', 3.14159); // -\textgreater{} 3.14• (2
-casas decimais, // pelo menos 5 characteres no total, // adiciona 1
-espaço depois)
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%{-}5.2f\textbackslash{}n}\StringTok{"}\OperatorTok{,} \FloatTok{3.14159}\OperatorTok{);}  \CommentTok{// {-}\textgreater{} 3.14• (2 casas decimais,}
+                             \CommentTok{// pelo menos 5 characteres no total,}
+                             \CommentTok{// adiciona 1 espaço depois)}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
 
-\begin{verbatim}
-<!-- .element: class="fragment" -->
+\begin{frame}[fragile]
+\begin{block}{regra geral}
+\protect\hypertarget{regra-geral}{}
+Temos a fórmula {\texttt{\%m.pX}} ou {\texttt{\%-m.pX}}, onde
+{\texttt{m}} e {\texttt{p}} são números naturais positivos, mas
+opcionais. {\texttt{X}} é uma letra válida para conversão,
+e.g.~\texttt{d} ou \texttt{f}.
 
---
+{\texttt{m}} é o número de caracteres mínimo que devem ser escritos,
+sendo adicionados, à esquerda, espaços, ou zeros se designarmos
+{\texttt{0m}}.
 
-### regra geral
+{\texttt{p}} é o número de casas decimais a usar.
 
-Temos a fórmula
-<span style="color:Salmon">`%m.pX`</span> ou 
-<span style="color:Salmon">`%-m.pX`</span>, onde
-<span style="color:Salmon">`m`</span> e 
-<span style="color:Salmon">`p`</span> são números naturais positivos, mas opcionais.
-<span style="color:Salmon">`X`</span> é uma letra válida para conversão, e.g. `d` ou `f`.
+Quando temos {\texttt{-m}}, adicionamos os espaços à direita do número.
+\end{block}
+\end{frame}
 
+\begin{frame}[fragile]
+\begin{block}{tabela de especificações de conversão}
+\protect\hypertarget{tabela-de-especificauxe7uxf5es-de-conversuxe3o}{}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+letras
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+descrição
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+d & inteiros, \texttt{p} não faz sentido, \texttt{m} é o número mínimo
+de caracteres a serem escritos \\
+e & reais em notação científica, \texttt{p} é o número de casas
+decimais \\
+f & reais em ``decimal fixo'', sem expoente, \texttt{p} tem o mesmo
+significado \\
+\bottomrule\noalign{}
+\end{longtable}
+\end{block}
+\end{frame}
 
-<span style="color:Salmon">`m`</span>
- é o número de caracteres mínimo que devem ser escritos, sendo adicionados, à esquerda, espaços, ou zeros se designarmos
- <span style="color:Salmon">`0m`</span>.
-<!-- .element: class="fragment" -->
+\begin{frame}[fragile]
+\begin{block}{símbolos especiais}
+\protect\hypertarget{suxedmbolos-especiais}{}
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Símbolo & descrição \\
+\midrule\noalign{}
+\endhead
+\texttt{\textbackslash{}n} & nova linha \\
+\texttt{\textbackslash{}t} & tabulação \\
+\texttt{\textbackslash{}\textbackslash{}} & permite inserir um
+\textbackslash{} \\
+\texttt{\textbackslash{}a} & causa um alerta sonoro na maior parte dos
+computadores \\
+\bottomrule\noalign{}
+\end{longtable}
+\end{block}
+\end{frame}
 
+\begin{frame}{\texttt{scanf}}
+\protect\hypertarget{scanf}{}
+\end{frame}
 
-<span style="color:Salmon">`p`</span>
-é o número de casas decimais a usar.
-<!-- .element: class="fragment" -->
+\begin{frame}[fragile]
+\begin{block}{Como funciona?}
+\protect\hypertarget{como-funciona}{}
+Na sua essência, o \texttt{scanf} faz correspondência de padrões.
 
-Quando temos
-<span style="color:Salmon">`-m`</span>, adicionamos os espaços à direita do número.
-<!-- .element: class="fragment" -->
+Tenta fazer a correspondência entre grupos de \emph{input} com
+especificações de conversão.
+\end{block}
+\end{frame}
 
---
+\begin{frame}[fragile]
+Para cada especificação de conversão, o \texttt{scanf} tenta encontrar
+um item do tipo apropriado no \emph{input} recebido, parando quando
+recebe um caracter incompatível com esse tipo.
 
-`p` nem sempre faz sentido, pois depende da letra `X` escolhida.
+Se algum item não for lido com sucesso, o \texttt{scanf} retorna sem
+tentar fazer a correspondência entre as restantes especificações de
+conversão com o resto do \emph{input}.
+\end{frame}
 
---
+\begin{frame}
+Ao procurar pelo início de um número, todos os espaços em branco são
+ignorados, e.g.~espaços, novas linhas, tabulações, \ldots{}
+\end{frame}
 
-### tabela de especificações de conversão
-
-| letras | descrição |
-| ------ | --------- | 
-| d      | inteiros, `p` não faz sentido, `m` é o número mínimo de caracteres a serem escritos |
-| e      | reais em notação científica, `p` é o número de casas decimais
-| f      | reais em "decimal fixo", sem expoente, `p` tem o mesmo significado |
-
---
-
-### símbolos especiais
-
-| Símbolo | descrição |
-| --- | ---- |
-| \n  | nova linha |
-| \t | tabulação |
-| `\\` | permite inserir um \ |
-| \a | causa um alerta sonoro na maior parte dos computadores |
-
----
-
-## ``scanf``
-
-### Como funciona?
-
---
-
-Na sua essência, o `scanf` faz correspondência de padrões.
-Tenta fazer a correspondência entre grupos de *input* com especificações de conversão.
-
-Para cada especificação de conversão, o `scanf` tenta encontrar um item do tipo apropriado no *input* recebido, parando quando recebe um caracter incompatível com esse tipo.
-<!-- .element: class="fragment" -->
-
-Se algum item não for lido com sucesso, o ``scanf`` retorna sem tentar fazer a correspondência entre as restantes especificações de conversão com o resto do *input*.
-<!-- .element: class="fragment" -->
-
---
-
-Ao procurar pelo início de um número, todos os espaços em branco são ignorados, e.g. espaços, novas linhas, tabulações, ...
-
---
-
-```c
-int i, j;
-float x, y;
-scanf("%d%d%f%f", &i, &j, &x, &y);
-printf("i=%d, j=%d\nx=%f, y=%f\n", i, j, x, y);
-\end{verbatim}
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{int}\NormalTok{ i}\OperatorTok{,}\NormalTok{ j}\OperatorTok{;}
+\DataTypeTok{float}\NormalTok{ x}\OperatorTok{,}\NormalTok{ y}\OperatorTok{;}
+\NormalTok{scanf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%d\%d\%f\%f}\StringTok{"}\OperatorTok{,} \OperatorTok{\&}\NormalTok{i}\OperatorTok{,} \OperatorTok{\&}\NormalTok{j}\OperatorTok{,} \OperatorTok{\&}\NormalTok{x}\OperatorTok{,} \OperatorTok{\&}\NormalTok{y}\OperatorTok{);}
+\NormalTok{printf}\OperatorTok{(}\StringTok{"i=}\SpecialCharTok{\%d}\StringTok{, j=}\SpecialCharTok{\%d\textbackslash{}n}\StringTok{x=}\SpecialCharTok{\%f}\StringTok{, y=}\SpecialCharTok{\%f\textbackslash{}n}\StringTok{"}\OperatorTok{,}\NormalTok{ i}\OperatorTok{,}\NormalTok{ j}\OperatorTok{,}\NormalTok{ x}\OperatorTok{,}\NormalTok{ y}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
 
 Este programa irá ler os seguintes números de igual forma:
 
-\texttt{bash\ {[}2{]}\ Introduza\ 2\ inteiros\ e\ 2\ reais:\ 1\ 2\ 3\ 4\ 5\ i=1,\ j=2\ x=3.000000,\ y=4.000000}
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Introduza 2 inteiros e 2 reais:}
+\NormalTok{1 2 3 4 5}
+\NormalTok{i=1, j=2}
+\NormalTok{x=3.000000, y=4.000000}
+\end{Highlighting}
+\end{Shaded}
 
-\texttt{bash\ {[}2-4{]}\ Introduza\ 2\ inteiros\ e\ 2\ reais:\ 3\ \ \ \ \ 4\ 5\ 6\ i=3,\ j=4\ x=5.000000,\ y=6.000000}
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Introduza 2 inteiros e 2 reais:}
+\NormalTok{3}
+\NormalTok{    4}
+\NormalTok{5 6}
+\NormalTok{i=3, j=4}
+\NormalTok{x=5.000000, y=6.000000}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
 
---
-
+\begin{frame}[fragile]
 Porquê é que isto acontece?
 
 O scanf lê todo o input como uma sequência de caracteres. Os espaços,
@@ -433,9 +547,9 @@ enters, tabulações, etc. são todos caracteres.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{3}
-    \ExtensionTok{4}
-\ExtensionTok{5}\NormalTok{ 6}
+\NormalTok{3}
+\NormalTok{    4}
+\NormalTok{5 6}
 \end{Highlighting}
 \end{Shaded}
 
@@ -443,43 +557,60 @@ enters, tabulações, etc. são todos caracteres.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{3¤••••4¤5•6¤}
+\NormalTok{3¤••••4¤5•6¤}
 \end{Highlighting}
 \end{Shaded}
 
 onde \texttt{¤} é uma nova linha e \texttt{•} é um espaço.
+\end{frame}
 
---
-
+\begin{frame}[fragile]
 O \texttt{scanf} pára de ler quando encontra um enter (nova linha) após
 a correspondência da última especificação de conversão.
 
-⚠️Importante⚠️ Contudo, o último enter não é consumido do \emph{input} e
-por isso será o primeiro caracter a ser lido na próxima chamada do
-\texttt{scanf}.
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, breakable, opacitybacktitle=0.6, toprule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Atenção!}, leftrule=.75mm, arc=.35mm, left=2mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, titlerule=0mm, opacityback=0, rightrule=.15mm, bottomtitle=1mm, coltitle=black]
 
---
+O último enter não é consumido do \emph{input} e por isso será o
+primeiro caracter a ser lido na próxima chamada do \texttt{scanf}.
 
-Regras de correspondência para inteiros \texttt{\%d}: - procura pelo
-primeiro digito ou sinal de + ou - - lê digitos até encontrar o primeiro
-caracter não digito
+\end{tcolorbox}
+\end{frame}
 
---
+\begin{frame}[fragile]
+Regras de correspondência para inteiros \texttt{\%d}:
 
-Regras de correspondência para reais \texttt{\%f\ \%e}: - procura pelo
-sinal de + ou - (opcional) - lê uma série de digitos, que podem conter
-\textbf{1} \texttt{.} a indicar que depois vêm casas decimais - um
-expoente (opcional): consiste na letra e ou E seguida de um sinal e mais
-digitos, e.g.~\texttt{1e-3} (=0.001), \texttt{1E3} (=10000).
+\begin{itemize}
+\tightlist
+\item
+  procura pelo primeiro digito ou sinal de + ou -
+\item
+  lê digitos até encontrar o primeiro caracter não digito
+\end{itemize}
+\end{frame}
 
---
+\begin{frame}[fragile]
+Regras de correspondência para reais \texttt{\%f\ \%e}:
 
+\begin{itemize}
+\tightlist
+\item
+  procura pelo sinal de + ou - (opcional)
+\item
+  lê uma série de digitos, que podem conter \textbf{1} \texttt{.} a
+  indicar que depois vêm casas decimais
+\item
+  um expoente (opcional): consiste na letra e ou E seguida de um sinal e
+  mais digitos, e.g.~\texttt{1e-3} (=0.001), \texttt{1E3} (=10000).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
 Quando o scanf lê um caracter que não encaixa na especificação de
 conversão que está a ser processada, é novamente colocado no input para
 ser processado
+\end{frame}
 
---
-
+\begin{frame}[fragile]
 Ler apenas N digitos
 
 \begin{Shaded}
@@ -493,7 +624,6 @@ Ler apenas N digitos
 \end{Shaded}
 
 \texttt{\%Nd} permite ler \texttt{N} digitos inteiros.
-\end{block}
 \end{frame}
 
 \begin{frame}{Exercício}

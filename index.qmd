@@ -13,8 +13,10 @@ format:
 - Ambientes de desenvolvimento
   - [Replit - IDE Online](https://replit.com/)
   - [CodeBlocks](https://www.codeblocks.org/)
+    - [Instruções dos docentes](/pdf/P01%20-%20Code%20Blocks.pdf){target="_blank"}
   - [Visual Studio Code](https://code.visualstudio.com/)
-    - [Setup VSCode locally](https://www.youtube.com/watch?v=HiyfEbbCWT4)
+    - [Setting Up VSCode for Coding in C on Windows ](https://www.youtube.com/watch?v=HiyfEbbCWT4)
+    - [Instruções dos docentes](exercises/instalar_compilador_vscode_2.htm){target="_blank"}
 
 
 # Equipa docente
@@ -27,8 +29,8 @@ format:
 0. [Apresentação da UC](lectures/01_course_intro.qmd)
 1. Motivação [[Slides](pdf/01_motivacao.pdf)]
 2. C Fundamentals [[Slides](lectures/2_fundamentals.html)]
-<!-- 3. Leitura e escrita formatada [[Slides](lectures/3_formated_io.md)]
-4. Expressões [[Slides](lectures/4_expressoes.html)]
+3. Leitura e escrita formatada [[Slides](lectures/3_formated_io.md)]
+<!--4. Expressões [[Slides](lectures/4_expressoes.html)]
 5. Testes e Condições [[Slides](pdf/03_testes_condicoes.pptx.pdf)]
 6. [Ciclos](lectures/06_ciclos.md)
 7. [Tipos básicos do C](lectures/7_basic_types.qmd)

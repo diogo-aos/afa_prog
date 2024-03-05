@@ -12,16 +12,21 @@ format:
     embed-resources: true
 ---
 
+# IDE
+
+- VSCode [instruções](instalar_compilador_vscode_2.htm){target="_blank"}
+- Code::BLocks [instruções](/pdf/P01%20-%20Code%20Blocks.pdf){target="_blank"}
+
 # Notas
 
 Os exercícios denominados "King ..." são retirados do livro 
 
-["C Programming: A Modern Approach, 2nd Edition" do K. N. King](http://knking.com/books/c2/index.html)
+["C Programming: A Modern Approach, 2nd Edition" do K. N. King](http://knking.com/books/c2/index.html){target="_blank"}
 
 # 2 Fundamentos
 <!-- .slide: data-background="Coral" id="2_exercicios" -->
 
-[Slides da matéria](https://www.diogoaos.com/slides/prog/#/2_fundamentals)
+[Slides da matéria](../lectures/2_fundamentals.qmd)
 
 ---
 
@@ -29,7 +34,7 @@ Os exercícios denominados "King ..." são retirados do livro
 # 3 I/O Formatado
 <!-- .slide: data-background="Coral" id="3_exercicios"-->
 
-[Slides da matéria](https://www.diogoaos.com/slides/prog/#/3_formated_io)
+[Slides da matéria](../lectures/3_formated_io.md)
 
 ---
 

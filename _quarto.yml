@@ -8,6 +8,8 @@ project:
     - "!2223/"
   resources: 
     - "*.pdf"
+    - "*.htm"
+    - "*.png"
   post-render: 
     - fix_suffix.py
 
@@ -21,6 +23,7 @@ toc: true
 
 website:
   title: "Programação"
+  
   navbar:
     left:
       - href: index.qmd

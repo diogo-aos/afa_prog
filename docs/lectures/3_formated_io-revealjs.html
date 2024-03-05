@@ -10,7 +10,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
-  <title>Programação – formated_io</title>
+  <meta name="author" content="Diogo Silva">
+  <title>Programação - Leitura e escrita formatada</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -388,42 +389,58 @@
   <div class="reveal">
     <div class="slides">
 
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Leitura e escrita formatada</h1>
 
-<section class="slide level2 center">
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Diogo Silva 
+</div>
+        <p class="quarto-title-affiliation">
+            Academia da Força Aérea
+          </p>
+    </div>
+</div>
 
-<p><img src="img/afa.png" height="100"></p>
 </section>
-<section id="leitura-e-escrita-formatada" class="slide level2 center">
-<h2>Leitura e escrita formatada</h2>
-<h3 id="diogo-silva">Diogo Silva</h3>
-<h4 id="cap-engel">CAP / ENGEL</h4>
-<p>dasilva@academiafa.edu.pt</p>
-<!-- .slide: data-background="Cornsilk" -->
-</section>
-<section class="slide level2 center">
 
-<h3 id="io-formatado">I/O formatado</h3>
+<section id="io-formatado" class="slide level2 center">
+<h2>I/O formatado</h2>
 <p>O <code>printf</code> e <code>scanf</code> são 2 das funções mais usadas quando programamos em C.</p>
 <p>Ambas as funções permitem escrever/ler um número arbitrário de valores: <!-- .element: class="fragment" --></p>
-<pre><code>printf("string", expr1, ..., exprN);
-scanf("string", &amp;var1, ..., &amp;varN);</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a>printf<span class="op">(</span><span class="st">"string"</span><span class="op">,</span> expr1<span class="op">,</span> <span class="op">...,</span> exprN<span class="op">);</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>scanf<span class="op">(</span><span class="st">"string"</span><span class="op">,</span> <span class="op">&amp;</span>var1<span class="op">,</span> <span class="op">...,</span> <span class="op">&amp;</span>varN<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- .element: class="fragment" -->
-<pre><code>int altura, idade;
-float massa, imc;
-printf("Insira a idade e massa separadas por um espaco:");
-scanf("%d %f", &amp;altura, &amp;massa);
-printf("altura: %d\nmassa:%f\n", altura, massa);</code></pre>
+</section>
+<section class="slide level2 center">
+
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="dt">int</span> altura<span class="op">,</span> idade<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>printf<span class="op">(</span><span class="st">"Insira a idade e massa separadas por um espaco:"</span><span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%f</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>altura<span class="op">,</span> <span class="op">&amp;</span>massa<span class="op">);</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>printf<span class="op">(</span><span class="st">"altura: </span><span class="sc">%d\n</span><span class="st">massa:</span><span class="sc">%f\n</span><span class="st">"</span><span class="op">,</span> altura<span class="op">,</span> massa<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- .element: class="fragment" -->
-<p>–</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource [] number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>scanf("%d %f", &amp;altura, &amp;massa);</span>
-<span id="cb3-2"><a href="#cb3-2"></a>printf("altura: %d\nmassa:%f\n", altura, massa);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Quando usamos múltiplos descritores nestas funções, a correspondência com as variáveis/expressões é feita por ordem sequencial: - linha 1: o primeiro <code>%d</code> corresponde à variável <code>altura</code>, <code>%f</code> corresponde à <code>massa</code> - linha 2: idem</p>
+</section>
+<section class="slide level2 center">
+
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%f</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>altura<span class="op">,</span> <span class="op">&amp;</span>massa<span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>printf<span class="op">(</span><span class="st">"altura: </span><span class="sc">%d\n</span><span class="st">massa:</span><span class="sc">%f\n</span><span class="st">"</span><span class="op">,</span> altura<span class="op">,</span> massa<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Quando usamos múltiplos descritores nestas funções, a correspondência com as variáveis/expressões é feita por ordem sequencial:</p>
+<ul>
+<li>linha 1: o primeiro <code>%d</code> corresponde à variável <code>altura</code>, <code>%f</code> corresponde à <code>massa</code></li>
+<li>linha 2: idem</li>
+</ul>
 <!-- .element: class="fragment" -->
-<p>–</p>
+</section>
+<section class="slide level2 center">
+
 <p>Os compiladores de C não são obrigados a verificar que o número de descritores é coerente com o número de valores fornecidos.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%d</span><span class="st"> </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">);</span> <span class="co">/*** ERRADO ***/</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">,</span> j<span class="op">,</span> x<span class="op">,</span> y<span class="op">,</span> k<span class="op">);</span> <span class="co">/*** ERRADO ***/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>–</p>
+</section>
+<section class="slide level2 center">
+
 <p>Os compiladores de C não são obrigados a verificar que o descritor <code>%</code> usado é o apropriado para o tipo da expressão/variável.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1"></a><span class="dt">int</span> natural<span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="dt">float</span> real<span class="op">;</span></span>
@@ -433,130 +450,232 @@ printf("altura: %d\nmassa:%f\n", altura, massa);</code></pre>
 
 <h3 id="printf"><code>printf</code></h3>
 <p>Os descritores <code>%d</code>, <code>%f</code>, … também podem ser denominados por <strong>especificações de conversão</strong>.</p>
-<p>–</p>
+</section>
+<section class="slide level2 center">
+
 <h3 id="número-de-digitos">Número de digitos</h3>
 <p><code>%d</code> escreve o número inteiro que recebe, mas podemos definir um número de ditigos mínimo.</p>
-<p><code>c [] // output no comentário após as linhas // • significa um espaço printf("%d\n", 42);    // -&gt; 42 printf("%5d\n", 42);   // -&gt; •••42 (3 espaços antes do 2) printf("%05d\n", 422); // -&gt; 00042 (3 zeros antes do 2)</code> <!-- .element: class="fragment" --></p>
-<ul>
-<li>a linha 2 especifica que o que é escrito deve ter pelo menos 5 caracteres, se não tiver, são adicionados espaços antes do número até os perfazer;</li>
-<li>a linha 3 indica o mesmo, para são usados 0s para preencher.</li>
-</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">// output no comentário após as linhas</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">// • significa um espaço</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span>    <span class="co">// -&gt; 42</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%5d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span>   <span class="co">// -&gt; •••42 (3 espaços antes do 2)</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%05d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">422</span><span class="op">);</span> <span class="co">// -&gt; 00042 (3 zeros antes do 2)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2 center">
+
+<div class="sourceCode" id="cb7" data-code-line-numbers="4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">// output no comentário após as linhas</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">// • significa um espaço</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span>    <span class="co">// -&gt; 42</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%5d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span>   <span class="co">// -&gt; •••42 (3 espaços antes do 2)</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%05d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">422</span><span class="op">);</span> <span class="co">// -&gt; 00042 (3 zeros antes do 2)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Especifica que o que é escrito deve ter pelo menos 5 caracteres, se não tiver, são adicionados espaços antes do número até os perfazer;</p>
+</section>
+<section class="slide level2 center">
+
+<div class="sourceCode" id="cb8" data-code-line-numbers="5"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">// output no comentário após as linhas</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">// • significa um espaço</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span>    <span class="co">// -&gt; 42</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%5d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span>   <span class="co">// -&gt; •••42 (3 espaços antes do 4)</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%05d\n</span><span class="st">"</span><span class="op">,</span> <span class="dv">422</span><span class="op">);</span> <span class="co">// -&gt; 00042 (3 zeros antes do 4)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Indica o mesmo, mas são usados 0s para preencher.</p>
 <!-- .element: class="fragment" -->
-<p>–</p>
-<h3 id="casas-decimais">casas decimais</h3>
+</section>
+<section class="slide level2 center">
+
+<h3 id="casas-decimais">Casas decimais</h3>
 <p>Podemos fazer o mesmo com os números reais.</p>
-<p><code>c [] printf("%f\n", 3.14159);     // -&gt; 3.141590 printf("%.2f\n", 3.14159);   // -&gt; 3.14 (2 casas decimais) printf("%.f\n", 3.14159);    // -&gt; 3 (0 casas decimais, arredonda)                              //também podia ser %.0f</code></p>
-<p><code>c [] printf("%5.2f\n", 3.14159);  // -&gt; •3.14 (2 casas decimais,                              // pelo menos 5 characteres no total,                              // adiciona 1 espaço antes) printf("%05.2f\n", 3.14159); // -&gt; 03.14 (adiciona 0s)</code> <!-- .element: class="fragment" --></p>
-<p>```c [] printf(“%-5.2f”, 3.14159); // -&gt; 3.14• (2 casas decimais, // pelo menos 5 characteres no total, // adiciona 1 espaço depois)</p>
-<pre><code>&lt;!-- .element: class="fragment" --&gt;
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%f\n</span><span class="st">"</span><span class="op">,</span> <span class="fl">3.14159</span><span class="op">);</span>     <span class="co">// -&gt; 3.141590</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%.2f\n</span><span class="st">"</span><span class="op">,</span> <span class="fl">3.14159</span><span class="op">);</span>   <span class="co">// -&gt; 3.14 (2 casas decimais)</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>printf<span class="op">(</span><span class="st">"%.f</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> <span class="fl">3.14159</span><span class="op">);</span>    <span class="co">// -&gt; 3 (0 casas decimais, arredonda)</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>                             <span class="co">//também podia ser %.0f</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2 center">
 
---
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%5.2f\n</span><span class="st">"</span><span class="op">,</span> <span class="fl">3.14159</span><span class="op">);</span>  <span class="co">// -&gt; •3.14 (2 casas decimais,</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>                             <span class="co">// pelo menos 5 characteres no total,</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>                             <span class="co">// adiciona 1 espaço antes)</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%05.2f\n</span><span class="st">"</span><span class="op">,</span> <span class="fl">3.14159</span><span class="op">);</span> <span class="co">// -&gt; 03.14 (adiciona 0s)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2 center">
 
-### regra geral
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%-5.2f\n</span><span class="st">"</span><span class="op">,</span> <span class="fl">3.14159</span><span class="op">);</span>  <span class="co">// -&gt; 3.14• (2 casas decimais,</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>                             <span class="co">// pelo menos 5 characteres no total,</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>                             <span class="co">// adiciona 1 espaço depois)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2 center">
 
-Temos a fórmula
-&lt;span style="color:Salmon"&gt;`%m.pX`&lt;/span&gt; ou 
-&lt;span style="color:Salmon"&gt;`%-m.pX`&lt;/span&gt;, onde
-&lt;span style="color:Salmon"&gt;`m`&lt;/span&gt; e 
-&lt;span style="color:Salmon"&gt;`p`&lt;/span&gt; são números naturais positivos, mas opcionais.
-&lt;span style="color:Salmon"&gt;`X`&lt;/span&gt; é uma letra válida para conversão, e.g. `d` ou `f`.
-
-
-&lt;span style="color:Salmon"&gt;`m`&lt;/span&gt;
- é o número de caracteres mínimo que devem ser escritos, sendo adicionados, à esquerda, espaços, ou zeros se designarmos
- &lt;span style="color:Salmon"&gt;`0m`&lt;/span&gt;.
-&lt;!-- .element: class="fragment" --&gt;
-
-
-&lt;span style="color:Salmon"&gt;`p`&lt;/span&gt;
-é o número de casas decimais a usar.
-&lt;!-- .element: class="fragment" --&gt;
-
-Quando temos
-&lt;span style="color:Salmon"&gt;`-m`&lt;/span&gt;, adicionamos os espaços à direita do número.
-&lt;!-- .element: class="fragment" --&gt;
-
---
-
-`p` nem sempre faz sentido, pois depende da letra `X` escolhida.
-
---
-
-### tabela de especificações de conversão
-
-| letras | descrição |
-| ------ | --------- | 
-| d      | inteiros, `p` não faz sentido, `m` é o número mínimo de caracteres a serem escritos |
-| e      | reais em notação científica, `p` é o número de casas decimais
-| f      | reais em "decimal fixo", sem expoente, `p` tem o mesmo significado |
-
---
-
-### símbolos especiais
-
-| Símbolo | descrição |
-| --- | ---- |
-| \n  | nova linha |
-| \t | tabulação |
-| `\\` | permite inserir um \ |
-| \a | causa um alerta sonoro na maior parte dos computadores |
+<h3 id="regra-geral">regra geral</h3>
+<p>Temos a fórmula <span style="color:Salmon"><code>%m.pX</code></span> ou <span style="color:Salmon"><code>%-m.pX</code></span>, onde <span style="color:Salmon"><code>m</code></span> e <span style="color:Salmon"><code>p</code></span> são números naturais positivos, mas opcionais. <span style="color:Salmon"><code>X</code></span> é uma letra válida para conversão, e.g.&nbsp;<code>d</code> ou <code>f</code>.</p>
+<div class="fragment">
+<p><span style="color:Salmon"><code>m</code></span> é o número de caracteres mínimo que devem ser escritos, sendo adicionados, à esquerda, espaços, ou zeros se designarmos <span style="color:Salmon"><code>0m</code></span>.</p>
+</div>
+<div class="fragment">
+<p><span style="color:Salmon"><code>p</code></span> é o número de casas decimais a usar.</p>
+</div>
+<div class="fragment">
+<p>Quando temos <span style="color:Salmon"><code>-m</code></span>, adicionamos os espaços à direita do número.</p>
+</div>
+<!-- 
 
 ---
 
-## ``scanf``
+`p` nem sempre faz sentido, pois depende da letra `X` escolhida. -->
+</section>
+<section class="slide level2 center">
 
-### Como funciona?
+<h3 id="tabela-de-especificações-de-conversão">tabela de especificações de conversão</h3>
+<table>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>letras</th>
+<th>descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>d</td>
+<td>inteiros, <code>p</code> não faz sentido, <code>m</code> é o número mínimo de caracteres a serem escritos</td>
+</tr>
+<tr class="even">
+<td>e</td>
+<td>reais em notação científica, <code>p</code> é o número de casas decimais</td>
+</tr>
+<tr class="odd">
+<td>f</td>
+<td>reais em “decimal fixo”, sem expoente, <code>p</code> tem o mesmo significado</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2 center">
 
---
+<h3 id="símbolos-especiais">símbolos especiais</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Símbolo</th>
+<th>descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>\n</code></td>
+<td>nova linha</td>
+</tr>
+<tr class="even">
+<td><code>\t</code></td>
+<td>tabulação</td>
+</tr>
+<tr class="odd">
+<td><code>\\</code></td>
+<td>permite inserir um \</td>
+</tr>
+<tr class="even">
+<td><code>\a</code></td>
+<td>causa um alerta sonoro na maior parte dos computadores</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="scanf" class="slide level2 center">
+<h2><code>scanf</code></h2>
+</section>
+<section class="slide level2 center">
 
-Na sua essência, o `scanf` faz correspondência de padrões.
-Tenta fazer a correspondência entre grupos de *input* com especificações de conversão.
+<h3 id="como-funciona">Como funciona?</h3>
+<p>Na sua essência, o <code>scanf</code> faz correspondência de padrões.</p>
+<p>Tenta fazer a correspondência entre grupos de <em>input</em> com especificações de conversão.</p>
+</section>
+<section class="slide level2 center">
 
-Para cada especificação de conversão, o `scanf` tenta encontrar um item do tipo apropriado no *input* recebido, parando quando recebe um caracter incompatível com esse tipo.
-&lt;!-- .element: class="fragment" --&gt;
+<p>Para cada especificação de conversão, o <code>scanf</code> tenta encontrar um item do tipo apropriado no <em>input</em> recebido, parando quando recebe um caracter incompatível com esse tipo.</p>
+<div class="fragment">
+<p>Se algum item não for lido com sucesso, o <code>scanf</code> retorna sem tentar fazer a correspondência entre as restantes especificações de conversão com o resto do <em>input</em>.</p>
+</div>
+</section>
+<section class="slide level2 center">
 
-Se algum item não for lido com sucesso, o ``scanf`` retorna sem tentar fazer a correspondência entre as restantes especificações de conversão com o resto do *input*.
-&lt;!-- .element: class="fragment" --&gt;
+<p>Ao procurar pelo início de um número, todos os espaços em branco são ignorados, e.g.&nbsp;espaços, novas linhas, tabulações, …</p>
+</section>
+<section class="slide level2 center">
 
---
-
-Ao procurar pelo início de um número, todos os espaços em branco são ignorados, e.g. espaços, novas linhas, tabulações, ...
-
---
-
-```c
-int i, j;
-float x, y;
-scanf("%d%d%f%f", &amp;i, &amp;j, &amp;x, &amp;y);
-printf("i=%d, j=%d\nx=%f, y=%f\n", i, j, x, y);</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1"></a><span class="dt">int</span> i<span class="op">,</span> j<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="dt">float</span> x<span class="op">,</span> y<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d%d%f%f</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>i<span class="op">,</span> <span class="op">&amp;</span>j<span class="op">,</span> <span class="op">&amp;</span>x<span class="op">,</span> <span class="op">&amp;</span>y<span class="op">);</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>printf<span class="op">(</span><span class="st">"i=</span><span class="sc">%d</span><span class="st">, j=</span><span class="sc">%d\n</span><span class="st">x=</span><span class="sc">%f</span><span class="st">, y=</span><span class="sc">%f\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">,</span> j<span class="op">,</span> x<span class="op">,</span> y<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Este programa irá ler os seguintes números de igual forma:</p>
-<p><code>bash [2] Introduza 2 inteiros e 2 reais: 1 2 3 4 5 i=1, j=2 x=3.000000, y=4.000000</code></p>
-<p><code>bash [2-4] Introduza 2 inteiros e 2 reais: 3     4 5 6 i=3, j=4 x=5.000000, y=6.000000</code></p>
-<p>–</p>
+<div class="sourceCode" id="cb13" data-code-line-numbers="2-4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href="#cb13-1"></a>Introduza 2 inteiros e 2 reais:</span>
+<span id="cb13-2"><a href="#cb13-2"></a>1 2 3 4 5</span>
+<span id="cb13-3"><a href="#cb13-3"></a>i=1, j=2</span>
+<span id="cb13-4"><a href="#cb13-4"></a>x=3.000000, y=4.000000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14" data-code-line-numbers="2-6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href="#cb14-1"></a>Introduza 2 inteiros e 2 reais:</span>
+<span id="cb14-2"><a href="#cb14-2"></a>3</span>
+<span id="cb14-3"><a href="#cb14-3"></a>    4</span>
+<span id="cb14-4"><a href="#cb14-4"></a>5 6</span>
+<span id="cb14-5"><a href="#cb14-5"></a>i=3, j=4</span>
+<span id="cb14-6"><a href="#cb14-6"></a>x=5.000000, y=6.000000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2 center">
+
 <p>Porquê é que isto acontece?</p>
 <p>O scanf lê todo o input como uma sequência de caracteres. Os espaços, enters, tabulações, etc. são todos caracteres.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">3</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>    <span class="ex">4</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="ex">5</span> 6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href="#cb15-1"></a>3</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    4</span>
+<span id="cb15-3"><a href="#cb15-3"></a>5 6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>é equivalente a</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">3¤••••4¤5•6¤</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="#cb16-1"></a>3¤••••4¤5•6¤</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>onde <code>¤</code> é uma nova linha e <code>•</code> é um espaço.</p>
-<p>–</p>
+</section>
+<section class="slide level2 center">
+
 <p>O <code>scanf</code> pára de ler quando encontra um enter (nova linha) após a correspondência da última especificação de conversão.</p>
-<p>⚠️Importante⚠️ Contudo, o último enter não é consumido do <em>input</em> e por isso será o primeiro caracter a ser lido na próxima chamada do <code>scanf</code>.</p>
-<p>–</p>
-<p>Regras de correspondência para inteiros <code>%d</code>: - procura pelo primeiro digito ou sinal de + ou - - lê digitos até encontrar o primeiro caracter não digito</p>
-<p>–</p>
-<p>Regras de correspondência para reais <code>%f %e</code>: - procura pelo sinal de + ou - (opcional) - lê uma série de digitos, que podem conter <strong>1</strong> <code>.</code> a indicar que depois vêm casas decimais - um expoente (opcional): consiste na letra e ou E seguida de um sinal e mais digitos, e.g.&nbsp;<code>1e-3</code> (=0.001), <code>1E3</code> (=10000).</p>
-<p>–</p>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Atenção!</strong></p>
+</div>
+<div class="callout-content">
+<p>O último enter não é consumido do <em>input</em> e por isso será o primeiro caracter a ser lido na próxima chamada do <code>scanf</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<p>Regras de correspondência para inteiros <code>%d</code>:</p>
+<ul>
+<li>procura pelo primeiro digito ou sinal de + ou -</li>
+<li>lê digitos até encontrar o primeiro caracter não digito</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<p>Regras de correspondência para reais <code>%f %e</code>:</p>
+<ul>
+<li>procura pelo sinal de + ou - (opcional)</li>
+<li>lê uma série de digitos, que podem conter <strong>1</strong> <code>.</code> a indicar que depois vêm casas decimais</li>
+<li>um expoente (opcional): consiste na letra e ou E seguida de um sinal e mais digitos, e.g.&nbsp;<code>1e-3</code> (=0.001), <code>1E3</code> (=10000).</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
 <p>Quando o scanf lê um caracter que não encaixa na especificação de conversão que está a ser processada, é novamente colocado no input para ser processado</p>
-<p>–</p>
+</section>
+<section class="slide level2 center">
+
 <p>Ler apenas N digitos</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1"></a><span class="dt">int</span> d1<span class="op">,</span> d2<span class="op">;</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>printf<span class="op">(</span><span class="st">"Numero inteiro:"</span><span class="op">);</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%1d%2d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>d1<span class="op">,</span> <span class="op">&amp;</span>d2<span class="op">);</span>  <span class="co">// utilizador escreve 242</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>printf<span class="op">(</span><span class="st">"d1=</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> d1<span class="op">);</span> <span class="co">// d1=2</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>printf<span class="op">(</span><span class="st">"d2=</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> d2<span class="op">);</span> <span class="co">// d2=42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1"></a><span class="dt">int</span> d1<span class="op">,</span> d2<span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>printf<span class="op">(</span><span class="st">"Numero inteiro:"</span><span class="op">);</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%1d%2d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>d1<span class="op">,</span> <span class="op">&amp;</span>d2<span class="op">);</span>  <span class="co">// utilizador escreve 242</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>printf<span class="op">(</span><span class="st">"d1=</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> d1<span class="op">);</span> <span class="co">// d1=2</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>printf<span class="op">(</span><span class="st">"d2=</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> d2<span class="op">);</span> <span class="co">// d2=42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>%Nd</code> permite ler <code>N</code> digitos inteiros.</p>
 </section>
 <section id="exercício" class="slide level2 center">
@@ -564,7 +683,7 @@ printf("i=%d, j=%d\nx=%f, y=%f\n", i, j, x, y);</code></pre>
 <p>Soma de frações.</p>
 
 <div class="footer footer-default">
-
+<p>Programação</p>
 </div>
 </section>
     </div>
