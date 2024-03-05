@@ -4556,7 +4556,8 @@ vertical-align: -.125em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tópicos" id="toc-tópicos" class="nav-link active" data-scroll-target="#tópicos">Tópicos</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#tópicos" id="toc-tópicos" class="nav-link" data-scroll-target="#tópicos">Tópicos</a></li>
   <li><a href="#o-primeiro-programa" id="toc-o-primeiro-programa" class="nav-link" data-scroll-target="#o-primeiro-programa">O primeiro programa</a>
   <ul class="collapse">
   <li><a href="#escrevi-o-código-e-agora" id="toc-escrevi-o-código-e-agora" class="nav-link" data-scroll-target="#escrevi-o-código-e-agora">Escrevi o código, e agora?</a></li>
@@ -4625,6 +4626,11 @@ vertical-align: -.125em;
 
 </header>
 
+<section id="slides" class="level2" data-visibility="hidden">
+<h2 data-visibility="hidden" class="anchored" data-anchor-id="slides">Slides</h2>
+<iframe src="2_fundamentals-revealjs.html" title="Slides">
+</iframe>
+</section>
 <section id="tópicos" class="level2">
 <h2 class="anchored" data-anchor-id="tópicos">Tópicos</h2>
 <ul>
@@ -4685,25 +4691,44 @@ vertical-align: -.125em;
 <hr>
 <section id="escrevi-o-código-e-agora" class="level3">
 <h3 class="anchored" data-anchor-id="escrevi-o-código-e-agora">Escrevi o código, e agora?</h3>
+<p>O processo de converter código em programas funcionais passa, de forma simplificada, por 3 passos:</p>
+<ol type="1">
+<li>pré-processamento</li>
+<li>compilação</li>
+<li><em>linking</em></li>
+</ol>
 <hr>
+<section id="pré-processamento" class="level4">
+<h4 class="anchored" data-anchor-id="pré-processamento">Pré-processamento</h4>
 <ul>
-<li>pré-processamento
-<ul>
-<li>obedece a comandos que começam com # (diretivas) <!-- .element: class="fragment" --></li>
-<li>funciona um pouco como um editor de texto, onde se adicionam ou modificam partes do código <!-- .element: class="fragment" --></li>
-</ul></li>
-<li>compilação
-<ul>
-<li>transformar o código C numa linguagem que o computador perceba = linguagem máquina <!-- .element: class="fragment" --></li>
-</ul></li>
-<li><em>linking</em>
-<ul>
-<li>combina o output gerado pela compilação com outro código necessário à execução do programa (e.g. stdio.h para usar o printf) <!-- .element: class="fragment" --></li>
-</ul></li>
+<li>obedece a comandos que começam com # (diretivas)</li>
+<li>funciona um pouco como um editor de texto, onde se adicionam ou modificam partes do código</li>
 </ul>
 <hr>
-<p>Quando damos indicação ao nosso IDE para compilar e correr o código, estes 3 passos tipicamente acontecem de forma automática.</p>
+</section>
+<section id="compilação" class="level4">
+<h4 class="anchored" data-anchor-id="compilação">Compilação</h4>
+<p>Transforma o código C numa linguagem que o computador perceba = linguagem máquina</p>
 <hr>
+</section>
+<section id="linking" class="level4">
+<h4 class="anchored" data-anchor-id="linking"><em>linking</em></h4>
+<p>Combina o output gerado pela compilação com outro código necessário à execução do programa (e.g. stdio.h para usar o printf)</p>
+
+<!--
+The include directives in programming, such as the #include directive in C, are essential for incorporating the contents of other files into a program during the compilation process. While include directives facilitate the inclusion of external files like libraries or header files, linking involves combining various object files and libraries to create a single executable file. Linking goes beyond just including external files; it resolves symbols, performs relocation, and optimizes code to generate a complete executable that can be loaded and executed by the computer. In essence, include directives are a part of the preprocessing stage that aids in organizing code and incorporating external resources, while linking is a broader process that brings together all necessary components to create a functioning program[1][2][3].
+
+Citations:
+[1] https://en.wikipedia.org/wiki/Include_directive
+[2] https://www.techonthenet.com/c_language/directives/include.php
+[3] https://www.geeksforgeeks.org/c-c-include-directive-with-examples/
+[4] https://learn.microsoft.com/en-us/cpp/preprocessor/hash-include-directive-c-cpp?view=msvc-170
+[5] https://stackoverflow.com/questions/71196271/is-it-required-to-include-directives-in-c
+-->
+<hr>
+<p>Quando damos indicação ao nosso IDE para compilar e executar o código, estes 3 passos tipicamente acontecem de forma automática.</p>
+<hr>
+</section>
 </section>
 </section>
 <section id="componentes-de-um-programa" class="level2">
@@ -4723,9 +4748,9 @@ vertical-align: -.125em;
 </section>
 <section id="funções" class="level3">
 <h3 class="anchored" data-anchor-id="funções">Funções</h3>
-<p>Funções são procedimentos ou subrotinas que executam uma determinado conjunto de instruções.</p>
-<p>Cada função é uma determinada receita para um determinado comportamento ou funcionalidade. <!-- .element: class="fragment" --></p>
-<p>Isto permite que o mesmo comportamento seja executado diversas vezes num programa sem o ter que implementar múltiplas vezes. <!-- .element: class="fragment" --></p>
+<p>Funções são procedimentos ou subrotinas que executam uma determinado <span class="class" style="color:coral">conjunto de instruções</span>.</p>
+<p>Cada função é uma determinada <span class="class" style="color:coral">receita</span> para um determinado comportamento ou <span class="class" style="color:coral">funcionalidade</span>.</p>
+<p>Isto permite que o mesmo comportamento seja executado diversas vezes num programa sem o ter que escrever repetidamente.</p>
 <hr>
 </section>
 <section id="instruções" class="level3">
@@ -4739,13 +4764,14 @@ vertical-align: -.125em;
 <p>A capacidade de um programa comunicar com o mundo exterior é fundamental para que seja útil.</p>
 <p>No nosso primeiro programa, essa comunicação foi feita com a função <code>printf</code> e o output foi apresentado num terminal.</p>
 <hr>
-<p>Anteriormente foi referido que a função recebeu um <em>literal de string</em>, uma série sequencial de caracteres entre ““.</p>
-<p>As “” não são incluidas no que aparece no terminal. Se quisermos incluir ” no nosso output, é necessário escrever &quot;.</p>
+<p>Anteriormente foi referido que a função recebeu um <em>literal de string</em>, uma série sequencial de caracteres entre <code>&quot; &quot;</code> (aspas).</p>
+<p>As <code>&quot; &quot;</code> não são incluidas no que aparece no terminal. Se quisermos incluir <code>&quot;</code> no nosso output, é necessário escrever <code>\&quot;</code>, e.g.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1"></a>printf<span class="op">(</span><span class="st">&quot;simbolo de aspas= </span><span class="sc">\&quot;</span><span class="st">&quot;</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <p>O <code>printf</code> não inclui automaticamente o fim de linha.</p>
 <p>Para garantir que o <code>printf</code> seguinte não apresenta o seu conteúdo na mesma linha do anterior, é necessário adicionar <code>\n</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1"></a>printf<span class="op">(</span><span class="st">&quot;Hello world!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>printf<span class="op">(</span><span class="st">&quot;Good morning, Vietnam!&quot;</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1"></a>printf<span class="op">(</span><span class="st">&quot;Hello world!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>printf<span class="op">(</span><span class="st">&quot;Good morning, Vietnam!&quot;</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 </section>
@@ -4757,38 +4783,38 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="documentação"><span style="color:Chocolate">documentação</span></h3>
 <hr>
 <p>Os programas devem ter várias informações sobre o programa em si, e.g. autor, propósito, etc.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">/* Nome: hello_world.c*/</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="co">/* Autor: Diogo Silva*/</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="co">/* Proposito: Mostrar &quot;Hello world!&quot; na consola.*/</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="dt">int</span> main<span class="op">(){</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a>    printf<span class="op">(</span><span class="st">&quot;Hello world!&quot;</span><span class="op">);</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">/* Nome: hello_world.c*/</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co">/* Autor: Diogo Silva*/</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">/* Proposito: Mostrar &quot;Hello world!&quot; na consola.*/</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>    printf<span class="op">(</span><span class="st">&quot;Hello world!&quot;</span><span class="op">);</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>No C, escrevemos comentários entre <code>/* */</code>. Todo o texto entre estes símbolos é ignorado pelo comentário, i.e. não é interpretado como código. <!-- .element: class="fragment"--></p>
 <hr>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">/*</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co">Nome: hello_world.c</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co">Autor: Diogo Silva</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="co">Proposito: Mostrar &quot;Hello world!&quot; na consola.</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="co">*/</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="dt">int</span> main<span class="op">(){</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a>    printf<span class="op">(</span><span class="st">&quot;Hello world!&quot;</span><span class="op">);</span></span>
-<span id="cb11-10"><a href="#cb11-10"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb11-11"><a href="#cb11-11"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">/*</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co">Nome: hello_world.c</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co">Autor: Diogo Silva</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co">Proposito: Mostrar &quot;Hello world!&quot; na consola.</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co">*/</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>    printf<span class="op">(</span><span class="st">&quot;Hello world!&quot;</span><span class="op">);</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Um comentário pode compreender várias linhas.</p>
 <hr>
 <p>Também podemos escrever comentários de apenas uma linha com o símbolo <code>//</code>.</p>
 <p>Tudo o que vem depois deste símbolo é interpretado como um comentário.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="dt">int</span> main<span class="op">(){</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>    printf<span class="op">(</span><span class="st">&quot;Hello world!&quot;</span><span class="op">);</span> <span class="co">// escrever na consola</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>    printf<span class="op">(</span><span class="st">&quot;Hello world!&quot;</span><span class="op">);</span> <span class="co">// escrever na consola</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A legibilidade do programa aumenta bastante quando existem comentários que descrevem de forma sumária porções do código. <!-- .element: class="fragment"--></p>
 <hr>
 <!-- .slide: id="2_4_variaveis"-->
@@ -4825,56 +4851,56 @@ vertical-align: -.125em;
 <section id="variáveis-declaração" class="level3">
 <h3 class="anchored" data-anchor-id="variáveis-declaração">Variáveis: declaração</h3>
 <p>Quando queremos usar uma variável, esta tem de ser declarada.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="dt">float</span> massa<span class="op">;</span> <span class="co">// em kg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="dt">float</span> massa<span class="op">;</span> <span class="co">// em kg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>altura</code> é uma variável do tipo <code>int</code> e <code>massa</code> é uma variável do tipo <code>float</code>.</p>
 <hr>
 <p>Também podemos declarar várias variáveis de um determinado tipo numa só linha.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1"></a><span class="dt">int</span> altura<span class="op">,</span> idade<span class="op">;</span> <span class="co">// cm, meses</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="dt">float</span> massa<span class="op">,</span> lucro<span class="op">;</span> <span class="co">// kg, €</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1"></a><span class="dt">int</span> altura<span class="op">,</span> idade<span class="op">;</span> <span class="co">// cm, meses</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="dt">float</span> massa<span class="op">,</span> lucro<span class="op">;</span> <span class="co">// kg, €</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 <section id="variáveis-atribuição" class="level3">
 <h3 class="anchored" data-anchor-id="variáveis-atribuição">Variáveis: atribuição</h3>
 <p>As variáveis recebem valores através da instrução de atribuição <code>=</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="dt">float</span> massa<span class="op">;</span> <span class="co">// em kg</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a></span>
-<span id="cb15-4"><a href="#cb15-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="dt">float</span> massa<span class="op">;</span> <span class="co">// em kg</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a></span>
+<span id="cb16-4"><a href="#cb16-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>altura</code> tem agora o valor <code>180</code> e <code>massa</code> tem o valor <code>75.2</code> <!-- .element: class="fragment" --></p>
 <p><code>180</code> e <code>75.2</code> são constantes. <!-- .element: class="fragment" --></p>
 <hr>
 <p>Depois das variáveis terem um valor atribuido, podem ser usadas no cálculo de outros valores.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a></span>
-<span id="cb16-4"><a href="#cb16-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a>imc <span class="op">=</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span> <span class="co">//indice massa corporal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a></span>
+<span id="cb17-4"><a href="#cb17-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>imc <span class="op">=</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span> <span class="co">//indice massa corporal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <p>As variáveis só podem ser usadas depois de declaradas. Ver linha 3.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a></span>
-<span id="cb17-3"><a href="#cb17-3"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a></span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a></span>
-<span id="cb17-7"><a href="#cb17-7"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
-<span id="cb17-8"><a href="#cb17-8"></a></span>
-<span id="cb17-9"><a href="#cb17-9"></a>imc <span class="op">=</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span> <span class="co">//indice massa corporal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a></span>
+<span id="cb18-7"><a href="#cb18-7"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a></span>
+<span id="cb18-9"><a href="#cb18-9"></a>imc <span class="op">=</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span> <span class="co">//indice massa corporal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Este código é inválido porque estamos a atribuir um valor à variável <code>massa</code>, que ainda não foi declarada.</p>
 <hr>
 </section>
 <section id="variáveis-printf" class="level3">
 <h3 class="anchored" data-anchor-id="variáveis-printf">Variáveis: printf</h3>
 <p>Se quisermos mostrar o valor de uma determinada variável, podemos usar novamente a função <code>printf</code>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a></span>
-<span id="cb18-4"><a href="#cb18-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a>printf<span class="op">(</span><span class="st">&quot;Altura: </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> altura<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>printf<span class="op">(</span><span class="st">&quot;Altura: </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> altura<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>O que significa o símbolo <code>%d</code>? <!-- .element: class="fragment" --></p>
 <hr>
 <p><code>%d</code> indica como é que o valor contido na variável <code>altura</code> deve ser interpretado.</p>
@@ -4882,13 +4908,13 @@ vertical-align: -.125em;
 <p>O descritor escolhido deve ser coerente com o tipo da variável que se vai mostrar. <!-- .element: class="fragment" --></p>
 <p><code>altura</code> é do tipo <code>int</code>, logo usamos o descritor <code>%d</code>. <!-- .element: class="fragment" --></p>
 <hr>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a></span>
-<span id="cb19-4"><a href="#cb19-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a>imc <span class="op">=</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span> <span class="co">//indice massa corporal</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a>printf<span class="op">(</span><span class="st">&quot;Indice massa corporal: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> imc<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>imc <span class="op">=</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span> <span class="co">//indice massa corporal</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>printf<span class="op">(</span><span class="st">&quot;Indice massa corporal: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> imc<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>O descritor <code>%f</code> é usado para valores do tipo <code>float</code>.</p>
 <hr>
 <ul>
@@ -4916,12 +4942,12 @@ Importante
 <section id="variáveis-printf-de-expressões" class="level3">
 <h3 class="anchored" data-anchor-id="variáveis-printf-de-expressões">Variáveis: <code>printf</code> de expressões</h3>
 <p>O cálculo do IMC na variável intermédia <code>imc</code> é desnecessário, uma vez que podemos inserir a <strong>expressão</strong> completa do cálculo na função <code>printf</code>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a></span>
-<span id="cb20-4"><a href="#cb20-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>printf<span class="op">(</span><span class="st">&quot;Indice massa corporal: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">));</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a></span>
+<span id="cb21-4"><a href="#cb21-4"></a>altura <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a>printf<span class="op">(</span><span class="st">&quot;Indice massa corporal: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">));</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 <section id="o-que-é-uma-expressão" class="level3 incremental">
@@ -4941,16 +4967,16 @@ Importante
 </ul>
 <hr>
 <p>É importante perceber que o C permite que uma variável seja usada em cálculos, mesmo não tenha sido inicializada.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a></span>
-<span id="cb21-4"><a href="#cb21-4"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a>imc <span class="op">=</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span> <span class="co">//indice massa corporal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1"></a><span class="dt">int</span> altura<span class="op">;</span> <span class="co">// em cm</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="dt">float</span> massa<span class="op">,</span> imc<span class="op">;</span> <span class="co">// em kg</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a></span>
+<span id="cb22-4"><a href="#cb22-4"></a>massa <span class="op">=</span> <span class="fl">75.2</span><span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>imc <span class="op">=</span> massa <span class="op">/</span> <span class="op">(</span>altura <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span> <span class="co">//indice massa corporal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>É <strong>responsabilidade do programador saber que o programa pode ter um comportamento inválido</strong>, porque a variável que não foi inicializada (não teve nenhuma atribuição) pode conter qualquer valor. <!-- .element: class="fragment" --></p>
 <hr>
 <p>As variáveis podem ser inicializadas no momento da sua declaração.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1"></a><span class="dt">int</span> altura<span class="op">=</span><span class="dv">180</span><span class="op">;</span> <span class="co">// em cm</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="dt">float</span> massa<span class="op">=</span><span class="fl">75.2</span><span class="op">,</span> imc<span class="op">=</span><span class="dv">0</span><span class="er">.0</span><span class="op">;</span> <span class="co">// em kg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1"></a><span class="dt">int</span> altura<span class="op">=</span><span class="dv">180</span><span class="op">;</span> <span class="co">// em cm</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="dt">float</span> massa<span class="op">=</span><span class="fl">75.2</span><span class="op">,</span> imc<span class="op">=</span><span class="dv">0</span><span class="er">.0</span><span class="op">;</span> <span class="co">// em kg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 <section id="exercício" class="level3">
@@ -4968,19 +4994,19 @@ Importante
 <p>Usamos a função <code>scanf</code>. <!-- .element: class="fragment" --></p>
 <hr>
 <p>A função <code>scanf</code> funciona como o <code>printf</code>, mas na direção oposta.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>a<span class="op">);</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a href="#cb24-1"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>a<span class="op">);</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Indicamos o formato dos dados que vamos receber e a variável onde os queremos guardar. <!-- .element: class="fragment" --></p>
 <hr>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a href="#cb24-1"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>a<span class="op">);</span>  <span class="co">// receber altura do utilizador</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span>  <span class="co">// receber altura do utilizador</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a href="#cb25-1"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>a<span class="op">);</span>  <span class="co">// receber altura do utilizador</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span>  <span class="co">// receber altura do utilizador</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Assumindo que já foram declaradas, qual será o tipo das variáveis <code>a</code> e <code>b</code>?</p>
 <p>Sabemos que <code>%d</code> funciona com valores <code>int</code>, logo <code>a</code> deverá ser do tipo <code>int</code>. <!-- .element: class="fragment" --></p>
 <p>Na mesma linha, <code>b</code> deverá ser um <code>float</code>. <!-- .element: class="fragment" --></p>
 <hr>
 <p>E o que significa o <code>&amp;</code> antes do nome das variáveis?</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a href="#cb25-1"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>a<span class="op">);</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>a<span class="op">);</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>É um operador que devolve o <em>endereço de memória</em> da variável. <!-- .element: class="fragment" --></p>
 <p>Iremos explorar este operador em detalhe no futuro. Até lá, saibam apenas que usamos quase sempre o <code>&amp;</code> antes do nome da variável. <!-- .element: class="fragment" --></p>
 <hr>
@@ -4996,31 +5022,31 @@ Importante
 <!-- .slide: id="2_6_constantes"-->
 <hr>
 <p>O que faz este programa?</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a></span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="dt">int</span> main<span class="op">(){</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a>    <span class="dt">float</span> r<span class="op">;</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a>    printf<span class="op">(</span><span class="st">&quot;Insira o raio do circulo[cm]:&quot;</span><span class="op">);</span></span>
-<span id="cb26-6"><a href="#cb26-6"></a>    scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>r<span class="op">);</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a></span>
-<span id="cb26-8"><a href="#cb26-8"></a>    printf<span class="op">(</span><span class="st">&quot;Perimetro do circulo: </span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> <span class="fl">3.1415</span> <span class="op">*</span> r<span class="op">);</span></span>
-<span id="cb26-9"><a href="#cb26-9"></a>    printf<span class="op">(</span><span class="st">&quot;Area do circulo: </span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="fl">3.1415</span> <span class="op">*</span> r <span class="op">*</span> r<span class="op">);</span></span>
-<span id="cb26-10"><a href="#cb26-10"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb26-11"><a href="#cb26-11"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>    <span class="dt">float</span> r<span class="op">;</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>    printf<span class="op">(</span><span class="st">&quot;Insira o raio do circulo[cm]:&quot;</span><span class="op">);</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>    scanf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>r<span class="op">);</span></span>
+<span id="cb27-7"><a href="#cb27-7"></a></span>
+<span id="cb27-8"><a href="#cb27-8"></a>    printf<span class="op">(</span><span class="st">&quot;Perimetro do circulo: </span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> <span class="fl">3.1415</span> <span class="op">*</span> r<span class="op">);</span></span>
+<span id="cb27-9"><a href="#cb27-9"></a>    printf<span class="op">(</span><span class="st">&quot;Area do circulo: </span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="fl">3.1415</span> <span class="op">*</span> r <span class="op">*</span> r<span class="op">);</span></span>
+<span id="cb27-10"><a href="#cb27-10"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Neste programa o valor 3.1415, o valor do π repete-se. <!-- .element: class="fragment" --></p>
 <p>Seria útil se pudéssemos fazer referência a este valor com um identificador em todo o programa. <!-- .element: class="fragment" --></p>
 <hr>
 <p>O C tem uma diretiva que nos permite fazer exatamente isso.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="pp">#define PI </span><span class="fl">3.1415</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a></span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="dt">int</span> main<span class="op">(){</span></span>
-<span id="cb27-5"><a href="#cb27-5"></a>    <span class="co">//...</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a></span>
-<span id="cb27-7"><a href="#cb27-7"></a>    printf<span class="op">(</span><span class="st">&quot;Perimetro do circulo: </span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> PI <span class="op">*</span> r<span class="op">);</span></span>
-<span id="cb27-8"><a href="#cb27-8"></a>    printf<span class="op">(</span><span class="st">&quot;Area do circulo: </span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> PI <span class="op">*</span> r <span class="op">*</span> r<span class="op">);</span></span>
-<span id="cb27-9"><a href="#cb27-9"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb27-10"><a href="#cb27-10"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb28-1"><a href="#cb28-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="pp">#define PI </span><span class="fl">3.1415</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>    <span class="co">//...</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a></span>
+<span id="cb28-7"><a href="#cb28-7"></a>    printf<span class="op">(</span><span class="st">&quot;Perimetro do circulo: </span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> PI <span class="op">*</span> r<span class="op">);</span></span>
+<span id="cb28-8"><a href="#cb28-8"></a>    printf<span class="op">(</span><span class="st">&quot;Area do circulo: </span><span class="sc">%f</span><span class="st">&quot;</span><span class="op">,</span> PI <span class="op">*</span> r <span class="op">*</span> r<span class="op">);</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A diretiva <code>#define</code> permite-nos definir constantes que, durante o pré-processamento, são substituidas pelo valor especificado. <!-- .element: class="fragment" --></p>
 <hr>
 <p>Por convenção, os nomes das constantes são sempre em letras maíusculas e os nomes das variáveis são em minúsculas.</p>
@@ -5031,19 +5057,19 @@ Importante
 <p>Os nomes que escolhemos para as nossas variáveis, funções, etc. designam-se por <em>identificadores</em> e existem regras que devem ser seguidas. <!-- .element: class="fragment" --></p>
 <hr>
 <p>Exemplos de identificadores válidos</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="ex">times10</span> proximo_numero _altura alturaMAX</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="ex">times10</span> proximo_numero _altura alturaMAX</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Exemplos de identificadores inválidos</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="ex">10times</span> proximo-numero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="ex">10times</span> proximo-numero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>O caracter <code>-</code> é inválido, mas <code>_</code> é aceite. <!-- .element: class="fragment" --></p>
 <hr>
 <p>Os identificadores são sensíveis a letras maísculas e minúsculas, e.g. <code>alturaMAX</code> e <code>alturamax</code> seriam 2 identificadores distintos num programa.</p>
 <p>Existe um conjunto de palavras-chave que não podem ser usadas. Estas correspondem a elementos intrínsecos ao C, como o nome dos tipos básicos e dos ciclos, e.g. <code>int</code>, <code>while</code>.</p>
 <hr>
 <p>Outros exemplos:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb30-1"><a href="#cb30-1"></a>int float double char void long short typedef</span>
-<span id="cb30-2"><a href="#cb30-2"></a>if else switch default</span>
-<span id="cb30-3"><a href="#cb30-3"></a>while do for continue break </span>
-<span id="cb30-4"><a href="#cb30-4"></a>struct enum union</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb31-1"><a href="#cb31-1"></a>int float double char void long short typedef</span>
+<span id="cb31-2"><a href="#cb31-2"></a>if else switch default</span>
+<span id="cb31-3"><a href="#cb31-3"></a>while do for continue break </span>
+<span id="cb31-4"><a href="#cb31-4"></a>struct enum union</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">

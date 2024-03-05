@@ -7,11 +7,14 @@ email: "dasilva@academiafa.edu.pt"
 format:
     html: default
     revealjs: default
-    beamer: default
-    pdf: default
+    #beamer: default
+    #pdf: default
 format-links: true
 ---
 
+## Slides {visibility="hidden"}
+
+<iframe src="01_course_intro-revealjs.html" title="Slides"></iframe> 
 
 ## Equipa
 

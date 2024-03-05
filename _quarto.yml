@@ -48,6 +48,7 @@ format:
     output-ext: revealjshtml
     toc: false
     center: true
+    footer: "Programação"
   beamer: 
     output-ext: beamerpdf
 

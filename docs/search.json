@@ -228,7 +228,7 @@
     "href": "lectures/01_course_intro.revealjshtml#bibliografia",
     "title": "Apresentação da UC Programação",
     "section": "Bibliografia",
-    "text": "Bibliografia\n\nLuís Damas, Linguagem C, FCA [qualquer ano]\n“C Programming: A Modern Approach, 2nd Edition”, K. N. King, 2008.\nBrian W. Kernighan, Dennis M. Ritchie, The C programming language, 2nd Edition, Prentice-Hall, 1988"
+    "text": "Bibliografia\n\nLuís Damas, Linguagem C, FCA [qualquer ano]\n“C Programming: A Modern Approach, 2nd Edition”, K. N. King, 2008.\nBrian W. Kernighan, Dennis M. Ritchie, The C programming language, 2nd Edition, Prentice-Hall, 1988\n\n\n\nProgramação"
   },
   {
     "objectID": "lectures/01_course_intro.html",
@@ -241,8 +241,8 @@
     "objectID": "lectures/01_course_intro.html#equipa",
     "href": "lectures/01_course_intro.html#equipa",
     "title": "Apresentação da UC Programação",
-    "section": "",
-    "text": "CAP Diogo Silva\n\n501753\ndasilva@academiafa.edu.pt\n\nTEN Gabriel Santos\n\n500877\ngcsantos@academiafa.edu.pt"
+    "section": "Equipa",
+    "text": "Equipa\n\nCAP Diogo Silva\n\n501753\ndasilva@academiafa.edu.pt\n\nTEN Gabriel Santos\n\n500877\ngcsantos@academiafa.edu.pt"
   },
   {
     "objectID": "lectures/01_course_intro.html#avaliação",
@@ -983,22 +983,22 @@
     "objectID": "lectures/2_fundamentals.html#tópicos",
     "href": "lectures/2_fundamentals.html#tópicos",
     "title": "Fundamentos do C",
-    "section": "",
-    "text": "O primeiro programa\nComponentes de um programa\nComentários\nVariáveis\nI/O Receber Valores\nConstantes\nIdentificadores"
+    "section": "Tópicos",
+    "text": "Tópicos\n\nO primeiro programa\nComponentes de um programa\nComentários\nVariáveis\nI/O Receber Valores\nConstantes\nIdentificadores"
   },
   {
     "objectID": "lectures/2_fundamentals.html#o-primeiro-programa",
     "href": "lectures/2_fundamentals.html#o-primeiro-programa",
     "title": "Fundamentos do C",
     "section": "O primeiro programa",
-    "text": "O primeiro programa\n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\nO que está a acontecer? \nEste programa simples escreve no terminal a frase “Hello world!”, sem as “. \n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\n“Importa” código externo ao nosso programa, permitindo chamar a função printf, que não está aqui definida.\n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\nÉ a função principal do programa. Os programas em C começam sempre nesta função. Todos os programas têm uma função main.\n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\nÉ uma instrução que chama a função printf da biblioteca stdio.h (que faz parte do próprio C), dando-lhe como input o literal de string \"Hello world!\".\nA função “imprime” no terminal o input recebido.\nTodas as instruções no C acabam com ;. \n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\nEspecifica o valor de retorno do nosso programa, neste caso 0.\n\n\nEscrevi o código, e agora?\n\n\npré-processamento\n\nobedece a comandos que começam com # (diretivas) \nfunciona um pouco como um editor de texto, onde se adicionam ou modificam partes do código \n\ncompilação\n\ntransformar o código C numa linguagem que o computador perceba = linguagem máquina \n\nlinking\n\ncombina o output gerado pela compilação com outro código necessário à execução do programa (e.g. stdio.h para usar o printf) \n\n\n\nQuando damos indicação ao nosso IDE para compilar e correr o código, estes 3 passos tipicamente acontecem de forma automática."
+    "text": "O primeiro programa\n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\nO que está a acontecer? \nEste programa simples escreve no terminal a frase “Hello world!”, sem as “. \n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\n“Importa” código externo ao nosso programa, permitindo chamar a função printf, que não está aqui definida.\n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\nÉ a função principal do programa. Os programas em C começam sempre nesta função. Todos os programas têm uma função main.\n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\nÉ uma instrução que chama a função printf da biblioteca stdio.h (que faz parte do próprio C), dando-lhe como input o literal de string \"Hello world!\".\nA função “imprime” no terminal o input recebido.\nTodas as instruções no C acabam com ;. \n\n#include &lt;stdio.h&gt;\n\nint main(){\n    printf(\"Hello world!\");\n    return 0;\n}\nEspecifica o valor de retorno do nosso programa, neste caso 0.\n\n\nEscrevi o código, e agora?\nO processo de converter código em programas funcionais passa, de forma simplificada, por 3 passos:\n\npré-processamento\ncompilação\nlinking\n\n\n\nPré-processamento\n\nobedece a comandos que começam com # (diretivas)\nfunciona um pouco como um editor de texto, onde se adicionam ou modificam partes do código\n\n\n\n\nCompilação\nTransforma o código C numa linguagem que o computador perceba = linguagem máquina\n\n\n\nlinking\nCombina o output gerado pela compilação com outro código necessário à execução do programa (e.g. stdio.h para usar o printf)\n\n\n\nQuando damos indicação ao nosso IDE para compilar e executar o código, estes 3 passos tipicamente acontecem de forma automática."
   },
   {
     "objectID": "lectures/2_fundamentals.html#componentes-de-um-programa",
     "href": "lectures/2_fundamentals.html#componentes-de-um-programa",
     "title": "Fundamentos do C",
     "section": "Componentes de um programa",
-    "text": "Componentes de um programa\n\n#diretivas\n\nint main(){\n    instruções;\n}\n\n\nA diretiva include\n#include &lt;stdio.h&gt;\nEsta diretiva indica que o conteúdo da biblioteca stdio.h deve ser incluida no programa atual.\n\n\n\nFunções\nFunções são procedimentos ou subrotinas que executam uma determinado conjunto de instruções.\nCada função é uma determinada receita para um determinado comportamento ou funcionalidade. \nIsto permite que o mesmo comportamento seja executado diversas vezes num programa sem o ter que implementar múltiplas vezes. \n\n\n\nInstruções\nUma instrução é um comando que é executado quando o programa corre, e.g.\nprintf(\"Hello world!\");\n\n\n\nI/O printf\nA capacidade de um programa comunicar com o mundo exterior é fundamental para que seja útil.\nNo nosso primeiro programa, essa comunicação foi feita com a função printf e o output foi apresentado num terminal.\n\nAnteriormente foi referido que a função recebeu um literal de string, uma série sequencial de caracteres entre ““.\nAs “” não são incluidas no que aparece no terminal. Se quisermos incluir ” no nosso output, é necessário escrever \".\n\nO printf não inclui automaticamente o fim de linha.\nPara garantir que o printf seguinte não apresenta o seu conteúdo na mesma linha do anterior, é necessário adicionar \\n.\nprintf(\"Hello world!\\n\");\nprintf(\"Good morning, Vietnam!\");"
+    "text": "Componentes de um programa\n\n#diretivas\n\nint main(){\n    instruções;\n}\n\n\nA diretiva include\n#include &lt;stdio.h&gt;\nEsta diretiva indica que o conteúdo da biblioteca stdio.h deve ser incluida no programa atual.\n\n\n\nFunções\nFunções são procedimentos ou subrotinas que executam uma determinado conjunto de instruções.\nCada função é uma determinada receita para um determinado comportamento ou funcionalidade.\nIsto permite que o mesmo comportamento seja executado diversas vezes num programa sem o ter que escrever repetidamente.\n\n\n\nInstruções\nUma instrução é um comando que é executado quando o programa corre, e.g.\nprintf(\"Hello world!\");\n\n\n\nI/O printf\nA capacidade de um programa comunicar com o mundo exterior é fundamental para que seja útil.\nNo nosso primeiro programa, essa comunicação foi feita com a função printf e o output foi apresentado num terminal.\n\nAnteriormente foi referido que a função recebeu um literal de string, uma série sequencial de caracteres entre \" \" (aspas).\nAs \" \" não são incluidas no que aparece no terminal. Se quisermos incluir \" no nosso output, é necessário escrever \\\", e.g.\nprintf(\"simbolo de aspas= \\\"\")\n\nO printf não inclui automaticamente o fim de linha.\nPara garantir que o printf seguinte não apresenta o seu conteúdo na mesma linha do anterior, é necessário adicionar \\n.\nprintf(\"Hello world!\\n\");\nprintf(\"Good morning, Vietnam!\");"
   },
   {
     "objectID": "lectures/2_fundamentals.html#comentários",

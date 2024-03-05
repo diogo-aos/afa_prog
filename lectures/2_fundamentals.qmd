@@ -3,13 +3,17 @@ title: "Fundamentos do C"
 institute: "Academia da Força Aérea"
 author: Diogo Silva
 email: "dasilva@academiafa.edu.pt"
-logo: "afa.svg"
+logo: "../img/afa.png"
 format:
     html: default
     revealjs: default
     # beamer: default
     # pdf: default
 ---
+
+## Slides {visibility="hidden"}
+
+<iframe src="2_fundamentals-revealjs.html" title="Slides"></iframe> 
 
 ## Tópicos
 
@@ -112,23 +116,46 @@ neste caso 0.
 
 ### Escrevi o código, e agora?
 
+O processo de converter código em programas funcionais passa, de forma simplificada, por 3 passos:
+
+1. pré-processamento
+2. compilação
+3. _linking_
 
 ---
 
-- pré-processamento
+#### Pré-processamento
+
   - obedece a comandos que começam com # (diretivas) 
-  <!-- .element: class="fragment" -->
-  - funciona um pouco como um editor de texto, onde se adicionam ou modificam partes do código <!-- .element: class="fragment" -->
-- compilação
-  - transformar o código C numa linguagem que o computador perceba = linguagem máquina
-  <!-- .element: class="fragment" -->
-- _linking_
-  - combina o output gerado pela compilação com outro código necessário à execução do programa (e.g. stdio.h para usar o printf)
-  <!-- .element: class="fragment" -->
+  - funciona um pouco como um editor de texto, onde se adicionam ou modificam partes do código
 
 ---
 
-Quando damos indicação ao nosso IDE para compilar e correr o código,
+#### Compilação
+
+Transforma o código C numa linguagem que o computador perceba = linguagem máquina
+
+---
+
+#### _linking_ 
+
+Combina o output gerado pela compilação com outro código necessário à execução do programa (e.g. stdio.h para usar o printf)
+
+
+<!--
+The include directives in programming, such as the #include directive in C, are essential for incorporating the contents of other files into a program during the compilation process. While include directives facilitate the inclusion of external files like libraries or header files, linking involves combining various object files and libraries to create a single executable file. Linking goes beyond just including external files; it resolves symbols, performs relocation, and optimizes code to generate a complete executable that can be loaded and executed by the computer. In essence, include directives are a part of the preprocessing stage that aids in organizing code and incorporating external resources, while linking is a broader process that brings together all necessary components to create a functioning program[1][2][3].
+
+Citations:
+[1] https://en.wikipedia.org/wiki/Include_directive
+[2] https://www.techonthenet.com/c_language/directives/include.php
+[3] https://www.geeksforgeeks.org/c-c-include-directive-with-examples/
+[4] https://learn.microsoft.com/en-us/cpp/preprocessor/hash-include-directive-c-cpp?view=msvc-170
+[5] https://stackoverflow.com/questions/71196271/is-it-required-to-include-directives-in-c
+-->
+
+---
+
+Quando damos indicação ao nosso IDE para compilar e executar o código,
 estes 3 passos tipicamente acontecem de forma automática.
 
 ---
@@ -159,13 +186,11 @@ Esta diretiva indica que o conteúdo da biblioteca `stdio.h ` deve ser incluida 
 
 ### Funções
 
-Funções são procedimentos ou subrotinas que executam uma determinado conjunto de instruções.
+Funções são procedimentos ou subrotinas que executam uma determinado [conjunto de instruções]{.class style="color:coral"}.
 
-Cada função é uma determinada receita para um determinado comportamento ou funcionalidade.
-<!-- .element: class="fragment" -->
+Cada função é uma determinada [receita]{.class style="color:coral"} para um determinado comportamento ou [funcionalidade]{.class style="color:coral"}.
 
-Isto permite que o mesmo comportamento seja executado diversas vezes num programa sem o ter que implementar múltiplas vezes.
-<!-- .element: class="fragment" -->
+Isto permite que o mesmo comportamento seja executado diversas vezes num programa sem o ter que escrever repetidamente.
 
 ---
 
@@ -187,9 +212,12 @@ No nosso primeiro programa, essa comunicação foi feita com a função `printf`
 
 ---
 
-Anteriormente foi referido que a função recebeu um _literal de string_, uma série sequencial de caracteres entre "".
+Anteriormente foi referido que a função recebeu um _literal de string_, uma série sequencial de caracteres entre `" "` (aspas).
 
-As "" não são incluidas no que aparece no terminal. Se quisermos incluir " no nosso output, é necessário escrever \".
+As `" "` não são incluidas no que aparece no terminal. Se quisermos incluir `"` no nosso output, é necessário escrever `\"`, e.g.
+```c
+printf("simbolo de aspas= \"")
+```
 
 
 ---

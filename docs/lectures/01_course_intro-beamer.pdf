@@ -175,13 +175,17 @@
 
 \begin{document}
 \frame{\titlepage}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, borderline west={3pt}{0pt}{shadecolor}, interior hidden, enhanced, breakable, frame hidden, boxrule=0pt]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 \begin{frame}[allowframebreaks]
   \frametitle{Table of contents}
   \tableofcontents[hideallsubsections]
 \end{frame}
+\begin{frame}{Slides}
+\protect\hypertarget{slides}{}
+\end{frame}
+
 \begin{frame}{Equipa}
 \protect\hypertarget{equipa}{}
 \begin{itemize}
