@@ -102,7 +102,7 @@ printf("%05d\n", 422); // -> 00042 (3 zeros antes do 2)
 // • significa um espaço
 printf("%d\n", 42);    // -> 42
 printf("%5d\n", 42);   // -> •••42 (3 espaços antes do 2)
-printf("%05d\n", 422); // -> 00042 (3 zeros antes do 2)
+printf("%05d\n", 42); // -> 00042 (3 zeros antes do 2)
 ```
 Especifica que o que é escrito deve ter pelo menos 5 caracteres, se não tiver, são adicionados espaços antes do número até os perfazer;
 

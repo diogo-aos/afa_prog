@@ -1,0 +1,48 @@
+---
+title: "Guia para instalação do Code::Blocks"
+institute: "Academia da Força Aérea"
+author: Diogo Silva
+email: "dasilva@academiafa.edu.pt"
+#logo: "img/afa.png"
+format:
+    html: default
+    #revealjs: default
+    #beamer: default
+    #pdf: default
+format-links: true
+---
+
+O Code::Blocks é um ambiente de desenvolvimento simples para C e C++.
+Durante o processo de instalação podem ocorrer alguns problemas de configuração.
+A forma mais simples de usar o Code::Blocks é através do procedimento que se segue.
+
+1. Visitar o [website do Code::Blocks](https://www.codeblocks.org/)
+2. Ir até à página `Downloads`.
+3. Clicar em `Download the binary release`
+4. Fazer o download da versão `codeblocks-20.03mingw-nosetup.zip`.
+
+::: {.callout-note}
+A versão que tem `mingw` inclui já o compilador necessário para o desenvolvimento de software em C. A versão `nosetup` não precisa de permissões de administrador nem de instalação no computador. É um simples ficheiro comprimido (.zip).
+:::
+
+5. Extrair o conteúdo do ficheiro comprimido.
+6. Navegar a pasta com o conteúdo extraído até encontrar o executável do Code::Blocks. Executar o Code::Blocks.
+7. Configurar compilador:
+    i) É provável receber um alerta sobre a ausência de compilador configurado.
+    ii) Ir ao menu `Settings` > `Compiler` > `Toolchain executables` > `Auto-detect` > `OK`
+
+    ![](img/codeblocks_toolchain_executables.png)
+
+    iii) O caminho para o compilador (`MinGW`) deverá ter sido correctamente detectado e configurado.
+8. Testar com um projecto (a partir daqui, podem seguir as instruções antigas, que têm screenshots de cada passo).
+    i) Ir ao menu `File` > `New` > `Project`
+    ii) Na janela seguinte escolher `Console application`
+    iii) Na escolha de linguagem, escolher `C` (e não `C++`)
+    iv) Na janela seguinte, escolher um nome para o projecto (`Project title`) e uma pasta onde o guardar (`Folder to create project in`).
+    v) Na janela seguinte, selecionar ambos `Create "Debug" configuration` e `Create "Release" configuration`, e clicar em `Finish`.
+    vi) Ir até ao menu `Build` > `Build and run` (ou pressionar a tecla `F9`). O programa deverá ter compilado e executado com sucesso.
+9. Para continuar a programar, na janela à esquerda na tab `Projects`, abrir `Workspace` > Nome do projecto > `Sources` > `main.c`. O ficheiro de código deverá abrir e ficar disponível para edição.
+
+
+
+

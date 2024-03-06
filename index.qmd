@@ -13,7 +13,9 @@ format:
 - Ambientes de desenvolvimento
   - [Replit - IDE Online](https://replit.com/)
   - [CodeBlocks](https://www.codeblocks.org/)
-    - [Instruções dos docentes](/pdf/P01%20-%20Code%20Blocks.pdf){target="_blank"}
+    - [Guia para instalação simples](lectures/p01_codeblocks.qmd)
+    - [Guia para criação de projecto](/pdf/P01%20-%20Code%20Blocks.pdf){target="_blank"}
+
   - [Visual Studio Code](https://code.visualstudio.com/)
     - [Setting Up VSCode for Coding in C on Windows ](https://www.youtube.com/watch?v=HiyfEbbCWT4)
     - [Instruções dos docentes](exercises/instalar_compilador_vscode_2.htm){target="_blank"}
@@ -24,12 +26,14 @@ format:
 - Capitão Diogo Silva | dasilva@academiafa.edu.pt
 - Tenente Gabriel Santos | gcsantos@academiafa.edu.pt
 
+
+
 # Aulas
 
 0. [Apresentação da UC](lectures/01_course_intro.qmd)
 1. Motivação [[Slides](pdf/01_motivacao.pdf)]
 2. C Fundamentals [[Slides](lectures/2_fundamentals.html)]
-3. Leitura e escrita formatada [[Slides](lectures/3_formated_io.md)]
+3. Leitura e escrita formatada [[Slides](lectures/3_formated_io.qmd)]
 <!--4. Expressões [[Slides](lectures/4_expressoes.html)]
 5. Testes e Condições [[Slides](pdf/03_testes_condicoes.pptx.pdf)]
 6. [Ciclos](lectures/06_ciclos.md)
@@ -61,3 +65,70 @@ format:
 - [SIGIF](markdown/projects/2223/enunciado_frota.html)
 - [SIGIT](markdown/projects/2223/enunciado_tripulacao.html)
 - [SIGA](markdown/projects/2223/enunciado_ativos.html) -->
+
+
+
+::: {.callout-note  collapse="true" title="Sumários"}
+- 05MAR
+  - Introdução à UC
+  - Introdução à programação
+  - Início dos Fundamentos do C (parou-se no exercício de conversão de ºF para ºC)
+- 06MAR
+  - Configuração do ambiente de desenvolvimento.
+  - Resolver o exercício de conversão de ºF para ºC. <details><summary>Solução</summary>
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <locale.h>
+    /*
+    Enunciado
+    Receber uma temperatura em ºF do utilizador (número real),
+    e devolver a conversão para ºC.
+    */
+
+    int main()
+    {
+        float f,c;
+        setlocale(LC_ALL, "");
+        printf("\aIntroduza temperatura em ºF:");
+        scanf("%f", &f);
+        c = (f - 32) * 5 / 9;
+        printf("Resultado em ºC=%f\n",c);
+        return 0;
+    }
+    ```
+    </details>
+
+  - Terminar Fundamentos do C.
+  - Leitura e escrita formatada.
+  - Resolver exercício de soma de frações. <details><summary>Solução</summary>
+    ```c
+    /*
+    Enunciado
+    Receber 2 frações. Mostrar o resultado da soma em forma de fração e em decimal.
+    */
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <locale.h>
+    int main()
+    {
+        int n1,d1,n2,d2,nf,df;
+        float res;
+        setlocale(LC_ALL, "");
+        printf("Fração 1:");
+        scanf("%d/%d", &n1, &d1);
+        printf("Fração 2:");
+        scanf("%d/%d", &n2, &d2);
+
+        printf("fração 1: %d/%d", n1, d1);
+        printf("fração 2: %d/%d", n2, d2);
+        
+        nf = n1*d2 + n2*d1;
+        df = d1 * d2;
+        res = nf * 1.0 / df;
+        printf("Fração final: %d/%d = %f", nf, df, res);
+        return 0;
+    }
+    ```
+    </details>
+:::
