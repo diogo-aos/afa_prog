@@ -31,7 +31,7 @@ format:
 - UC de 6 ECTS
 - Horas de trabalho: 168
   - 64 horas de contacto (aulas)
-  - 105 horas de trabalho autónomo = 7h por semana para 15 semanas (05MAR-21JUN)
+  - 104 horas de trabalho autónomo $\approx$ 7h por semana para 15 semanas (05MAR-21JUN)
   - [Despacho n.º 3101/2022 Estrutura curricular e planos de estudos dos cursos de licenciatura em Ciências Militares
 Aeronáuticas — Administração Aeronáutica da Academia da Força Aérea](https://files.dre.pt/gratuitos/2s/2022/03/2S051A0000S00.pdf#page=75){target="_blank"}
 

@@ -4474,6 +4474,38 @@ vertical-align: -.125em;
   }
 }</script>
 
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var head = document.getElementsByTagName("head")[0];
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css";
+      head.appendChild(link);
+
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js";
+      script.async = false;
+      script.addEventListener('load', function() {
+        var mathElements = document.getElementsByClassName("math");
+          var macros = [];
+          for (var i = 0; i < mathElements.length; i++) {
+            var texText = mathElements[i].firstChild;
+            if (mathElements[i].tagName == "SPAN") {
+              window.katex.render(texText.data, mathElements[i], {
+                displayMode: mathElements[i].classList.contains('display'),
+                throwOnError: false,
+                macros: macros,
+                fleqn: false
+              });
+            }
+          }
+      });
+      head.appendChild(script);
+    });
+  </script>
+  
 
 </head>
 
@@ -4586,7 +4618,7 @@ vertical-align: -.125em;
 <li>Horas de trabalho: 168
 <ul>
 <li>64 horas de contacto (aulas)</li>
-<li>105 horas de trabalho autónomo = 7h por semana para 15 semanas (05MAR-21JUN)</li>
+<li>104 horas de trabalho autónomo <span class="math inline">\approx</span> 7h por semana para 15 semanas (05MAR-21JUN)</li>
 <li><a href="https://files.dre.pt/gratuitos/2s/2022/03/2S051A0000S00.pdf#page=75" target="_blank">Despacho n.º 3101/2022 Estrutura curricular e planos de estudos dos cursos de licenciatura em Ciências Militares Aeronáuticas — Administração Aeronáutica da Academia da Força Aérea</a></li>
 </ul></li>
 </ul>
