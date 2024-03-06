@@ -26,14 +26,22 @@ format:
 - Capitão Diogo Silva | dasilva@academiafa.edu.pt
 - Tenente Gabriel Santos | gcsantos@academiafa.edu.pt
 
+# Informação geral
+
+- UC de 6 ECTS
+- Horas de trabalho: 168
+  - 64 horas de contacto (aulas)
+  - 105 horas de trabalho autónomo = 7h por semana para 15 semanas (05MAR-21JUN)
+  - [Despacho n.º 3101/2022 Estrutura curricular e planos de estudos dos cursos de licenciatura em Ciências Militares
+Aeronáuticas — Administração Aeronáutica da Academia da Força Aérea](https://files.dre.pt/gratuitos/2s/2022/03/2S051A0000S00.pdf#page=75){target="_blank"}
 
 
 # Aulas
 
 0. [Apresentação da UC](lectures/01_course_intro.qmd)
 1. Motivação [[Slides](pdf/01_motivacao.pdf)]
-2. C Fundamentals [[Slides](lectures/2_fundamentals.html)]
-3. Leitura e escrita formatada [[Slides](lectures/3_formated_io.qmd)]
+2. [C Fundamentals](lectures/2_fundamentals.html)
+3. [Leitura e escrita formatada](lectures/3_formated_io.qmd)
 <!--4. Expressões [[Slides](lectures/4_expressoes.html)]
 5. Testes e Condições [[Slides](pdf/03_testes_condicoes.pptx.pdf)]
 6. [Ciclos](lectures/06_ciclos.md)
@@ -68,7 +76,8 @@ format:
 
 
 
-::: {.callout-note  collapse="true" title="Sumários"}
+# Sumários
+
 - 05MAR
   - Introdução à UC
   - Introdução à programação
@@ -131,4 +140,3 @@ format:
     }
     ```
     </details>
-:::
