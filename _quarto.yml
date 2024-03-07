@@ -10,6 +10,7 @@ project:
     - "*.pdf"
     - "*.htm"
     - "*.png"
+    - CNAME
   post-render: 
     - fix_suffix.py
 
