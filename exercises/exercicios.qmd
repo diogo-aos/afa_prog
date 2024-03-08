@@ -4,12 +4,7 @@ subtitle: "Exercícios"
 institute: "Academia da Força Aérea"
 author: CAP Diogo Silva
 format: 
-  html:
-    toc: true
-    toc-depth: 3
-    code-fold: true
-    html-math-method: katex
-    embed-resources: true
+  html: default
 ---
 
 # IDE

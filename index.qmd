@@ -10,15 +10,7 @@ format:
 
 - [Teams 2324](https://teams.microsoft.com/l/channel/19%3aUhGoWvUxizl9VFmhtzmIyRbgLj1HeLzirn8GHJq19Io1%40thread.tacv2/General?groupId=de6239b3-e0f6-426e-a3ab-e8646f1f232b&tenantId=134d2a6d-3191-4c4a-a80b-1b18cb5bdba1)
 - [SharePoint 2324](https://academiafaedupt.sharepoint.com/sites/PROG2324/Documentos%20Partilhados)
-- Ambientes de desenvolvimento
-  - [Replit - IDE Online](https://replit.com/)
-  - [CodeBlocks](https://www.codeblocks.org/)
-    - [Guia para instalação simples](lectures/p01_codeblocks.qmd)
-    - [Guia para criação de projecto](/pdf/P01%20-%20Code%20Blocks.pdf){target="_blank"}
-
-  - [Visual Studio Code](https://code.visualstudio.com/)
-    - [Setting Up VSCode for Coding in C on Windows ](https://www.youtube.com/watch?v=HiyfEbbCWT4)
-    - [Instruções dos docentes](exercises/instalar_compilador_vscode_2.htm){target="_blank"}
+- [Replit - IDE Online](https://replit.com/)
 
 
 # Equipa docente
@@ -39,12 +31,12 @@ Aeronáuticas — Administração Aeronáutica da Academia da Força Aérea](htt
 # Aulas
 
 0. [Apresentação da UC](lectures/01_course_intro.qmd)
-1. Motivação [[Slides](pdf/01_motivacao.pdf)]
+1. Motivação [[Slides PDF](pdf/01_motivacao.pdf){target="_blank"}]
 2. [C Fundamentals](lectures/2_fundamentals.html)
 3. [Leitura e escrita formatada](lectures/3_formated_io.qmd)
-<!--4. Expressões [[Slides](lectures/4_expressoes.html)]
-5. Testes e Condições [[Slides](pdf/03_testes_condicoes.pptx.pdf)]
-6. [Ciclos](lectures/06_ciclos.md)
+4. [Expressões](lectures/4_expressions.qmd)
+5. Testes e Condições [[Slides PDF](pdf/03_testes_condicoes.pptx.pdf){target="_blank"}]
+<!--6. [Ciclos](lectures/06_ciclos.md){target="_blank"}
 7. [Tipos básicos do C](lectures/7_basic_types.qmd)
 8. [Funções](lectures/08_funcoes.md)
 9. [Arrays](lectures/09_arrays.md)
@@ -74,6 +66,18 @@ Aeronáuticas — Administração Aeronáutica da Academia da Força Aérea](htt
 - [SIGIT](markdown/projects/2223/enunciado_tripulacao.html)
 - [SIGA](markdown/projects/2223/enunciado_ativos.html) -->
 
+
+
+# Ambientes de desenvolvimento
+
+- [Replit - IDE Online](https://replit.com/)
+  - [CodeBlocks](https://www.codeblocks.org/)
+    - [Guia para instalação simples](lectures/p01_codeblocks.qmd)
+    - [Guia para criação de projecto](/pdf/P01%20-%20Code%20Blocks.pdf){target="_blank"}
+
+  - [Visual Studio Code](https://code.visualstudio.com/)
+    - [Setting Up VSCode for Coding in C on Windows ](https://www.youtube.com/watch?v=HiyfEbbCWT4)
+    - [Instruções dos docentes](exercises/instalar_compilador_vscode_2.htm){target="_blank"}
 
 
 # Sumários
