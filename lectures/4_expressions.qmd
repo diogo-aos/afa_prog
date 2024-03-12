@@ -203,7 +203,7 @@ Existem outros que se combinam com operações aritméticas.
 | -- | -- |
 | `var+=3` | soma 3 ao valor de var e atribui o resultado a var |
 | `var-=3` | subtrai 3 ao valor de var e atribui o resultado a var |
-| `var/=3` | multiplica 3 com o valor de var e atribui o resultado a var |
+| `var*=3` | multiplica 3 com o valor de var e atribui o resultado a var |
 | `var/=3` | divide o valor de var por 3 e atribui o resultado a var |
 | `var%=3` | faz o resto da divisão entre var e 3 e atribui o resultado a var |
 
