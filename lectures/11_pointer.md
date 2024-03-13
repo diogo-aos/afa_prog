@@ -15,7 +15,7 @@ dasilva@academiafa.edu.pt
 
 
 - [Videos](#apontadores)
-- [Slides, PDF](../pdf/08_pointers.pptx.pdf)
+- [Slides, PDF](../pdf/08_pointers.pptx.pdf){target="_blank"}
 
 --
 

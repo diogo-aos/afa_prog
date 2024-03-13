@@ -16,7 +16,7 @@ dasilva@academiafa.edu.pt
 
 
 - [Videos](#/struct_videos)
-- [Slides, PDF](../pdf/10_struct.pdf)
+- [Slides, PDF](../pdf/10_struct.pdf){target="_blank"}
 - [Exercícios](#exercício-1)
 
 

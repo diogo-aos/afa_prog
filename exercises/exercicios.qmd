@@ -29,7 +29,7 @@ Os exercícios denominados "King ..." são retirados do livro
 # 3 I/O Formatado
 <!-- .slide: data-background="Coral" id="3_exercicios"-->
 
-[Slides da matéria](../lectures/3_formated_io.md)
+[Slides da matéria](../lectures/3_formated_io.qmd)
 
 ---
 
@@ -190,7 +190,7 @@ Escreve um programa que recebe a velocidade do vento e indica a descrição corr
 O imposto cobrado sobre o rendimento é feito de forma progressiva por escalões (exemplo no slide seguinte).
 Versão simplificada dos escalões de 2023:
 
-![](img/5_selection/king_5_5.png)
+![](img/king_5_5.png)
 
 Escreve um programa que recebe o rendimento anual bruto e indica o imposto total sobre o rendimento e o rendimento líquido final.
 

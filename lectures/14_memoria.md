@@ -15,7 +15,7 @@ dasilva@academiafa.edu.pt
 
 
 - [Videos](#videos)
-- [Slides, PDF](../pdf/12_memoria.pptx.pdf)
+- [Slides, PDF](../pdf/12_memoria.pptx.pdf){target="_blank"}
 
 --
 

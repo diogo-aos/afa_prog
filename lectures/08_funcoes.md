@@ -13,7 +13,7 @@ dasilva@academiafa.edu.pt
 
 ## Funções
 
-- [Slides, PDF](../pdf/05_funcoes.pptx.pdf)
+- [Slides, PDF](../pdf/05_funcoes.pptx.pdf){target="_blank"}
 - [Videos](#/funcoes_videos)
 
 --

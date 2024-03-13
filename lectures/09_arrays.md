@@ -15,7 +15,7 @@ dasilva@academiafa.edu.pt
 
 
 - [Videos](#/array_videos)
-- [Slides, PDF](../pdf/06_arrays.pptx.pdf)
+- [Slides, PDF](../pdf/06_arrays.pptx.pdf){target="_blank"}
 - [Slides, extra](#/array_slides_extra)
 
 
