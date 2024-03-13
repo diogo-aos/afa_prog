@@ -1,6 +1,5 @@
 ---
 title: "Tipos básicos do C"
-#subtitle: "Laboratório 3"
 institute: "Academia da Força Aérea"
 author: CAP Diogo Silva
 email: "dasilva@academiafa.edu.pt"
@@ -8,8 +7,8 @@ logo: "../img/afa_100.png"
 format:
     html: default
     revealjs: default
-    beamer: default
-    pdf: default
+    # beamer: default
+    # pdf: default
 ---
 
 ## Slides {visibility="hidden"}
