@@ -4,25 +4,26 @@ title: "Tipos básicos do C"
 institute: "Academia da Força Aérea"
 author: CAP Diogo Silva
 email: "dasilva@academiafa.edu.pt"
-logo: "afa.svg"
+logo: "../img/afa_100.png"
 format:
     html: default
     revealjs: default
     beamer: default
     pdf: default
 ---
-## Tipos básicos do C
 
+## Slides {visibility="hidden"}
 
----
+<iframe src="7_basic_types-revealjs.html" title="Slides"></iframe> 
+
 
 ## Inteiros
 
----
+### Variantes de `int`
 
 Até agora usámos apenas o tipo `int` para representar números inteiros, mas existem outros:
 
-```text
+```c
 short int
 unsigned short int
 
@@ -30,7 +31,7 @@ int
 unsigned int
 
 long int
-unsigned lont int
+unsigned long int
 ```
 
 ---
@@ -43,13 +44,13 @@ Estes intervalos e espaço ocupado em memória pode variar de máquina para máq
 
 ---
 
-Processadores com arquitecturas de 64 bits começam a ser comuns e os intervalos de valores comuns são:
+Processadores com arquitecturas de 64 bits são cada vez mais a norma e os intervalos de valores comuns são:
 
 <img src="img/7_basic_types/int_table_64bits.png">
 
 ---
 
-Uma forma rápida de verificar os limites de um determinado tipo numa máquina, é usar a biblioteca ``<limits.h>``.
+Uma forma rápida de verificar os limites de um determinado tipo, é usar a biblioteca ``<limits.h>``.
 
 ```c
 #include <limits.h>
@@ -61,12 +62,9 @@ int main(void) {
 }
 ```
 
-Lista de todas as constantes na [documentação da biblioteca](https://man7.org/linux/man-pages/man0/limits.h.0p.html).
-
-<small>https://man7.org/linux/man-pages/man0/limits.h.0p.html</small>
+Podem consultar a lista de todas as constantes na [documentação da biblioteca](https://man7.org/linux/man-pages/man0/limits.h.0p.html).
 
 
----
 
 ## Inteiros
 ### Constantes
@@ -88,14 +86,15 @@ int main(void) {
 Mas existem outras formas.
 
 É possível definir constantes em formato octal e hexadecimal.
+
 Não iremos explorar estas bases, mas veremos como escrever constantes de inteiros diferentes.
 
 ---
 
-```text
-15L  -> interpretar 15 como um long int
-15U  -> interpretar 15 como um unsigned int
-15UL -> interpretar 15 como um unsigned long int
+```c
+15L  // interpretar 15 como um long int
+15U  // interpretar 15 como um unsigned int
+15UL // interpretar 15 como um unsigned long int
 ```
 
 Também se pode escrever U e L em minúsculas. Pode-se escrever UL ou LU.
@@ -118,8 +117,7 @@ int main(void) {
 }
 ```
 
-- `v = ?`
-- `v + 1 = ?`
+Qual é o valor de `v` e `v+1`?
 
 ---
 
@@ -135,14 +133,15 @@ int main(void) {
 }
 ```
 
-- `v     = 2147483647`
-- `v + 1 = -2147483648`
+`v     = 2147483647`
+
+`v + 1 = -2147483648`
 
 ---
 
 ### printf e scanf
 
-```text
+```c
 scanf("%u", &v);  // unsigned int
 printf("%u", v);   
 
@@ -160,21 +159,22 @@ printf("%lu", v);
 ```
 
 
----
 
 ## Reais
 
-```text
+```c
 float
 double
 long double
 ```
 
---
+---
+
+### Intervalos de valores
 
 <img src="img/7_basic_types/float_table.png">
 
-O long double não aparece porque os intervalos variam bastante de máquina para máquina.
+O `long double` não aparece porque os intervalos variam bastante de máquina para máquina.
 
 ---
 
@@ -182,7 +182,7 @@ O long double não aparece porque os intervalos variam bastante de máquina para
 
 Diferentes formas de escrever o número 57:
 
-```text
+```c
 57.0
 57.
 57.0e0
@@ -197,7 +197,7 @@ Diferentes formas de escrever o número 57:
 
 ### printf scanf
 
-```text
+```c
 double d;
 scanf("lf", &d);
 printf("lf", d);
@@ -207,32 +207,30 @@ scanf("%Lf", &ld);
 printf("%Lf", ld);
 ```
 
----
 
 ## Texto
+
 ### char
 
----
+Até agora usámos texto apenas no contexto do `scanf` e `printf`.
 
-#### char
-
-Até agora usámos texto apenas no contexto do scanf e print.
-
-O C tem um tipo para texto: o char.
+O C tem um tipo para texto: o `char`.
 
 ```c
 char letra = 'C';
 ```
-<!-- .element: class="fragment" data-fragment-index="1"-->
-
-- Um char guarda 1 letra.
-- As constantes de char são escritas com plicas ''. Não confundir com as aspas "" usadas para strings (e.g. o printf e scanf).
-
-<!-- .element: class="fragment" data-fragment-index="1"-->
 
 ---
 
-Internamente, um char é apenas um número inteiro que pode ser interpretado como letras, através da tabela ASCII.
+- Um char guarda 1 letra.
+- As constantes de char são escritas entre plicas `''`. Não confundir com:
+  - aspas `"`, usadas para strings (e.g. dentro do `printf` e `scanf`)
+  - apóstrofos `’` (que não fazem nada).
+
+
+---
+
+Internamente, um char é apenas um número inteiro que pode ser interpretado como letra, através da tabela ASCII.
 
 
 ![ascii](img/7_basic_types/ascii.png)
@@ -241,16 +239,15 @@ Internamente, um char é apenas um número inteiro que pode ser interpretado com
 
 ---
 
-Não precisamos de saber esta correspondência, porque podemos sempre interpretar um char como um inteiro e vice-versa.
+Não precisamos de saber esta correspondência, porque podemos sempre interpretar um `char` como `int` e vice-versa.
 
 ```c
 char letra = 'A';
 printf("A letra %c tem o valor %d\n", letra, letra);  // A 65
 ```
-<!-- .element: class="fragment" data-fragment-index="1"-->
 
 A especificação de conversão para char é o %c.
-<!-- .element: class="fragment" data-fragment-index="1"-->
+
 
 ---
 
@@ -261,8 +258,7 @@ char letra = 'C';
 printf("A letra depois do %c = %c\n", letra, letra+1);  // C D
 ```
 
-<!-- .element: class="fragment" data-fragment-index="1"-->
-
+::: {.fragment}
 ```c
 // abecedário completado em maísculas
 for(char l='A'; l<'Z'; l++)
@@ -270,12 +266,11 @@ for(char l='A'; l<'Z'; l++)
 printf("\n");
 ```
 
-<!-- .element: class="fragment" data-fragment-index="1"-->
-
+:::
 
 ---
 
-Tal como vimos para os tipos inteiros, o char também pode ser signed ou unsigned.
+Tal como vimos para os tipos inteiros, o `char` também pode ser `signed` ou `unsigned`.
 
 ```c
 char n = 127+1;
@@ -285,26 +280,34 @@ unsigned char n2 = 255+1;
 printf("n2=%d\n", n2);  // 0
 ```
 
-Também está sujeito a overflow.
-<!-- .element: class="fragment" data-fragment-index="1"-->
+::: {.fragment}
+
+::: {.callout-caution title="Atenção!"}
+O `char` também está sujeito a overflow.
+:::
+
+:::
+
 
 ---
 
 - Já usámos anteriormente caracteres especiais, e.g. `'\n'` e `'\t'`. Existem outros.
-- Alguns só podem ser especificados em formato octal ou hexadecimal.
+- Alguns só podem ser especificados em formato numérico (octal, decimal ou hexadecimal).
 
-<img src="img/7_basic_types/ascii.png" height="400">
+<!-- <img src="img/7_basic_types/ascii.png" height="400"> -->
 
----
+![](img/7_basic_types/ascii.png){height=400 fig-align="center"}
 
-#### scanf
 
-- Quando o scanf acaba de processar um determinado input, existem caracteres que ficam por consumir.
-- Como todos os caracteres são válidos para o tipo char, isso pode ser um problema.
 
 ---
 
-#### scanf
+### `scanf`
+
+- Quando o `scanf` acaba de processar um determinado input, existem caracteres que ficam por consumir.
+- Como todos os caracteres são válidos para o tipo `char`, isso pode ser um problema.
+
+---
 
 ```c
 char c1, c2;
@@ -317,29 +320,29 @@ scanf("%c", &c2);
 printf("c1=%c   c2=%c  \n", c1, c2);
 ```
 
+Resulta em...
+
 ```text
 Introduza um caracter:a
 Introduza outro caracter:c1=a   c2=
-  
 ```
-<!-- .element: class="fragment" data-fragment-index="1"-->
-
-- Aparentemente, o segundo scanf foi ignorado:
-  - o utilizador não escreveu nada
-  - o que estaria depois de c2= está vazio
-
-<!-- .element: class="fragment" data-fragment-index="2"-->
 
 ---
 
-- Na verdade, o primeiro scanf deixa um enter `'\n'` por consumir. 
-- No scanf seguinte, o que é pedido é um char. <!-- .element: class="fragment" data-fragment-index="2"-->
-- Como `'n'` é um char válido, a especificação de conversão aceita-o como input <!-- .element: class="fragment" data-fragment-index="2"-->
-- Deixa de ser necessário pedir input ao utilizador porque as especificações de conversão já foram satisfeitas. <!-- .element: class="fragment" data-fragment-index="3"-->
+- Aparentemente, o segundo `scanf` foi ignorado:
+  - o utilizador teve oportunidade de escrever
+  - o que estaria depois de `c2=` está vazio
 
 ---
 
-Como confirmar? Vamos interpretar c2 como um inteiro.
+- Na verdade, o primeiro `scanf` deixa um enter `'\n'` por consumir. 
+- No `scanf` seguinte, o que é pedido é um char.
+- Como `'\n'` é um char válido, a especificação de conversão aceita-o como input
+- Deixa de ser necessário pedir mais um input ao utilizador porque as especificações de conversão já foram satisfeitas.
+
+---
+
+Como confirmar? Vamos interpretar `c2` como um inteiro.
 
 ```c
 char c1, c2;
@@ -352,50 +355,55 @@ scanf("%c", &c2);
 printf("c1=%c   c2=%d  \n", c1, c2);
 ```
 
-<!-- .element: class="fragment" data-fragment-index="1"-->
-
 ```text
 Introduza um caracter:a
 Introduza outro caracter:c1=a   c2=10
 ```
 
-<!-- .element: class="fragment" data-fragment-index="1"-->
+---
+
+### alternativas para ler e escrever `char`
+
+Existem outras formas de ler e escrever um `char`:
+
+- `getchar` [[docs](https://linux.die.net/man/3/putchar){target="_blank"}]
+- `putchar` [[docs](https://linux.die.net/man/3/getchar){target="_blank"}]
 
 ---
 
-#### alternativas para ler e escrever char
 
-Existem outras formas de ler e escrever um char.
-- getchar
-- putchar
+### `getchar`
 
-
----
-
-#### putchar
-
-A função putchar escreve um caracter na consola.
-
-```c
-putchar('C');
-```
-
-#### getchar
-
-A função getchar lê um único char.
+A função `getchar` lê um único char.
 
 ```c
 l = getchar();
 ```
 
-⚠️Tal como no scanf, o getchar não salta espaços em branco quando lê um char.⚠️
-<!-- .element: class="fragment" data-fragment-index="1"-->
+⚠️ Tal como no `scanf`, o `getchar` não salta espaços em branco quando lê um char.
+
+
+
+::: {.fragment}
+
+
+### `putchar`
+
+A função `putchar` escreve um caracter na consola.
+
+```c
+putchar('C');
+```
+
+:::
 
 ---
 
 E se quisermos ler vários chars?
 
-Usamos um ciclo. <!-- .element: class="fragment" data-fragment-index="1"-->
+::: {.fragment}
+
+Usamos um ciclo.
 
 ```c
 // lê chars até encontrar \n
@@ -404,31 +412,26 @@ do{
   scanf("%c", &l);
 } while (l != '\n');
 ```
-<!-- .element: class="fragment" data-fragment-index="1"-->
 
 ```c
 char l;
 while ((l = getchar()) != '\n')
   ;
 ```
-<!-- .element: class="fragment" data-fragment-index="2"-->
 
----
+:::
 
-### exercicio
-#### Calcular comprimento de mensagem
 
----
 
 ## Conversão de tipos
 
 - No C, é possível converter de uns tipos para outros.
-- Na verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implicitas.
+- Na verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implícitas.
 - Outras têm de ser explicitamente declaradas.
 
 ---
 
-#### conversões implicitas
+### Conversões implícitas
 
 - Quando realizamos operações binárias, o C consegue detectar se os 2 operandos são do mesmo tipo.
 - Se não forem, um dos tipos é convertido no outro, porque as operações são feitas com operandos do mesmo tipo.
@@ -437,24 +440,22 @@ while ((l = getchar()) != '\n')
 
 ---
 
-#### conversões implicitas
-
 ```c
 int i;
 float f, p;
 p = f + i;
 ```
 
-- Neste caso, o valor de i será convertido para float.
-- Se o contrário ocorresse, perdiamos por completo a componente decimal de f.
-- Desta forma, o pior que pode acontecer é o valor de i perder precisão depois de convertido.
+- Neste caso, o valor de `i` é convertido para `float`.
+- Se o contrário ocorresse, perdiamos por completo a componente decimal de `f`.
 
 ---
 
-#### conversões implicitas > ambos operandos da mesma "classe"
+### Operandos da mesma "classe"
 
 ```text
   reais                 inteiros
+
 
 long double         unsigned long int
     ^                       ^
@@ -470,7 +471,7 @@ long double         unsigned long int
 
 ---
 
-#### conversões implicitas > exemplos
+#### Exemplos de conversões implicitas
 
 ```c
 char c;
@@ -487,7 +488,7 @@ l = l + u; // u convertido para long int
 
 ---
 
-#### conversões implicitas > mais exemplos
+#### Mais exemplos de conversões implicitas
 
 ```c
 long int l;
@@ -504,7 +505,7 @@ ld = ld + d // d convertido para long double
 
 ---
 
-#### conversões implicitas > atribuição
+#### Conversões implicitas na atribuição
 
 ```c
 char c;
@@ -524,7 +525,7 @@ f = 1.0e100; // excede limite
 ---
 
 
-#### conversões explicitas > casting
+#### _Casting_
 
 - Para fazer uma conversão explicita, escrevemos o nome do tipo final entre parêntises, seguido do valor que queremos converter.
 
@@ -533,20 +534,23 @@ float f = 3 / 2; // 1.0 -> divisão de inteiros dá inteiro
 f = (float) 3 / 2; // 1.5 -> converter 3 para float e dividir por 2
 ```
 
-- O operador de casting é uma operação unária.
-- Operações unárias têm precedência sobre operações binárias.
-
 ---
 
-#### conversões explicitas > casting
+- O operador de casting é uma operação unária.
+- Operações unárias têm precedência sobre operações binárias, logo...
+
+`(float) 3 / 2` equivale a `( (float) 3 ) / 2`
+
+
+---
 
 Quando realizamos algumas operações aritméticas, pode ser necessário fazer uma conversão explicita.
 
 ```c
 long i;
-int j = 10000; // 10000 * 10000 -> 100 000 000
+int j = 10000; 
 
-i = j * j;
+i = j * j;  // 10000 * 10000 -> 100 000 000
 ```
 
 - O resultado da multiplicação na linha 4 cabe na variável i de tipo long.
@@ -554,8 +558,6 @@ i = j * j;
 
 ---
 
-#### conversões explicitas > casting
-
 
 ```c
 long i;
@@ -563,18 +565,17 @@ int j = 10000; // 10000 * 10000 -> 100 000 000
 
 i = j * j;
 
-i = (long) j * j;
+i = (long) j * j; // OK
 
 i = (long) (j * j); // ERRADO
 ```
 
-- Para resolver isso, podemos fazer o cast da linha 6.
-- Na linha 8, a multiplicação é feita antes da conversão porque está entre ().
+- Para resolver isso, podemos fazer o _cast_ da linha 6.
+- Na linha 8, a multiplicação é feita antes da conversão porque está entre `( )`.
 
 ---
 
-
-## Definições de tipos
+## Definições de tipos - `typedef`
 
 O C permite a definição de novos tipos com o comando ``typedef``.
 
@@ -583,12 +584,11 @@ O C permite a definição de novos tipos com o comando ``typedef``.
 typedef int Altura;
 ```
 
-- typedef é seguido do nome original do tipo
+- `typedef` é seguido do nome original do tipo
 - e depois do novo nome que queremos usar
 
 ---
 
-#### typedef
 
 ```c
 typedef int Altura;
@@ -597,12 +597,10 @@ Altura a = 180;
 Massa m = 75;
 ```
 
-- Essencialmente, o que fizemos foi criar um int com um novo nome.
+- Essencialmente, o que fizemos foi criar um `int` com um novo nome.
 - Útil para tornar o código mais legível
 
 ---
-
-#### typedef
 
 ```c
 typedef int Altura;
@@ -630,4 +628,3 @@ printf("size of char = %lu bytes\n", sizeof(3.14));  // 8 -> double
 printf("size of char = %lu bytes\n", sizeof(c));  // 1
 ```
 
-<!-- .element: class="fragment" data-fragment-index="2"-->

@@ -543,7 +543,7 @@
     "href": "lectures/7_basic_types.revealjshtml#inteiros",
     "title": "Tipos básicos do C",
     "section": "Inteiros",
-    "text": "Inteiros"
+    "text": "Inteiros\nVariantes de int\nAté agora usámos apenas o tipo int para representar números inteiros, mas existem outros:\nshort int\nunsigned short int\n\nint\nunsigned int\n\nlong int\nunsigned long int"
   },
   {
     "objectID": "lectures/7_basic_types.revealjshtml#inteiros-1",
@@ -557,21 +557,21 @@
     "href": "lectures/7_basic_types.revealjshtml#reais",
     "title": "Tipos básicos do C",
     "section": "Reais",
-    "text": "Reais\nfloat\ndouble\nlong double\n–\n\nO long double não aparece porque os intervalos variam bastante de máquina para máquina."
+    "text": "Reais\nfloat\ndouble\nlong double"
   },
   {
     "objectID": "lectures/7_basic_types.revealjshtml#texto",
     "href": "lectures/7_basic_types.revealjshtml#texto",
     "title": "Tipos básicos do C",
     "section": "Texto",
-    "text": "Texto\nchar"
+    "text": "Texto\nchar\nAté agora usámos texto apenas no contexto do scanf e printf.\nO C tem um tipo para texto: o char.\nchar letra = 'C';"
   },
   {
     "objectID": "lectures/7_basic_types.revealjshtml#conversão-de-tipos",
     "href": "lectures/7_basic_types.revealjshtml#conversão-de-tipos",
     "title": "Tipos básicos do C",
     "section": "Conversão de tipos",
-    "text": "Conversão de tipos\n\nNo C, é possível converter de uns tipos para outros.\nNa verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implicitas.\nOutras têm de ser explicitamente declaradas."
+    "text": "Conversão de tipos\n\nNo C, é possível converter de uns tipos para outros.\nNa verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implícitas.\nOutras têm de ser explicitamente declaradas."
   },
   {
     "objectID": "lectures/7_basic_types.revealjshtml#definições-de-tipos",
@@ -585,42 +585,42 @@
     "href": "lectures/7_basic_types.revealjshtml#sizeof",
     "title": "Tipos básicos do C",
     "section": "sizeof",
-    "text": "sizeof\nA função sizeof recebe um valor ou um tipo e indica qual é o tamanho, em bytes, que esse tipo ocupa em memória.\nchar c;\nprintf(\"size of int = %lu bytes\\n\", sizeof(int));  // 4\nprintf(\"size of char = %lu bytes\\n\", sizeof(3.14));  // 8 -&gt; double\nprintf(\"size of char = %lu bytes\\n\", sizeof(c));  // 1"
+    "text": "sizeof\nA função sizeof recebe um valor ou um tipo e indica qual é o tamanho, em bytes, que esse tipo ocupa em memória.\nchar c;\nprintf(\"size of int = %lu bytes\\n\", sizeof(int));  // 4\nprintf(\"size of char = %lu bytes\\n\", sizeof(3.14));  // 8 -&gt; double\nprintf(\"size of char = %lu bytes\\n\", sizeof(c));  // 1\n\n\n\nProgramação"
   },
   {
     "objectID": "lectures/7_basic_types.html#inteiros",
     "href": "lectures/7_basic_types.html#inteiros",
     "title": "Tipos básicos do C",
     "section": "Inteiros",
-    "text": "Inteiros\n\nAté agora usámos apenas o tipo int para representar números inteiros, mas existem outros:\nshort int\nunsigned short int\n\nint\nunsigned int\n\nlong int\nunsigned lont int\n\nDiferentes tipos podem representar números inteiros em diferentes intervalos e ocupam mais ou menos espaço em memória.\nEstes intervalos e espaço ocupado em memória pode variar de máquina para máquina, mas é garantido que:\nshort int &lt; int &lt; long int\n\nProcessadores com arquitecturas de 64 bits começam a ser comuns e os intervalos de valores comuns são:\n\n\nUma forma rápida de verificar os limites de um determinado tipo numa máquina, é usar a biblioteca &lt;limits.h&gt;.\n#include &lt;limits.h&gt;\n#include &lt;stdio.h&gt;\n\nint main(void) {\n  int v;\n  printf(\"max long=%ld\\n\", LONG_MAX);\n}\nLista de todas as constantes na documentação da biblioteca.\nhttps://man7.org/linux/man-pages/man0/limits.h.0p.html"
+    "text": "Inteiros\n\nVariantes de int\nAté agora usámos apenas o tipo int para representar números inteiros, mas existem outros:\nshort int\nunsigned short int\n\nint\nunsigned int\n\nlong int\nunsigned long int\n\nDiferentes tipos podem representar números inteiros em diferentes intervalos e ocupam mais ou menos espaço em memória.\nEstes intervalos e espaço ocupado em memória pode variar de máquina para máquina, mas é garantido que:\nshort int &lt; int &lt; long int\n\nProcessadores com arquitecturas de 64 bits são cada vez mais a norma e os intervalos de valores comuns são:\n\n\nUma forma rápida de verificar os limites de um determinado tipo, é usar a biblioteca &lt;limits.h&gt;.\n#include &lt;limits.h&gt;\n#include &lt;stdio.h&gt;\n\nint main(void) {\n  int v;\n  printf(\"max long=%ld\\n\", LONG_MAX);\n}\nPodem consultar a lista de todas as constantes na documentação da biblioteca."
   },
   {
     "objectID": "lectures/7_basic_types.html#inteiros-1",
     "href": "lectures/7_basic_types.html#inteiros-1",
     "title": "Tipos básicos do C",
     "section": "Inteiros",
-    "text": "Inteiros\n\nConstantes\nAté agora definimos constantes de inteiros no formato decimal simples, i.e. usando 10 digitos distintos.\n#include &lt;limits.h&gt;\n#include &lt;stdio.h&gt;\n\nint main(void) {\n  int v = 42;  // 42 é constante de inteiro\n}\n\nMas existem outras formas.\nÉ possível definir constantes em formato octal e hexadecimal. Não iremos explorar estas bases, mas veremos como escrever constantes de inteiros diferentes.\n\n15L  -&gt; interpretar 15 como um long int\n15U  -&gt; interpretar 15 como um unsigned int\n15UL -&gt; interpretar 15 como um unsigned long int\nTambém se pode escrever U e L em minúsculas. Pode-se escrever UL ou LU.\n\n\n\nOverflow\nComo vimos anteriormente, os tipos inteiros têm um valor máximo e mínimo que podem representar.\n#include &lt;limits.h&gt;\n#include &lt;stdio.h&gt;\n\nint main(void) {\n  int v = INT_MAX;\n  printf(\"v=%d\\n\", v);\n  printf(\"v=%d\\n\", v+1);\n  return 0;\n}\n\nv = ?\nv + 1 = ?\n\n\n#include &lt;limits.h&gt;\n#include &lt;stdio.h&gt;\n\nint main(void) {\n  int v = INT_MAX;\n  printf(\"v=%d\\n\", v);\n  printf(\"v=%d\\n\", v+1);\n  return 0;\n}\n\nv     = 2147483647\nv + 1 = -2147483648\n\n\n\n\nprintf e scanf\nscanf(\"%u\", &v);  // unsigned int\nprintf(\"%u\", v);   \n\nscanf(\"%hd\", &v);  // short int\nprintf(\"%hd\", v);\n\nscanf(\"%hu\", &v);  // unsigned short int\nprintf(\"%hu\", v);\n\nscanf(\"%ld\", &v);  // long int\nprintf(\"%ld\", v);  \n\nscanf(\"%lu\", &v);  // unsigned long int\nprintf(\"%lu\", v);"
+    "text": "Inteiros\n\nConstantes\nAté agora definimos constantes de inteiros no formato decimal simples, i.e. usando 10 digitos distintos.\n#include &lt;limits.h&gt;\n#include &lt;stdio.h&gt;\n\nint main(void) {\n  int v = 42;  // 42 é constante de inteiro\n}\n\nMas existem outras formas.\nÉ possível definir constantes em formato octal e hexadecimal.\nNão iremos explorar estas bases, mas veremos como escrever constantes de inteiros diferentes.\n\n15L  // interpretar 15 como um long int\n15U  // interpretar 15 como um unsigned int\n15UL // interpretar 15 como um unsigned long int\nTambém se pode escrever U e L em minúsculas. Pode-se escrever UL ou LU.\n\n\n\nOverflow\nComo vimos anteriormente, os tipos inteiros têm um valor máximo e mínimo que podem representar.\n#include &lt;limits.h&gt;\n#include &lt;stdio.h&gt;\n\nint main(void) {\n  int v = INT_MAX;\n  printf(\"v=%d\\n\", v);\n  printf(\"v=%d\\n\", v+1);\n  return 0;\n}\nQual é o valor de v e v+1?\n\n#include &lt;limits.h&gt;\n#include &lt;stdio.h&gt;\n\nint main(void) {\n  int v = INT_MAX;\n  printf(\"v=%d\\n\", v);\n  printf(\"v=%d\\n\", v+1);\n  return 0;\n}\nv     = 2147483647\nv + 1 = -2147483648\n\n\n\nprintf e scanf\nscanf(\"%u\", &v);  // unsigned int\nprintf(\"%u\", v);   \n\nscanf(\"%hd\", &v);  // short int\nprintf(\"%hd\", v);\n\nscanf(\"%hu\", &v);  // unsigned short int\nprintf(\"%hu\", v);\n\nscanf(\"%ld\", &v);  // long int\nprintf(\"%ld\", v);  \n\nscanf(\"%lu\", &v);  // unsigned long int\nprintf(\"%lu\", v);"
   },
   {
     "objectID": "lectures/7_basic_types.html#reais",
     "href": "lectures/7_basic_types.html#reais",
     "title": "Tipos básicos do C",
     "section": "Reais",
-    "text": "Reais\nfloat\ndouble\nlong double\n–\n\nO long double não aparece porque os intervalos variam bastante de máquina para máquina.\n\n\nconstantes\nDiferentes formas de escrever o número 57:\n57.0\n57.\n57.0e0\n57E0\n5.7e1\n5.7e+1\n.57e2\n570.e-1\n\n\n\nprintf scanf\ndouble d;\nscanf(\"lf\", &d);\nprintf(\"lf\", d);\n\nlong double ld;\nscanf(\"%Lf\", &ld);\nprintf(\"%Lf\", ld);"
+    "text": "Reais\nfloat\ndouble\nlong double\n\n\nIntervalos de valores\n\nO long double não aparece porque os intervalos variam bastante de máquina para máquina.\n\n\n\nconstantes\nDiferentes formas de escrever o número 57:\n57.0\n57.\n57.0e0\n57E0\n5.7e1\n5.7e+1\n.57e2\n570.e-1\n\n\n\nprintf scanf\ndouble d;\nscanf(\"lf\", &d);\nprintf(\"lf\", d);\n\nlong double ld;\nscanf(\"%Lf\", &ld);\nprintf(\"%Lf\", ld);"
   },
   {
     "objectID": "lectures/7_basic_types.html#texto",
     "href": "lectures/7_basic_types.html#texto",
     "title": "Tipos básicos do C",
     "section": "Texto",
-    "text": "Texto\n\nchar\n\n\nchar\nAté agora usámos texto apenas no contexto do scanf e print.\nO C tem um tipo para texto: o char.\nchar letra = 'C';\n\n\nUm char guarda 1 letra.\nAs constantes de char são escritas com plicas ’’. Não confundir com as aspas “” usadas para strings (e.g. o printf e scanf).\n\n\n\nInternamente, um char é apenas um número inteiro que pode ser interpretado como letras, através da tabela ASCII.\n\n\n\nascii\n\n\nASCII = American standard Code for Information Interchange\n\nNão precisamos de saber esta correspondência, porque podemos sempre interpretar um char como um inteiro e vice-versa.\nchar letra = 'A';\nprintf(\"A letra %c tem o valor %d\\n\", letra, letra);  // A 65\n\nA especificação de conversão para char é o %c. \n\nPor serem números inteiros, podemos realizar operações aritméticas sobre char.\nchar letra = 'C';\nprintf(\"A letra depois do %c = %c\\n\", letra, letra+1);  // C D\n\n// abecedário completado em maísculas\nfor(char l='A'; l&lt;'Z'; l++)\n  printf(\"%c,\"l);\nprintf(\"\\n\");\n\n\nTal como vimos para os tipos inteiros, o char também pode ser signed ou unsigned.\nchar n = 127+1;\nprintf(\"n=%d\\n\", n); // -128\n\nunsigned char n2 = 255+1;\nprintf(\"n2=%d\\n\", n2);  // 0\nTambém está sujeito a overflow. \n\n\nJá usámos anteriormente caracteres especiais, e.g. '\\n' e '\\t'. Existem outros.\nAlguns só podem ser especificados em formato octal ou hexadecimal.\n\n\n\n\n\nscanf\n\nQuando o scanf acaba de processar um determinado input, existem caracteres que ficam por consumir.\nComo todos os caracteres são válidos para o tipo char, isso pode ser um problema.\n\n\n\n\nscanf\nchar c1, c2;\nprintf(\"Introduza um caracter:\");\nscanf(\"%c\", &c1);\n\nprintf(\"Introduza outro caracter:\");\nscanf(\"%c\", &c2);\n\nprintf(\"c1=%c   c2=%c  \\n\", c1, c2);\nIntroduza um caracter:a\nIntroduza outro caracter:c1=a   c2=\n  \n\n\nAparentemente, o segundo scanf foi ignorado:\n\no utilizador não escreveu nada\no que estaria depois de c2= está vazio\n\n\n\n\n\nNa verdade, o primeiro scanf deixa um enter '\\n' por consumir.\nNo scanf seguinte, o que é pedido é um char. \nComo 'n' é um char válido, a especificação de conversão aceita-o como input \nDeixa de ser necessário pedir input ao utilizador porque as especificações de conversão já foram satisfeitas. \n\n\nComo confirmar? Vamos interpretar c2 como um inteiro.\nchar c1, c2;\nprintf(\"Introduza um caracter:\");\nscanf(\"%c\", &c1);\n\nprintf(\"Introduza outro caracter:\");\nscanf(\"%c\", &c2);\n\nprintf(\"c1=%c   c2=%d  \\n\", c1, c2);\n\nIntroduza um caracter:a\nIntroduza outro caracter:c1=a   c2=10\n\n\n\n\nalternativas para ler e escrever char\nExistem outras formas de ler e escrever um char. - getchar - putchar\n\n\n\nputchar\nA função putchar escreve um caracter na consola.\nputchar('C');\n\n\ngetchar\nA função getchar lê um único char.\nl = getchar();\n⚠️Tal como no scanf, o getchar não salta espaços em branco quando lê um char.⚠️ \n\nE se quisermos ler vários chars?\nUsamos um ciclo. \n// lê chars até encontrar \\n\nchar l;\ndo{\n  scanf(\"%c\", &l);\n} while (l != '\\n');\n\nchar l;\nwhile ((l = getchar()) != '\\n')\n  ;\n\n\n\n\n\nexercicio\n\nCalcular comprimento de mensagem"
+    "text": "Texto\n\nchar\nAté agora usámos texto apenas no contexto do scanf e printf.\nO C tem um tipo para texto: o char.\nchar letra = 'C';\n\n\nUm char guarda 1 letra.\nAs constantes de char são escritas entre plicas ''. Não confundir com:\n\naspas \", usadas para strings (e.g. dentro do printf e scanf)\napóstrofos ’ (que não fazem nada).\n\n\n\nInternamente, um char é apenas um número inteiro que pode ser interpretado como letra, através da tabela ASCII.\n\n\n\nascii\n\n\nASCII = American standard Code for Information Interchange\n\nNão precisamos de saber esta correspondência, porque podemos sempre interpretar um char como int e vice-versa.\nchar letra = 'A';\nprintf(\"A letra %c tem o valor %d\\n\", letra, letra);  // A 65\nA especificação de conversão para char é o %c.\n\nPor serem números inteiros, podemos realizar operações aritméticas sobre char.\nchar letra = 'C';\nprintf(\"A letra depois do %c = %c\\n\", letra, letra+1);  // C D\n\n// abecedário completado em maísculas\nfor(char l='A'; l&lt;'Z'; l++)\n  printf(\"%c,\"l);\nprintf(\"\\n\");\n\n\nTal como vimos para os tipos inteiros, o char também pode ser signed ou unsigned.\nchar n = 127+1;\nprintf(\"n=%d\\n\", n); // -128\n\nunsigned char n2 = 255+1;\nprintf(\"n2=%d\\n\", n2);  // 0\n\n\n\n\n\n\n\nAtenção!\n\n\n\nO char também está sujeito a overflow.\n\n\n\n\n\nJá usámos anteriormente caracteres especiais, e.g. '\\n' e '\\t'. Existem outros.\nAlguns só podem ser especificados em formato numérico (octal, decimal ou hexadecimal).\n\n\n\n\n\n\n\n\n\n\nscanf\n\nQuando o scanf acaba de processar um determinado input, existem caracteres que ficam por consumir.\nComo todos os caracteres são válidos para o tipo char, isso pode ser um problema.\n\n\nchar c1, c2;\nprintf(\"Introduza um caracter:\");\nscanf(\"%c\", &c1);\n\nprintf(\"Introduza outro caracter:\");\nscanf(\"%c\", &c2);\n\nprintf(\"c1=%c   c2=%c  \\n\", c1, c2);\nResulta em…\nIntroduza um caracter:a\nIntroduza outro caracter:c1=a   c2=\n\n\nAparentemente, o segundo scanf foi ignorado:\n\no utilizador teve oportunidade de escrever\no que estaria depois de c2= está vazio\n\n\n\n\nNa verdade, o primeiro scanf deixa um enter '\\n' por consumir.\nNo scanf seguinte, o que é pedido é um char.\nComo '\\n' é um char válido, a especificação de conversão aceita-o como input\nDeixa de ser necessário pedir mais um input ao utilizador porque as especificações de conversão já foram satisfeitas.\n\n\nComo confirmar? Vamos interpretar c2 como um inteiro.\nchar c1, c2;\nprintf(\"Introduza um caracter:\");\nscanf(\"%c\", &c1);\n\nprintf(\"Introduza outro caracter:\");\nscanf(\"%c\", &c2);\n\nprintf(\"c1=%c   c2=%d  \\n\", c1, c2);\nIntroduza um caracter:a\nIntroduza outro caracter:c1=a   c2=10\n\n\n\nalternativas para ler e escrever char\nExistem outras formas de ler e escrever um char:\n\ngetchar [docs]\nputchar [docs]\n\n\n\n\ngetchar\nA função getchar lê um único char.\nl = getchar();\n⚠️ Tal como no scanf, o getchar não salta espaços em branco quando lê um char.\n\n\n\nputchar\nA função putchar escreve um caracter na consola.\nputchar('C');\n\n\n\nE se quisermos ler vários chars?\n\nUsamos um ciclo.\n// lê chars até encontrar \\n\nchar l;\ndo{\n  scanf(\"%c\", &l);\n} while (l != '\\n');\nchar l;\nwhile ((l = getchar()) != '\\n')\n  ;"
   },
   {
     "objectID": "lectures/7_basic_types.html#conversão-de-tipos",
     "href": "lectures/7_basic_types.html#conversão-de-tipos",
     "title": "Tipos básicos do C",
     "section": "Conversão de tipos",
-    "text": "Conversão de tipos\n\nNo C, é possível converter de uns tipos para outros.\nNa verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implicitas.\nOutras têm de ser explicitamente declaradas.\n\n\n\nconversões implicitas\n\nQuando realizamos operações binárias, o C consegue detectar se os 2 operandos são do mesmo tipo.\nSe não forem, um dos tipos é convertido no outro, porque as operações são feitas com operandos do mesmo tipo.\nO resultado da operação será do tipo “superior”.\n\n\n\n\nconversões implicitas\nint i;\nfloat f, p;\np = f + i;\n\nNeste caso, o valor de i será convertido para float.\nSe o contrário ocorresse, perdiamos por completo a componente decimal de f.\nDesta forma, o pior que pode acontecer é o valor de i perder precisão depois de convertido.\n\n\n\n\nconversões implicitas &gt; ambos operandos da mesma “classe”\n  reais                 inteiros\n\nlong double         unsigned long int\n    ^                       ^\n    |                       |\n  double                long int\n    ^                       ^\n    |                       |\n  float                unsigned int\n                            ^\n                            |\n                           int\n\n\n\nconversões implicitas &gt; exemplos\nchar c;\nshort int s;\nint i;\nunsigned int u;\nlong int l;\n\ni = i + c; // c convertido para int\ni = i + s; // s convertido para int\nu = u + i; // i convertido para unsigned int\nl = l + u; // u convertido para long int\n\n\n\nconversões implicitas &gt; mais exemplos\nlong int l;\nunsigned long int ul;\nfloat f;\ndouble d;\nlong double ld;\n\nul = ul + l; // l convertido para unsigned long int\nf = f + ul; // ul convertido para float\nd = d + f; // f convertido para double\nld = ld + d // d convertido para long double\n\n\n\nconversões implicitas &gt; atribuição\nchar c;\nint i;\nfloat f;\ndouble d;\n\ni = c; // c convertido para int\nf = i; // i convertido para float\nd = f; // f convertido para double\n\ni = 3.14; // 3.14 convertido para 3\nc = 10000; // overflow\nf = 1.0e100; // excede limite\n\n\n\nconversões explicitas &gt; casting\n\nPara fazer uma conversão explicita, escrevemos o nome do tipo final entre parêntises, seguido do valor que queremos converter.\n\nfloat f = 3 / 2; // 1.0 -&gt; divisão de inteiros dá inteiro\nf = (float) 3 / 2; // 1.5 -&gt; converter 3 para float e dividir por 2\n\nO operador de casting é uma operação unária.\nOperações unárias têm precedência sobre operações binárias.\n\n\n\n\nconversões explicitas &gt; casting\nQuando realizamos algumas operações aritméticas, pode ser necessário fazer uma conversão explicita.\nlong i;\nint j = 10000; // 10000 * 10000 -&gt; 100 000 000\n\ni = j * j;\n\nO resultado da multiplicação na linha 4 cabe na variável i de tipo long.\nContudo, o resultado da operação será um int e em algumas máquinas o resultado pode levar a overflow.\n\n\n\n\nconversões explicitas &gt; casting\nlong i;\nint j = 10000; // 10000 * 10000 -&gt; 100 000 000\n\ni = j * j;\n\ni = (long) j * j;\n\ni = (long) (j * j); // ERRADO\n\nPara resolver isso, podemos fazer o cast da linha 6.\nNa linha 8, a multiplicação é feita antes da conversão porque está entre ()."
+    "text": "Conversão de tipos\n\nNo C, é possível converter de uns tipos para outros.\nNa verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implícitas.\nOutras têm de ser explicitamente declaradas.\n\n\n\nConversões implícitas\n\nQuando realizamos operações binárias, o C consegue detectar se os 2 operandos são do mesmo tipo.\nSe não forem, um dos tipos é convertido no outro, porque as operações são feitas com operandos do mesmo tipo.\nO resultado da operação será do tipo “superior”.\n\n\nint i;\nfloat f, p;\np = f + i;\n\nNeste caso, o valor de i é convertido para float.\nSe o contrário ocorresse, perdiamos por completo a componente decimal de f.\n\n\n\n\nOperandos da mesma “classe”\n  reais                 inteiros\n\n\nlong double         unsigned long int\n    ^                       ^\n    |                       |\n  double                long int\n    ^                       ^\n    |                       |\n  float                unsigned int\n                            ^\n                            |\n                           int\n\n\nExemplos de conversões implicitas\nchar c;\nshort int s;\nint i;\nunsigned int u;\nlong int l;\n\ni = i + c; // c convertido para int\ni = i + s; // s convertido para int\nu = u + i; // i convertido para unsigned int\nl = l + u; // u convertido para long int\n\n\n\nMais exemplos de conversões implicitas\nlong int l;\nunsigned long int ul;\nfloat f;\ndouble d;\nlong double ld;\n\nul = ul + l; // l convertido para unsigned long int\nf = f + ul; // ul convertido para float\nd = d + f; // f convertido para double\nld = ld + d // d convertido para long double\n\n\n\nConversões implicitas na atribuição\nchar c;\nint i;\nfloat f;\ndouble d;\n\ni = c; // c convertido para int\nf = i; // i convertido para float\nd = f; // f convertido para double\n\ni = 3.14; // 3.14 convertido para 3\nc = 10000; // overflow\nf = 1.0e100; // excede limite\n\n\n\nCasting\n\nPara fazer uma conversão explicita, escrevemos o nome do tipo final entre parêntises, seguido do valor que queremos converter.\n\nfloat f = 3 / 2; // 1.0 -&gt; divisão de inteiros dá inteiro\nf = (float) 3 / 2; // 1.5 -&gt; converter 3 para float e dividir por 2\n\n\nO operador de casting é uma operação unária.\nOperações unárias têm precedência sobre operações binárias, logo…\n\n(float) 3 / 2 equivale a ( (float) 3 ) / 2\n\nQuando realizamos algumas operações aritméticas, pode ser necessário fazer uma conversão explicita.\nlong i;\nint j = 10000; \n\ni = j * j;  // 10000 * 10000 -&gt; 100 000 000\n\nO resultado da multiplicação na linha 4 cabe na variável i de tipo long.\nContudo, o resultado da operação será um int e em algumas máquinas o resultado pode levar a overflow.\n\n\nlong i;\nint j = 10000; // 10000 * 10000 -&gt; 100 000 000\n\ni = j * j;\n\ni = (long) j * j; // OK\n\ni = (long) (j * j); // ERRADO\n\nPara resolver isso, podemos fazer o cast da linha 6.\nNa linha 8, a multiplicação é feita antes da conversão porque está entre ( )."
   },
   {
     "objectID": "lectures/7_basic_types.html#definições-de-tipos",
@@ -653,9 +653,9 @@
   {
     "objectID": "lectures/06_ciclos.html#ciclos",
     "href": "lectures/06_ciclos.html#ciclos",
-    "title": "Programação",
+    "title": "Ciclos",
     "section": "Ciclos",
-    "text": "Ciclos\n\nDiogo Silva\n\nCAP / ENGEL\ndasilva@academiafa.edu.pt\n\n–"
+    "text": "Ciclos\n\nVideos\nSlides, PDF\n\n–\n\nVideos\n\nIntro - 1min [Loom, Sharepoint]\nwhile - 7min [Loom, Sharepoint]\ndo while - 4min [Loom, Sharepoint]\nfor - 6min [Loom, Sharepoint]\nfor demo - 3min [Loom, Sharepoint]\nfor demo 2 - 5min [Loom, Sharepoint]\nbreak, continue - 7min [Loom, Sharepoint]\nciclos infinitos - 3min [Loom, Sharepoint]"
   },
   {
     "objectID": "lectures/06_ciclos.html#ciclos-1",
@@ -1202,5 +1202,40 @@
     "title": "Expressões",
     "section": "Avaliação de expressões",
     "text": "Avaliação de expressões\n\n\n\n\nResumo das operações que já vimos (clicar para ampliar).\n\n\n\nCom este conhecimento conseguimos avaliar expressões complicadas.\na= b += c++ - d + --e / -f\n\nEncontrar o operador com maior precedência.\nColocar ( ) à volta do operador e operandos.\n\nAplicar regras de precedência e associatividade.\n\nRepetir.\n\n\n\na= b += c++ - d + --e / -f\n\na= b += (c++) - d + (--e) / -f  c++ e depois --e (precedência)\na= b += (c++) - d + (--e) / (-f) operador unário -f (precedência)\na= b += (c++) - d + ((--e) / (-f)) divisão (precedência)\n\n\n\n\n\na= b += (c++) - d + ((--e) / (-f))\na= b += ((c++) - d) + ((--e) / (-f))  - e + com a mesma precedência e com operando em comum d (precedência), agrupam da esquerda para a direita, logo - primeiro (associatividade)\na= b += (((c++) - d) + ((--e) / (-f))) + (precedência)\na= (b += (((c++) - d) + ((--e) / (-f))))  = e += com mesma precedência (precedência), agrupam da direita para a esquerda, logo += primeiro (associatividade)\n(a= (b += (((c++) - d) + ((--e) / (-f))))) sobra apenas o = (precedência)\n\n\n\nMoral da história: façam um favor a vós próprios…\n. . .\n… e usem ( )."
+  },
+  {
+    "objectID": "lectures/7_basic_types.revealjshtml#definições-de-tipos---typedef",
+    "href": "lectures/7_basic_types.revealjshtml#definições-de-tipos---typedef",
+    "title": "Tipos básicos do C",
+    "section": "Definições de tipos - typedef",
+    "text": "Definições de tipos - typedef\nO C permite a definição de novos tipos com o comando typedef.\ntypedef int Altura;\n\ntypedef é seguido do nome original do tipo\ne depois do novo nome que queremos usar"
+  },
+  {
+    "objectID": "lectures/7_basic_types.html#definições-de-tipos---typedef",
+    "href": "lectures/7_basic_types.html#definições-de-tipos---typedef",
+    "title": "Tipos básicos do C",
+    "section": "Definições de tipos - typedef",
+    "text": "Definições de tipos - typedef\nO C permite a definição de novos tipos com o comando typedef.\ntypedef int Altura;\n\ntypedef é seguido do nome original do tipo\ne depois do novo nome que queremos usar\n\n\ntypedef int Altura;\ntypedef int Massa;\nAltura a = 180;\nMassa m = 75;\n\nEssencialmente, o que fizemos foi criar um int com um novo nome.\nÚtil para tornar o código mais legível\n\n\ntypedef int Altura;\ntypedef int massa;  // aceite, mas não é convenção\n\nint main(){\n  //...\n}\n\nAs definições de tipo ocorrem fora de qualquer função, tipicamente após os #include.\nOs nomes dos tipos obedecem às mesmas regras dos nomes das variáveis.\nÉ convenção no C, capitalizar os nomes dos tipos."
+  },
+  {
+    "objectID": "lectures/06_ciclos.html",
+    "href": "lectures/06_ciclos.html",
+    "title": "Ciclos",
+    "section": "",
+    "text": "Link slides, PDF"
+  },
+  {
+    "objectID": "lectures/06_ciclos.html#slides",
+    "href": "lectures/06_ciclos.html#slides",
+    "title": "Ciclos",
+    "section": "",
+    "text": "Link slides, PDF"
+  },
+  {
+    "objectID": "lectures/06_ciclos.html#videos",
+    "href": "lectures/06_ciclos.html#videos",
+    "title": "Ciclos",
+    "section": "Videos",
+    "text": "Videos\n\nIntro - 1min [Loom, Sharepoint]\nwhile - 7min [Loom, Sharepoint]\ndo while - 4min [Loom, Sharepoint]\nfor - 6min [Loom, Sharepoint]\nfor demo - 3min [Loom, Sharepoint]\nfor demo 2 - 5min [Loom, Sharepoint]\nbreak, continue - 7min [Loom, Sharepoint]\nciclos infinitos - 3min [Loom, Sharepoint]"
   }
 ]

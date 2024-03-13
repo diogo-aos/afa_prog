@@ -53,8 +53,9 @@ format:
     toc: false
     center: true
     footer: "Programação"
-  beamer: 
-    output-ext: beamerpdf
+  beamer:
+    toc: false
+  pdf: default
 
 #    css: styles.css
 #  pdf:

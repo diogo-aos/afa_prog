@@ -404,23 +404,19 @@ CAP Diogo Silva
 </div>
 
 </section>
-<section id="tipos-básicos-do-c" class="slide level2 center">
-<h2>Tipos básicos do C</h2>
-</section>
+
 <section id="inteiros" class="slide level2 center">
 <h2>Inteiros</h2>
-</section>
-<section class="slide level2 center">
-
+<h3 id="variantes-de-int">Variantes de <code>int</code></h3>
 <p>Até agora usámos apenas o tipo <code>int</code> para representar números inteiros, mas existem outros:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>short int</span>
-<span id="cb1-2"><a href="#cb1-2"></a>unsigned short int</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="dt">short</span> <span class="dt">int</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="dt">unsigned</span> <span class="dt">short</span> <span class="dt">int</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>int</span>
-<span id="cb1-5"><a href="#cb1-5"></a>unsigned int</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="dt">int</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="dt">unsigned</span> <span class="dt">int</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>long int</span>
-<span id="cb1-8"><a href="#cb1-8"></a>unsigned lont int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="dt">long</span> <span class="dt">int</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="dt">unsigned</span> <span class="dt">long</span> <span class="dt">int</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2 center">
 
@@ -430,12 +426,12 @@ CAP Diogo Silva
 </section>
 <section class="slide level2 center">
 
-<p>Processadores com arquitecturas de 64 bits começam a ser comuns e os intervalos de valores comuns são:</p>
+<p>Processadores com arquitecturas de 64 bits são cada vez mais a norma e os intervalos de valores comuns são:</p>
 
 <img src="img/7_basic_types/int_table_64bits.png" class="r-stretch"></section>
 <section class="slide level2 center">
 
-<p>Uma forma rápida de verificar os limites de um determinado tipo numa máquina, é usar a biblioteca <code>&lt;limits.h&gt;</code>.</p>
+<p>Uma forma rápida de verificar os limites de um determinado tipo, é usar a biblioteca <code>&lt;limits.h&gt;</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">#include </span><span class="im">&lt;limits.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
@@ -443,8 +439,7 @@ CAP Diogo Silva
 <span id="cb2-5"><a href="#cb2-5"></a>  <span class="dt">int</span> v<span class="op">;</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a>  printf<span class="op">(</span><span class="st">"max long=</span><span class="sc">%ld\n</span><span class="st">"</span><span class="op">,</span> LONG_MAX<span class="op">);</span></span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Lista de todas as constantes na <a href="https://man7.org/linux/man-pages/man0/limits.h.0p.html">documentação da biblioteca</a>.</p>
-<p><small>https://man7.org/linux/man-pages/man0/limits.h.0p.html</small></p>
+<p>Podem consultar a lista de todas as constantes na <a href="https://man7.org/linux/man-pages/man0/limits.h.0p.html">documentação da biblioteca</a>.</p>
 </section>
 <section id="inteiros-1" class="slide level2 center">
 <h2>Inteiros</h2>
@@ -460,13 +455,14 @@ CAP Diogo Silva
 <section class="slide level2 center">
 
 <p>Mas existem outras formas.</p>
-<p>É possível definir constantes em formato octal e hexadecimal. Não iremos explorar estas bases, mas veremos como escrever constantes de inteiros diferentes.</p>
+<p>É possível definir constantes em formato octal e hexadecimal.</p>
+<p>Não iremos explorar estas bases, mas veremos como escrever constantes de inteiros diferentes.</p>
 </section>
 <section class="slide level2 center">
 
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>15L  -&gt; interpretar 15 como um long int</span>
-<span id="cb4-2"><a href="#cb4-2"></a>15U  -&gt; interpretar 15 como um unsigned int</span>
-<span id="cb4-3"><a href="#cb4-3"></a>15UL -&gt; interpretar 15 como um unsigned long int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a><span class="dv">15</span><span class="bu">L</span>  <span class="co">// interpretar 15 como um long int</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="dv">15</span><span class="bu">U</span>  <span class="co">// interpretar 15 como um unsigned int</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="dv">15</span><span class="bu">UL</span> <span class="co">// interpretar 15 como um unsigned long int</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Também se pode escrever U e L em minúsculas. Pode-se escrever UL ou LU.</p>
 </section>
 <section class="slide level2 center">
@@ -482,10 +478,7 @@ CAP Diogo Silva
 <span id="cb5-7"><a href="#cb5-7"></a>  printf<span class="op">(</span><span class="st">"v=</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> v<span class="op">+</span><span class="dv">1</span><span class="op">);</span></span>
 <span id="cb5-8"><a href="#cb5-8"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb5-9"><a href="#cb5-9"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>v = ?</code></li>
-<li><code>v + 1 = ?</code></li>
-</ul>
+<p>Qual é o valor de <code>v</code> e <code>v+1</code>?</p>
 </section>
 <section class="slide level2 center">
 
@@ -498,134 +491,153 @@ CAP Diogo Silva
 <span id="cb6-7"><a href="#cb6-7"></a>  printf<span class="op">(</span><span class="st">"v=</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> v<span class="op">+</span><span class="dv">1</span><span class="op">);</span></span>
 <span id="cb6-8"><a href="#cb6-8"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb6-9"><a href="#cb6-9"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>v     = 2147483647</code></li>
-<li><code>v + 1 = -2147483648</code></li>
-</ul>
+<p><code>v     = 2147483647</code></p>
+<p><code>v + 1 = -2147483648</code></p>
 </section>
 <section class="slide level2 center">
 
 <h3 id="printf-e-scanf">printf e scanf</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>scanf("%u", &amp;v);  // unsigned int</span>
-<span id="cb7-2"><a href="#cb7-2"></a>printf("%u", v);   </span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%u</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>v<span class="op">);</span>  <span class="co">// unsigned int</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%u</span><span class="st">"</span><span class="op">,</span> v<span class="op">);</span>   </span>
 <span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a>scanf("%hd", &amp;v);  // short int</span>
-<span id="cb7-5"><a href="#cb7-5"></a>printf("%hd", v);</span>
+<span id="cb7-4"><a href="#cb7-4"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%hd</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>v<span class="op">);</span>  <span class="co">// short int</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%hd</span><span class="st">"</span><span class="op">,</span> v<span class="op">);</span></span>
 <span id="cb7-6"><a href="#cb7-6"></a></span>
-<span id="cb7-7"><a href="#cb7-7"></a>scanf("%hu", &amp;v);  // unsigned short int</span>
-<span id="cb7-8"><a href="#cb7-8"></a>printf("%hu", v);</span>
+<span id="cb7-7"><a href="#cb7-7"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%hu</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>v<span class="op">);</span>  <span class="co">// unsigned short int</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%hu</span><span class="st">"</span><span class="op">,</span> v<span class="op">);</span></span>
 <span id="cb7-9"><a href="#cb7-9"></a></span>
-<span id="cb7-10"><a href="#cb7-10"></a>scanf("%ld", &amp;v);  // long int</span>
-<span id="cb7-11"><a href="#cb7-11"></a>printf("%ld", v);  </span>
+<span id="cb7-10"><a href="#cb7-10"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%ld</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>v<span class="op">);</span>  <span class="co">// long int</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%ld</span><span class="st">"</span><span class="op">,</span> v<span class="op">);</span>  </span>
 <span id="cb7-12"><a href="#cb7-12"></a></span>
-<span id="cb7-13"><a href="#cb7-13"></a>scanf("%lu", &amp;v);  // unsigned long int</span>
-<span id="cb7-14"><a href="#cb7-14"></a>printf("%lu", v);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-13"><a href="#cb7-13"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%lu</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>v<span class="op">);</span>  <span class="co">// unsigned long int</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%lu</span><span class="st">"</span><span class="op">,</span> v<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="reais" class="slide level2 center">
 <h2>Reais</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href="#cb8-1"></a>float</span>
-<span id="cb8-2"><a href="#cb8-2"></a>double</span>
-<span id="cb8-3"><a href="#cb8-3"></a>long double</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>–</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1"></a><span class="dt">float</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="dt">double</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="dt">long</span> <span class="dt">double</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2 center">
 
-<img src="img/7_basic_types/float_table.png" class="r-stretch"><p>O long double não aparece porque os intervalos variam bastante de máquina para máquina.</p>
+<h3 id="intervalos-de-valores">Intervalos de valores</h3>
+
+<img src="img/7_basic_types/float_table.png" class="r-stretch"><p>O <code>long double</code> não aparece porque os intervalos variam bastante de máquina para máquina.</p>
 </section>
 <section class="slide level2 center">
 
 <h3 id="constantes-1">constantes</h3>
 <p>Diferentes formas de escrever o número 57:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>57.0</span>
-<span id="cb9-2"><a href="#cb9-2"></a>57.</span>
-<span id="cb9-3"><a href="#cb9-3"></a>57.0e0</span>
-<span id="cb9-4"><a href="#cb9-4"></a>57E0</span>
-<span id="cb9-5"><a href="#cb9-5"></a>5.7e1</span>
-<span id="cb9-6"><a href="#cb9-6"></a>5.7e+1</span>
-<span id="cb9-7"><a href="#cb9-7"></a>.57e2</span>
-<span id="cb9-8"><a href="#cb9-8"></a>570.e-1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1"></a><span class="fl">57.0</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fl">57.</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="fl">57.0e0</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="fl">57E0</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="fl">5.7e1</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="fl">5.7e+1</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="fl">.57e2</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="fl">570.e-1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2 center">
 
 <h3 id="printf-scanf">printf scanf</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href="#cb10-1"></a>double d;</span>
-<span id="cb10-2"><a href="#cb10-2"></a>scanf("lf", &amp;d);</span>
-<span id="cb10-3"><a href="#cb10-3"></a>printf("lf", d);</span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1"></a><span class="dt">double</span> d<span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>scanf<span class="op">(</span><span class="st">"lf"</span><span class="op">,</span> <span class="op">&amp;</span>d<span class="op">);</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>printf<span class="op">(</span><span class="st">"lf"</span><span class="op">,</span> d<span class="op">);</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a></span>
-<span id="cb10-5"><a href="#cb10-5"></a>long double ld;</span>
-<span id="cb10-6"><a href="#cb10-6"></a>scanf("%Lf", &amp;ld);</span>
-<span id="cb10-7"><a href="#cb10-7"></a>printf("%Lf", ld);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="dt">long</span> <span class="dt">double</span> ld<span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%Lf</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>ld<span class="op">);</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%Lf</span><span class="st">"</span><span class="op">,</span> ld<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="texto" class="slide level2 center">
 <h2>Texto</h2>
 <h3 id="char">char</h3>
+<p>Até agora usámos texto apenas no contexto do <code>scanf</code> e <code>printf</code>.</p>
+<p>O C tem um tipo para texto: o <code>char</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1"></a><span class="dt">char</span> letra <span class="op">=</span> <span class="ch">'C'</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2 center">
 
-<h4 id="char-1">char</h4>
-<p>Até agora usámos texto apenas no contexto do scanf e print.</p>
-<p>O C tem um tipo para texto: o char.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1"></a><span class="dt">char</span> letra <span class="op">=</span> <span class="ch">'C'</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="1"-->
 <ul>
 <li>Um char guarda 1 letra.</li>
-<li>As constantes de char são escritas com plicas ’’. Não confundir com as aspas “” usadas para strings (e.g.&nbsp;o printf e scanf).</li>
+<li>As constantes de char são escritas entre plicas <code>''</code>. Não confundir com:
+<ul>
+<li>aspas <code>"</code>, usadas para strings (e.g.&nbsp;dentro do <code>printf</code> e <code>scanf</code>)</li>
+<li>apóstrofos <code>’</code> (que não fazem nada).</li>
+</ul></li>
 </ul>
-<!-- .element: class="fragment" data-fragment-index="1"-->
 </section>
 <section class="slide level2 center">
 
-<p>Internamente, um char é apenas um número inteiro que pode ser interpretado como letras, através da tabela ASCII.</p>
+<p>Internamente, um char é apenas um número inteiro que pode ser interpretado como letra, através da tabela ASCII.</p>
 
 <img data-src="img/7_basic_types/ascii.png" class="r-stretch quarto-figure-center"><p class="caption">ascii</p><p><small>ASCII = American standard Code for Information Interchange</small></p>
 </section>
 <section class="slide level2 center">
 
-<p>Não precisamos de saber esta correspondência, porque podemos sempre interpretar um char como um inteiro e vice-versa.</p>
+<p>Não precisamos de saber esta correspondência, porque podemos sempre interpretar um <code>char</code> como <code>int</code> e vice-versa.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1"></a><span class="dt">char</span> letra <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>printf<span class="op">(</span><span class="st">"A letra </span><span class="sc">%c</span><span class="st"> tem o valor </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> letra<span class="op">,</span> letra<span class="op">);</span>  <span class="co">// A 65</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="1"-->
-<p>A especificação de conversão para char é o %c. <!-- .element: class="fragment" data-fragment-index="1"--></p>
+<p>A especificação de conversão para char é o %c.</p>
 </section>
 <section class="slide level2 center">
 
 <p>Por serem números inteiros, podemos realizar operações aritméticas sobre char.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1"></a><span class="dt">char</span> letra <span class="op">=</span> <span class="ch">'C'</span><span class="op">;</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>printf<span class="op">(</span><span class="st">"A letra depois do </span><span class="sc">%c</span><span class="st"> = </span><span class="sc">%c\n</span><span class="st">"</span><span class="op">,</span> letra<span class="op">,</span> letra<span class="op">+</span><span class="dv">1</span><span class="op">);</span>  <span class="co">// C D</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="1"-->
+<div class="fragment">
 <div class="sourceCode" id="cb14"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">// abecedário completado em maísculas</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="cf">for</span><span class="op">(</span><span class="dt">char</span> l<span class="op">=</span><span class="ch">'A'</span><span class="op">;</span> l<span class="op">&lt;</span><span class="ch">'Z'</span><span class="op">;</span> l<span class="op">++)</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a>  printf<span class="op">(</span><span class="st">"</span><span class="sc">%c</span><span class="st">,"</span>l<span class="op">);</span></span>
 <span id="cb14-4"><a href="#cb14-4"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="1"-->
+</div>
 </section>
 <section class="slide level2 center">
 
-<p>Tal como vimos para os tipos inteiros, o char também pode ser signed ou unsigned.</p>
+<p>Tal como vimos para os tipos inteiros, o <code>char</code> também pode ser <code>signed</code> ou <code>unsigned</code>.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1"></a><span class="dt">char</span> n <span class="op">=</span> <span class="dv">127</span><span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>printf<span class="op">(</span><span class="st">"n=</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> n<span class="op">);</span> <span class="co">// -128</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
 <span id="cb15-4"><a href="#cb15-4"></a><span class="dt">unsigned</span> <span class="dt">char</span> n2 <span class="op">=</span> <span class="dv">255</span><span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
 <span id="cb15-5"><a href="#cb15-5"></a>printf<span class="op">(</span><span class="st">"n2=</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> n2<span class="op">);</span>  <span class="co">// 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Também está sujeito a overflow. <!-- .element: class="fragment" data-fragment-index="1"--></p>
+<div class="fragment">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Atenção!</strong></p>
+</div>
+<div class="callout-content">
+<p>O <code>char</code> também está sujeito a overflow.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2 center">
 
 <ul>
 <li>Já usámos anteriormente caracteres especiais, e.g.&nbsp;<code>'\n'</code> e <code>'\t'</code>. Existem outros.</li>
-<li>Alguns só podem ser especificados em formato octal ou hexadecimal.</li>
+<li>Alguns só podem ser especificados em formato numérico (octal, decimal ou hexadecimal).</li>
 </ul>
-<p><img src="img/7_basic_types/ascii.png" height="400"></p>
+<!-- <img src="img/7_basic_types/ascii.png" height="400"> -->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/7_basic_types/ascii.png" height="400"></p>
+</figure>
+</div>
 </section>
 <section class="slide level2 center">
 
-<h4 id="scanf">scanf</h4>
+<h3 id="scanf"><code>scanf</code></h3>
 <ul>
-<li>Quando o scanf acaba de processar um determinado input, existem caracteres que ficam por consumir.</li>
-<li>Como todos os caracteres são válidos para o tipo char, isso pode ser um problema.</li>
+<li>Quando o <code>scanf</code> acaba de processar um determinado input, existem caracteres que ficam por consumir.</li>
+<li>Como todos os caracteres são válidos para o tipo <code>char</code>, isso pode ser um problema.</li>
 </ul>
 </section>
 <section class="slide level2 center">
 
-<h4 id="scanf-1">scanf</h4>
 <div class="sourceCode" id="cb16"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1"></a><span class="dt">char</span> c1<span class="op">,</span> c2<span class="op">;</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>printf<span class="op">(</span><span class="st">"Introduza um caracter:"</span><span class="op">);</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>c1<span class="op">);</span></span>
@@ -634,31 +646,32 @@ CAP Diogo Silva
 <span id="cb16-6"><a href="#cb16-6"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>c2<span class="op">);</span></span>
 <span id="cb16-7"><a href="#cb16-7"></a></span>
 <span id="cb16-8"><a href="#cb16-8"></a>printf<span class="op">(</span><span class="st">"c1=</span><span class="sc">%c</span><span class="st">   c2=</span><span class="sc">%c</span><span class="st">  </span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> c1<span class="op">,</span> c2<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resulta em…</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href="#cb17-1"></a>Introduza um caracter:a</span>
-<span id="cb17-2"><a href="#cb17-2"></a>Introduza outro caracter:c1=a   c2=</span>
-<span id="cb17-3"><a href="#cb17-3"></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="1"-->
+<span id="cb17-2"><a href="#cb17-2"></a>Introduza outro caracter:c1=a   c2=</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2 center">
+
 <ul>
-<li>Aparentemente, o segundo scanf foi ignorado:
+<li>Aparentemente, o segundo <code>scanf</code> foi ignorado:
 <ul>
-<li>o utilizador não escreveu nada</li>
-<li>o que estaria depois de c2= está vazio</li>
+<li>o utilizador teve oportunidade de escrever</li>
+<li>o que estaria depois de <code>c2=</code> está vazio</li>
 </ul></li>
 </ul>
-<!-- .element: class="fragment" data-fragment-index="2"-->
 </section>
 <section class="slide level2 center">
 
 <ul>
-<li>Na verdade, o primeiro scanf deixa um enter <code>'\n'</code> por consumir.</li>
-<li>No scanf seguinte, o que é pedido é um char. <!-- .element: class="fragment" data-fragment-index="2"--></li>
-<li>Como <code>'n'</code> é um char válido, a especificação de conversão aceita-o como input <!-- .element: class="fragment" data-fragment-index="2"--></li>
-<li>Deixa de ser necessário pedir input ao utilizador porque as especificações de conversão já foram satisfeitas. <!-- .element: class="fragment" data-fragment-index="3"--></li>
+<li>Na verdade, o primeiro <code>scanf</code> deixa um enter <code>'\n'</code> por consumir.</li>
+<li>No <code>scanf</code> seguinte, o que é pedido é um char.</li>
+<li>Como <code>'\n'</code> é um char válido, a especificação de conversão aceita-o como input</li>
+<li>Deixa de ser necessário pedir mais um input ao utilizador porque as especificações de conversão já foram satisfeitas.</li>
 </ul>
 </section>
 <section class="slide level2 center">
 
-<p>Como confirmar? Vamos interpretar c2 como um inteiro.</p>
+<p>Como confirmar? Vamos interpretar <code>c2</code> como um inteiro.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1"></a><span class="dt">char</span> c1<span class="op">,</span> c2<span class="op">;</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>printf<span class="op">(</span><span class="st">"Introduza um caracter:"</span><span class="op">);</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>c1<span class="op">);</span></span>
@@ -667,57 +680,57 @@ CAP Diogo Silva
 <span id="cb18-6"><a href="#cb18-6"></a>scanf<span class="op">(</span><span class="st">"</span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>c2<span class="op">);</span></span>
 <span id="cb18-7"><a href="#cb18-7"></a></span>
 <span id="cb18-8"><a href="#cb18-8"></a>printf<span class="op">(</span><span class="st">"c1=</span><span class="sc">%c</span><span class="st">   c2=</span><span class="sc">%d</span><span class="st">  </span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> c1<span class="op">,</span> c2<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="1"-->
 <div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a href="#cb19-1"></a>Introduza um caracter:a</span>
 <span id="cb19-2"><a href="#cb19-2"></a>Introduza outro caracter:c1=a   c2=10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="1"-->
 </section>
 <section class="slide level2 center">
 
-<h4 id="alternativas-para-ler-e-escrever-char">alternativas para ler e escrever char</h4>
-<p>Existem outras formas de ler e escrever um char. - getchar - putchar</p>
+<h3 id="alternativas-para-ler-e-escrever-char">alternativas para ler e escrever <code>char</code></h3>
+<p>Existem outras formas de ler e escrever um <code>char</code>:</p>
+<ul>
+<li><code>getchar</code> [<a href="https://linux.die.net/man/3/putchar" target="_blank">docs</a>]</li>
+<li><code>putchar</code> [<a href="https://linux.die.net/man/3/getchar" target="_blank">docs</a>]</li>
+</ul>
 </section>
 <section class="slide level2 center">
 
-<h4 id="putchar">putchar</h4>
-<p>A função putchar escreve um caracter na consola.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1"></a>putchar<span class="op">(</span><span class="ch">'C'</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h4 id="getchar">getchar</h4>
-<p>A função getchar lê um único char.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1"></a>l <span class="op">=</span> getchar<span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>⚠️Tal como no scanf, o getchar não salta espaços em branco quando lê um char.⚠️ <!-- .element: class="fragment" data-fragment-index="1"--></p>
+<h3 id="getchar"><code>getchar</code></h3>
+<p>A função <code>getchar</code> lê um único char.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1"></a>l <span class="op">=</span> getchar<span class="op">();</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>⚠️ Tal como no <code>scanf</code>, o <code>getchar</code> não salta espaços em branco quando lê um char.</p>
+<div class="fragment">
+<!-- -->
+<h3 id="putchar"><code>putchar</code></h3>
+<p>A função <code>putchar</code> escreve um caracter na consola.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1"></a>putchar<span class="op">(</span><span class="ch">'C'</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section class="slide level2 center">
 
 <p>E se quisermos ler vários chars?</p>
-<p>Usamos um ciclo. <!-- .element: class="fragment" data-fragment-index="1"--></p>
+<div class="fragment">
+<p>Usamos um ciclo.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">// lê chars até encontrar \n</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="dt">char</span> l<span class="op">;</span></span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="cf">do</span><span class="op">{</span></span>
 <span id="cb22-4"><a href="#cb22-4"></a>  scanf<span class="op">(</span><span class="st">"</span><span class="sc">%c</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>l<span class="op">);</span></span>
 <span id="cb22-5"><a href="#cb22-5"></a><span class="op">}</span> <span class="cf">while</span> <span class="op">(</span>l <span class="op">!=</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="1"-->
 <div class="sourceCode" id="cb23"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1"></a><span class="dt">char</span> l<span class="op">;</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="cf">while</span> <span class="op">((</span>l <span class="op">=</span> getchar<span class="op">())</span> <span class="op">!=</span> <span class="ch">'</span><span class="sc">\n</span><span class="ch">'</span><span class="op">)</span></span>
 <span id="cb23-3"><a href="#cb23-3"></a>  <span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="2"-->
-</section>
-<section class="slide level2 center">
-
-<h3 id="exercicio">exercicio</h3>
-<h4 id="calcular-comprimento-de-mensagem">Calcular comprimento de mensagem</h4>
+</div>
 </section>
 <section id="conversão-de-tipos" class="slide level2 center">
 <h2>Conversão de tipos</h2>
 <ul>
 <li>No C, é possível converter de uns tipos para outros.</li>
-<li>Na verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implicitas.</li>
+<li>Na verdade, nós já usámos esta funcionalidade sem saber, porque existem conversões que são automáticas e implícitas.</li>
 <li>Outras têm de ser explicitamente declaradas.</li>
 </ul>
 </section>
 <section class="slide level2 center">
 
-<h4 id="conversões-implicitas">conversões implicitas</h4>
+<h3 id="conversões-implícitas">Conversões implícitas</h3>
 <ul>
 <li>Quando realizamos operações binárias, o C consegue detectar se os 2 operandos são do mesmo tipo.</li>
 <li>Se não forem, um dos tipos é convertido no outro, porque as operações são feitas com operandos do mesmo tipo.</li>
@@ -726,35 +739,34 @@ CAP Diogo Silva
 </section>
 <section class="slide level2 center">
 
-<h4 id="conversões-implicitas-1">conversões implicitas</h4>
 <div class="sourceCode" id="cb24"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a href="#cb24-1"></a><span class="dt">int</span> i<span class="op">;</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="dt">float</span> f<span class="op">,</span> p<span class="op">;</span></span>
 <span id="cb24-3"><a href="#cb24-3"></a>p <span class="op">=</span> f <span class="op">+</span> i<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Neste caso, o valor de i será convertido para float.</li>
-<li>Se o contrário ocorresse, perdiamos por completo a componente decimal de f.</li>
-<li>Desta forma, o pior que pode acontecer é o valor de i perder precisão depois de convertido.</li>
+<li>Neste caso, o valor de <code>i</code> é convertido para <code>float</code>.</li>
+<li>Se o contrário ocorresse, perdiamos por completo a componente decimal de <code>f</code>.</li>
 </ul>
 </section>
 <section class="slide level2 center">
 
-<h4 id="conversões-implicitas-ambos-operandos-da-mesma-classe">conversões implicitas &gt; ambos operandos da mesma “classe”</h4>
+<h3 id="operandos-da-mesma-classe">Operandos da mesma “classe”</h3>
 <div class="sourceCode" id="cb25"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb25-1"><a href="#cb25-1"></a>  reais                 inteiros</span>
 <span id="cb25-2"><a href="#cb25-2"></a></span>
-<span id="cb25-3"><a href="#cb25-3"></a>long double         unsigned long int</span>
-<span id="cb25-4"><a href="#cb25-4"></a>    ^                       ^</span>
-<span id="cb25-5"><a href="#cb25-5"></a>    |                       |</span>
-<span id="cb25-6"><a href="#cb25-6"></a>  double                long int</span>
-<span id="cb25-7"><a href="#cb25-7"></a>    ^                       ^</span>
-<span id="cb25-8"><a href="#cb25-8"></a>    |                       |</span>
-<span id="cb25-9"><a href="#cb25-9"></a>  float                unsigned int</span>
-<span id="cb25-10"><a href="#cb25-10"></a>                            ^</span>
-<span id="cb25-11"><a href="#cb25-11"></a>                            |</span>
-<span id="cb25-12"><a href="#cb25-12"></a>                           int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-3"><a href="#cb25-3"></a></span>
+<span id="cb25-4"><a href="#cb25-4"></a>long double         unsigned long int</span>
+<span id="cb25-5"><a href="#cb25-5"></a>    ^                       ^</span>
+<span id="cb25-6"><a href="#cb25-6"></a>    |                       |</span>
+<span id="cb25-7"><a href="#cb25-7"></a>  double                long int</span>
+<span id="cb25-8"><a href="#cb25-8"></a>    ^                       ^</span>
+<span id="cb25-9"><a href="#cb25-9"></a>    |                       |</span>
+<span id="cb25-10"><a href="#cb25-10"></a>  float                unsigned int</span>
+<span id="cb25-11"><a href="#cb25-11"></a>                            ^</span>
+<span id="cb25-12"><a href="#cb25-12"></a>                            |</span>
+<span id="cb25-13"><a href="#cb25-13"></a>                           int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2 center">
 
-<h4 id="conversões-implicitas-exemplos">conversões implicitas &gt; exemplos</h4>
+<h4 id="exemplos-de-conversões-implicitas">Exemplos de conversões implicitas</h4>
 <div class="sourceCode" id="cb26"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1"></a><span class="dt">char</span> c<span class="op">;</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="dt">short</span> <span class="dt">int</span> s<span class="op">;</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="dt">int</span> i<span class="op">;</span></span>
@@ -768,7 +780,7 @@ CAP Diogo Silva
 </section>
 <section class="slide level2 center">
 
-<h4 id="conversões-implicitas-mais-exemplos">conversões implicitas &gt; mais exemplos</h4>
+<h4 id="mais-exemplos-de-conversões-implicitas">Mais exemplos de conversões implicitas</h4>
 <div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1"></a><span class="dt">long</span> <span class="dt">int</span> l<span class="op">;</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="dt">unsigned</span> <span class="dt">long</span> <span class="dt">int</span> ul<span class="op">;</span></span>
 <span id="cb27-3"><a href="#cb27-3"></a><span class="dt">float</span> f<span class="op">;</span></span>
@@ -782,7 +794,7 @@ CAP Diogo Silva
 </section>
 <section class="slide level2 center">
 
-<h4 id="conversões-implicitas-atribuição">conversões implicitas &gt; atribuição</h4>
+<h4 id="conversões-implicitas-na-atribuição">Conversões implicitas na atribuição</h4>
 <div class="sourceCode" id="cb28"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb28-1"><a href="#cb28-1"></a><span class="dt">char</span> c<span class="op">;</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="dt">int</span> i<span class="op">;</span></span>
 <span id="cb28-3"><a href="#cb28-3"></a><span class="dt">float</span> f<span class="op">;</span></span>
@@ -798,25 +810,28 @@ CAP Diogo Silva
 </section>
 <section class="slide level2 center">
 
-<h4 id="conversões-explicitas-casting">conversões explicitas &gt; casting</h4>
+<h4 id="casting"><em>Casting</em></h4>
 <ul>
 <li>Para fazer uma conversão explicita, escrevemos o nome do tipo final entre parêntises, seguido do valor que queremos converter.</li>
 </ul>
 <div class="sourceCode" id="cb29"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb29-1"><a href="#cb29-1"></a><span class="dt">float</span> f <span class="op">=</span> <span class="dv">3</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span> <span class="co">// 1.0 -&gt; divisão de inteiros dá inteiro</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a>f <span class="op">=</span> <span class="op">(</span><span class="dt">float</span><span class="op">)</span> <span class="dv">3</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span> <span class="co">// 1.5 -&gt; converter 3 para float e dividir por 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>O operador de casting é uma operação unária.</li>
-<li>Operações unárias têm precedência sobre operações binárias.</li>
-</ul>
 </section>
 <section class="slide level2 center">
 
-<h4 id="conversões-explicitas-casting-1">conversões explicitas &gt; casting</h4>
+<ul>
+<li>O operador de casting é uma operação unária.</li>
+<li>Operações unárias têm precedência sobre operações binárias, logo…</li>
+</ul>
+<p><code>(float) 3 / 2</code> equivale a <code>( (float) 3 ) / 2</code></p>
+</section>
+<section class="slide level2 center">
+
 <p>Quando realizamos algumas operações aritméticas, pode ser necessário fazer uma conversão explicita.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb30-1"><a href="#cb30-1"></a><span class="dt">long</span> i<span class="op">;</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="dt">int</span> j <span class="op">=</span> <span class="dv">10000</span><span class="op">;</span> <span class="co">// 10000 * 10000 -&gt; 100 000 000</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="dt">int</span> j <span class="op">=</span> <span class="dv">10000</span><span class="op">;</span> </span>
 <span id="cb30-3"><a href="#cb30-3"></a></span>
-<span id="cb30-4"><a href="#cb30-4"></a>i <span class="op">=</span> j <span class="op">*</span> j<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-4"><a href="#cb30-4"></a>i <span class="op">=</span> j <span class="op">*</span> j<span class="op">;</span>  <span class="co">// 10000 * 10000 -&gt; 100 000 000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>O resultado da multiplicação na linha 4 cabe na variável i de tipo long.</li>
 <li>Contudo, o resultado da operação será um int e em algumas máquinas o resultado pode levar a overflow.</li>
@@ -824,44 +839,41 @@ CAP Diogo Silva
 </section>
 <section class="slide level2 center">
 
-<h4 id="conversões-explicitas-casting-2">conversões explicitas &gt; casting</h4>
 <div class="sourceCode" id="cb31"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb31-1"><a href="#cb31-1"></a><span class="dt">long</span> i<span class="op">;</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="dt">int</span> j <span class="op">=</span> <span class="dv">10000</span><span class="op">;</span> <span class="co">// 10000 * 10000 -&gt; 100 000 000</span></span>
 <span id="cb31-3"><a href="#cb31-3"></a></span>
 <span id="cb31-4"><a href="#cb31-4"></a>i <span class="op">=</span> j <span class="op">*</span> j<span class="op">;</span></span>
 <span id="cb31-5"><a href="#cb31-5"></a></span>
-<span id="cb31-6"><a href="#cb31-6"></a>i <span class="op">=</span> <span class="op">(</span><span class="dt">long</span><span class="op">)</span> j <span class="op">*</span> j<span class="op">;</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>i <span class="op">=</span> <span class="op">(</span><span class="dt">long</span><span class="op">)</span> j <span class="op">*</span> j<span class="op">;</span> <span class="co">// OK</span></span>
 <span id="cb31-7"><a href="#cb31-7"></a></span>
 <span id="cb31-8"><a href="#cb31-8"></a>i <span class="op">=</span> <span class="op">(</span><span class="dt">long</span><span class="op">)</span> <span class="op">(</span>j <span class="op">*</span> j<span class="op">);</span> <span class="co">// ERRADO</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Para resolver isso, podemos fazer o cast da linha 6.</li>
-<li>Na linha 8, a multiplicação é feita antes da conversão porque está entre ().</li>
+<li>Para resolver isso, podemos fazer o <em>cast</em> da linha 6.</li>
+<li>Na linha 8, a multiplicação é feita antes da conversão porque está entre <code>( )</code>.</li>
 </ul>
 </section>
-<section id="definições-de-tipos" class="slide level2 center">
-<h2>Definições de tipos</h2>
+<section id="definições-de-tipos---typedef" class="slide level2 center">
+<h2>Definições de tipos - <code>typedef</code></h2>
 <p>O C permite a definição de novos tipos com o comando <code>typedef</code>.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">typedef</span> <span class="dt">int</span> Altura<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>typedef é seguido do nome original do tipo</li>
+<li><code>typedef</code> é seguido do nome original do tipo</li>
 <li>e depois do novo nome que queremos usar</li>
 </ul>
 </section>
 <section class="slide level2 center">
 
-<h4 id="typedef">typedef</h4>
 <div class="sourceCode" id="cb33"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">typedef</span> <span class="dt">int</span> Altura<span class="op">;</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="kw">typedef</span> <span class="dt">int</span> Massa<span class="op">;</span></span>
 <span id="cb33-3"><a href="#cb33-3"></a>Altura a <span class="op">=</span> <span class="dv">180</span><span class="op">;</span></span>
 <span id="cb33-4"><a href="#cb33-4"></a>Massa m <span class="op">=</span> <span class="dv">75</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Essencialmente, o que fizemos foi criar um int com um novo nome.</li>
+<li>Essencialmente, o que fizemos foi criar um <code>int</code> com um novo nome.</li>
 <li>Útil para tornar o código mais legível</li>
 </ul>
 </section>
 <section class="slide level2 center">
 
-<h4 id="typedef-1">typedef</h4>
 <div class="sourceCode" id="cb34"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">typedef</span> <span class="dt">int</span> Altura<span class="op">;</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="kw">typedef</span> <span class="dt">int</span> massa<span class="op">;</span>  <span class="co">// aceite, mas não é convenção</span></span>
 <span id="cb34-3"><a href="#cb34-3"></a></span>
@@ -881,11 +893,10 @@ CAP Diogo Silva
 <span id="cb35-2"><a href="#cb35-2"></a>printf<span class="op">(</span><span class="st">"size of int = </span><span class="sc">%lu</span><span class="st"> bytes</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">));</span>  <span class="co">// 4</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a>printf<span class="op">(</span><span class="st">"size of char = </span><span class="sc">%lu</span><span class="st"> bytes</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span><span class="fl">3.14</span><span class="op">));</span>  <span class="co">// 8 -&gt; double</span></span>
 <span id="cb35-4"><a href="#cb35-4"></a>printf<span class="op">(</span><span class="st">"size of char = </span><span class="sc">%lu</span><span class="st"> bytes</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>c<span class="op">));</span>  <span class="co">// 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- .element: class="fragment" data-fragment-index="2"-->
 
 
-<img src="afa.svg" class="slide-logo r-stretch"><div class="footer footer-default">
-
+<img src="../img/afa_100.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p>Programação</p>
 </div>
 </section>
     </div>
