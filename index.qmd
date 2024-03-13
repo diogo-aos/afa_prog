@@ -37,7 +37,7 @@ Aeronáuticas — Administração Aeronáutica da Academia da Força Aérea](htt
 4. [Expressões](lectures/4_expressions.qmd)
 5. Testes e Condições [[Slides PDF](pdf/03_testes_condicoes.pptx.pdf){target="_blank"}]
 6. [Ciclos](lectures/06_ciclos.qmd)
-. [Tipos básicos do C](lectures/7_basic_types.qmd)
+7. [Tipos básicos do C](lectures/7_basic_types.qmd)
 <!--78. [Funções](lectures/08_funcoes.md)
 9. [Arrays](lectures/09_arrays.md)
 10. [Strings](lectures/10_strings.md)
