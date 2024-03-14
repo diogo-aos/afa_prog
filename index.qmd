@@ -1,0 +1,298 @@
+---
+title: "Programação 23/24 S2"
+#institute: "Academia da Força Aérea"
+#author: CAP Diogo Silva
+format: 
+  html: default
+---
+
+
+::: {.callout-warning title="T.P.C para 19MAR"}
+- [King 5.7](exercises/exercicios.qmd#king-5.7-min-e-max-de-4-números)
+- [AFA 5.1](exercises/exercicios.qmd#afa-5.1.-converte-gramas-para-outras-unidades)
+:::
+
+
+# Links úteis
+
+- [Teams 2324](https://teams.microsoft.com/l/channel/19%3aUhGoWvUxizl9VFmhtzmIyRbgLj1HeLzirn8GHJq19Io1%40thread.tacv2/General?groupId=de6239b3-e0f6-426e-a3ab-e8646f1f232b&tenantId=134d2a6d-3191-4c4a-a80b-1b18cb5bdba1)
+- [SharePoint 2324](https://academiafaedupt.sharepoint.com/sites/PROG2324/Documentos%20Partilhados)
+- [Replit - IDE Online](https://replit.com/)
+
+
+# Equipa docente
+
+- Capitão Diogo Silva | dasilva@academiafa.edu.pt
+- Tenente Gabriel Santos | gcsantos@academiafa.edu.pt
+
+# Informação geral
+
+- UC de 6 ECTS
+- Horas de trabalho: 168
+  - 64 horas de contacto (aulas)
+  - 104 horas de trabalho autónomo $\approx$ 7h por semana para 15 semanas (05MAR-21JUN)
+  - [Despacho n.º 3101/2022 Estrutura curricular e planos de estudos dos cursos de licenciatura em Ciências Militares
+Aeronáuticas — Administração Aeronáutica da Academia da Força Aérea](https://files.dre.pt/gratuitos/2s/2022/03/2S051A0000S00.pdf#page=75){target="_blank"}
+
+
+# Aulas
+
+0. [Apresentação da UC](lectures/01_course_intro.qmd)
+1. Motivação [[Slides PDF](pdf/01_motivacao.pdf){target="_blank"}]
+2. [C Fundamentals](lectures/2_fundamentals.html)
+3. [Leitura e escrita formatada](lectures/3_formated_io.qmd)
+4. [Expressões](lectures/4_expressions.qmd)
+5. Testes e Condições [[Slides PDF](pdf/03_testes_condicoes.pptx.pdf){target="_blank"}]
+6. [Ciclos](lectures/06_ciclos.qmd)
+7. [Tipos básicos do C](lectures/7_basic_types.qmd)
+7. [Funções](lectures/08_funcoes.qmd)
+<!--9. [Arrays](lectures/09_arrays.md)
+10. [Strings](lectures/10_strings.md)
+11. [Apontadores](lectures/11_pointer.md)
+12. [Struct](lectures/12_struct.md)
+13. [Ficheiros](lectures/13_files.md)
+14. [Memória](lectures/14_memoria.md)
+15. [Estruturas de Dados Dinâmicas](lectures/15_data_structs.qmd)
+16. [Extra](#/extra) -->
+
+
+<!-- ---
+
+# Labs 22/23
+
+- [Lab 1](markdown/labs/2223/lab1_funcoes/lab1_navigation.html)
+- [Lab 2](markdown/labs/2223/lab2_array/lab2_stats.html)
+- [Lab 3](markdown/labs/2223/lab3_file_struct/lab3.html)
+- [Lab 4](markdown/labs/2223/lab4_dynamic_data_structures/lab4_encrypted.html)
+
+---
+
+# Projectos 22/23
+
+- [SIGIF](markdown/projects/2223/enunciado_frota.html)
+- [SIGIT](markdown/projects/2223/enunciado_tripulacao.html)
+- [SIGA](markdown/projects/2223/enunciado_ativos.html) -->
+
+
+
+# Ambientes de desenvolvimento
+
+- [Replit - IDE Online](https://replit.com/)
+  - [CodeBlocks](https://www.codeblocks.org/)
+    - [Guia para instalação simples](lectures/p01_codeblocks.qmd)
+    - [Guia para criação de projecto](/pdf/P01%20-%20Code%20Blocks.pdf){target="_blank"}
+
+  - [Visual Studio Code](https://code.visualstudio.com/)
+    - [Setting Up VSCode for Coding in C on Windows ](https://www.youtube.com/watch?v=HiyfEbbCWT4)
+    - [Instruções dos docentes](exercises/instalar_compilador_vscode_2.htm){target="_blank"}
+
+
+# Sumários
+
+- 05MAR
+  - Introdução à UC
+  - Introdução à programação
+  - Início dos Fundamentos do C (parou-se no exercício de conversão de ºF para ºC)
+- 06MAR
+  - Configuração do ambiente de desenvolvimento.
+  - Resolver o exercício de conversão de ºF para ºC. <details><summary>Solução</summary>
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <locale.h>
+    /*
+    Enunciado
+    Receber uma temperatura em ºF do utilizador (número real),
+    e devolver a conversão para ºC.
+    */
+
+    int main()
+    {
+        float f,c;
+        setlocale(LC_ALL, "");
+        printf("\aIntroduza temperatura em ºF:");
+        scanf("%f", &f);
+        c = (f - 32) * 5 / 9;
+        printf("Resultado em ºC=%f\n",c);
+        return 0;
+    }
+    ```
+    </details>
+
+  - Terminar Fundamentos do C.
+  - Leitura e escrita formatada.
+  - Resolver exercício de soma de frações. <details><summary>Solução</summary>
+    ```c
+    /*
+    Enunciado
+    Receber 2 frações. Mostrar o resultado da soma em forma de fração e em decimal.
+    */
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <locale.h>
+    int main()
+    {
+        int n1,d1,n2,d2,nf,df;
+        float res;
+        setlocale(LC_ALL, "");
+        printf("Fração 1:");
+        scanf("%d/%d", &n1, &d1);
+        printf("Fração 2:");
+        scanf("%d/%d", &n2, &d2);
+
+        printf("fração 1: %d/%d", n1, d1);
+        printf("fração 2: %d/%d", n2, d2);
+        
+        nf = n1*d2 + n2*d1;
+        df = d1 * d2;
+        res = nf * 1.0 / df;
+        printf("Fração final: %d/%d = %f", nf, df, res);
+        return 0;
+    }
+    ```
+    </details>
+
+- 14MAR
+  - Expressões
+  - Testes e condições (parou-se antes do `switch`)
+  - T.P.C.
+    * slide 16 (Testes e condições)
+- 15MAR
+  - Testes e condições (`switch`)
+  - Exercícios práticos
+    - T.P.C 14MAR      <details><summary>Solução</summary>
+      ```c
+      #include <stdio.h>
+
+      float n;
+
+      int main(){
+        printf("introduza um valor");
+        scanf("%f", &n);
+
+        if(n<0) printf("o valor e negativo");
+        else if(n>0) printf("o valor e positivo");
+        else printf("o valor e 0");
+      }
+      ```
+      </details>
+
+    - Exercício slide 27<details><summary>Solução</summary>
+      ```c
+      #include <stdio.h>
+      #include <stdlib.h>
+
+      int main()
+      {
+          int n;
+          printf("Introduza um número de 1 a 3: ");
+          scanf("%d",&n);
+          if (n<1 || n>3)
+              print("invalido");
+          if (n==1)
+              printf("Filipe");
+          else if (n==2)
+              printf("Coelho");
+          else
+              printf("Ferreira");
+      }
+      ```
+      </details>
+    - Refazer exercício com switch<details><summary>Solução (sem os `break`...)</summary>
+      ```c
+      #include <stdio.h>
+      #include <stdlib.h>
+      int n;
+
+      int main()
+      {
+          printf("Leonardo Monteiro de Melo e Sousa\nIntroduza um numero entre 1 e 4: ");
+          scanf("%d", &n);
+          switch(n)
+          {
+              case(1):
+                  printf("Leonardo\n");
+              case(2):
+                  printf("Monteiro\n");
+              case(3):
+                  printf("Melo\n");
+              case(4):
+                  printf("Sousa\n");
+              default:
+                  printf("numero invalido");
+          }
+
+
+      return 0;
+      }
+      ```
+      </details>
+
+    - [King 4.1](exercises/exercicios.qmd#king-4.1.-inverter-2-digitos)
+    - [King 5.5](exercises/exercicios.qmd#king-5.5-escalões-irs) <details><summary>Solução</summary>
+      ```c
+      #include <stdio.h>
+      #include <stdlib.h>
+
+
+      int main()
+      {
+          float rend_bruto, rend;
+          float lim_inf_5 = 75009;
+          float lim_inf_4 = 36757;
+          float lim_inf_3 = 15216;
+          float lim_inf_2 = 7116;
+          float lim_inf_1 = 0;
+
+          float irs = 0, irs_escalao;
+
+          printf("introduza rendimento bruto:");
+          scanf("%f", &rend_bruto);
+          rend = rend_bruto;
+
+          if (rend >= lim_inf_5){
+              irs_escalao = (rend-lim_inf_5) * 0.48;
+              irs += irs_escalao;
+              printf("irs no escalao 5: %f\n", irs_escalao);
+              rend -= rend-lim_inf_5;
+          }
+
+          if (rend >= lim_inf_4){
+              irs_escalao = (rend-lim_inf_4) * 0.435;
+              irs += irs_escalao;
+              printf("irs no escalao 4: %f\n", irs_escalao);
+              rend -= rend-lim_inf_4;
+          }
+
+          if (rend >= lim_inf_3){
+              irs_escalao = (rend-lim_inf_3) * 0.28;
+              irs += irs_escalao;
+              printf("irs no escalao 3: %f\n", irs_escalao);
+              rend -= rend-lim_inf_3;
+          }
+
+          if (rend >= lim_inf_2){
+              irs_escalao = (rend-lim_inf_2) * 0.23;
+              irs += irs_escalao;
+              printf("irs no escalao 2: %f\n", irs_escalao);
+              rend -= rend-lim_inf_2;
+          }
+
+          if (rend >= lim_inf_1){
+              irs_escalao = (rend-lim_inf_1) * 0.145;
+              irs += irs_escalao;
+              printf("irs no escalao 1: %f\n", irs_escalao);
+              rend -= rend-lim_inf_1;
+          }
+
+          printf("rendimento liquido: %f\n", rend_bruto - irs);
+          printf("imposto total: %f", irs);
+
+          return 0;
+      }
+      ```
+      </details>
+
+  - T.P.C.
+    - [King 5.7](exercises/exercicios.qmd#king-5.7-min-e-max-de-4-números)
+    - [AFA 5.1](exercises/exercicios.qmd#afa-5.1.-converte-gramas-para-outras-unidades)
