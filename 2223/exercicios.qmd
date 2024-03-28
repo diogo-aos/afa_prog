@@ -640,6 +640,7 @@ Nota:
 
 - Implementa uma função que avalia um polinómio de 2º grau num determinado intervalo.
 - A função
+
   - chama-se _poli2_intervalo_
   - recebe o limite inferior e limite superior do intervalo a avaliar (reais)
   - recebe o número de pontos a avaliar (inteiro positivo)
@@ -659,6 +660,7 @@ f(1.000000) = 1.000000
 ```
 
 Possível procedimento:
+
 1. Descobrir a distância entre os pontos a avaliar.
 2. Inicializar o ponto a avaliar no limite inferior.
 3. Calcular o polinómio no ponto.
@@ -666,8 +668,9 @@ Possível procedimento:
 5. Repetir 3-4 até chegar ao limite superior.
 
 Notas:
-- Além da função _poli2_intervalo_, implementa a função _poli2_ponto_ que recebe os coeficientes do polinómio, o ponto _x_ a avaliar e devolve o resultado desse polinómio no ponto recebido (ver exercício King 9.6)
-- Valores introduzidos pelo utilziador (coeficiente, limite inferior, superior, e nº de pontos) são pedidos na função main.
+
+- Além da função `poli2_intervalo`, implementa a função `poli2_ponto` que recebe os coeficientes do polinómio, o ponto `x` a avaliar e devolve o resultado desse polinómio no ponto recebido (ver exercício [King 9.6](#king-9.6.-polinómio))
+- Valores introduzidos pelo utilizador (coeficiente, limite inferior, superior, e nº de pontos) são pedidos na função main.
 - Um dos primeiros cálculos será a distância entre 2 pontos, e.g. no exemplo acima a distância entre pontos é de 0.25.
 
 
@@ -682,6 +685,7 @@ Notas:
   - devolve o valor do polinómio no ponto recebido
 
 Notas:
+
 - o ponto a ser avaliado é recebido na main
 - o resultado do polinómio deve ser escrito para a consola na main, com 4 casas decimais
 
@@ -726,29 +730,30 @@ Resultado: 1.00
 
 
 Ajudas:
+
 - Código para o número de dias em cada mês:
-   ```c
-   int dias_no_mes;
-   switch(mes){
-     case 1:
-     case 3:
-     case 5:
-     case 7:
-     case 8:
-     case 10:
-     case 12:
-       dias_no_mes = 31; break;
-     case 4:
-     case 6:
-     case 9:
-     case 11:
-       dias_no_mes = 30; break;
-     case 2:
-       dias_no_mes = 28; break;
-     default:
-       dias_no_mes = 0;
-   }
-   ```
+  ```c
+  int dias_no_mes;
+  switch(mes){
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+      dias_no_mes = 31; break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+      dias_no_mes = 30; break;
+    case 2:
+      dias_no_mes = 28; break;
+    default:
+      dias_no_mes = 0;
+  }
+  ```
 
 ### AFA 8.7. Lab 1 - Part 2.2 - dia da semana
 
